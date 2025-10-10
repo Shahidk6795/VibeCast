@@ -196,7 +196,7 @@ const Pritam = () => {
   return (
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
       <div className="fixed inset-0 overflow-hidden z-0">
-        <Hyperspeed intensity={intensity} colorShift={false} trailLength={80} speed={0.6} />
+      <Hyperspeed intensity={0.2} colorShift={false} trailLength={80} />
       </div>
 
       <div className="w-full h-80 pt-16 relative bg-gradient-to-b from-green-600 to-black z-10 shadow-lg">
