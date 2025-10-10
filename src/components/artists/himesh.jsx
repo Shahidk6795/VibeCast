@@ -2,39 +2,35 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
 import Hyperspeed from "../Hyperspeed";
-import pritamImg from "../../assets/images/pritam.jpeg";
+import himeshImg from "../../assets/images/himesh.jpeg";
 
-import YeTuneKyaKiyaImg from "../../assets/images/Ye_Tune_Kya_Kiya.jpg";
-import JaraSaImg from "../../assets/images/Jara_Sa.jpg";
-import TumSeHeeImg from "../../assets/images/Tum_Se_Hee.jpg";
-import ShayadImg from "../../assets/images/Shayad.jpg";
-import ItneSeBaatHaiImg from "../../assets/images/Itne_Se_Baat_Hai.jpg";
-import TeraHoneLagaHuImg from "../../assets/images/Tera_Hone_Laga_Hu.jpg";
-import TerePyaarMeImg from "../../assets/images/Tere_Pyaar_Me.jpg";
-import WhatJhumkaImg from "../../assets/images/What_Jhumka.jpg";
-import LutPutGayaImg from "../../assets/images/Lut_Put_Gaya.jpg";
-import TuEMeraImg from "../../assets/images/Tu_E_Mera.jpg";
-import KesariyaImg from "../../assets/images/Kesariya.jpg";
-import O_MahiImg from "../../assets/images/O_Mahi.jpg";
-import KhairiyatImg from "../../assets/images/Khairiyat.jpg";
-import TuChahiyeImg from "../../assets/images/Tu_Chahiye.jpg";
-import MaiRangSharbatonKaImg from "../../assets/images/Mai_Rang_Sharbaton_Ka.jpg";
+import DilKeTajImg from "../../assets/images/Dil_Ke_Taj.jpg";
+import TeraChehraImg from "../../assets/images/Tera_Chehra.jpg";
+import SanamTereKasamImg from "../../assets/images/Sanam_Tere_Kasam.jpg";
+import TeraFitoorImg from "../../assets/images/Tera_Fitoor.jpg";
+import HookahBarImg from "../../assets/images/Hookah_Bar.jpg";
+import JhalakDikhLaJaImg from "../../assets/images/Jhalak_Dikh_La_Ja.jpg";
+import TuzheBholJanaImg from "../../assets/images/Tuzhe_Bhol_Jana.jpg";
+import SamjhoNaKuchImg from "../../assets/images/Samjho_Na_Kuch.jpg";
+import AapKeKashishImg from "../../assets/images/Aap_Ke_Kashish.jpg";
+import EkHaseenaTheeImg from "../../assets/images/Ek_Haseena_Thee.jpg";
+import TerePyaarMeinImg from "../../assets/images/Tere_Pyaar_Mein.jpg";
+import AshiqBanayaImg from "../../assets/images/Ashiq_Banaya.jpg";
+import NaamHaiTeraMeraImg from "../../assets/images/Naam_Hai_Tera_Mera.jpg";
 
-import YeTuneKyaKiya from "../../assets/music/Ye_Tune_Kya_Kiya.mp3";
-import JaraSa from "../../assets/music/Jara_Sa.mp3";
-import TumSeHee from "../../assets/music/Tum_Se_Hee.mp3";
-import Shayad from "../../assets/music/Shayad.mp3";
-import ItneSeBaatHai from "../../assets/music/Itne_Se_Baat_Hai.mp3";
-import TeraHoneLagaHu from "../../assets/music/Tera_Hone_Laga_Hu.mp3";
-import TerePyaarMe from "../../assets/music/Tere_Pyaar_Me.mp3";
-import WhatJhumka from "../../assets/music/What_Jhumka.mp3";
-import LutPutGaya from "../../assets/music/Lut_Put_Gaya.mp3"; 
-import TuEMera from "../../assets/music/Tu_E_Mera.mp3";
-import Kesariya from "../../assets/music/Kesariya.mp3";
-import O_Mahi from "../../assets/music/O_Mahi.mp3";
-import Khairiyat from "../../assets/music/Khairiyat.mp3";
-import TuChahiye from "../../assets/music/Tu_Chahiye.mp3";
-import MaiRangSharbatonKa from "../../assets/music/Mai_Rang_Sharbaton_Ka.mp3";
+import DilKeTaj from "../../assets/music/Dil_Ke_Taj.mp3";
+import TeraChehra from "../../assets/music/Tera_Chehra.mp3";
+import SanamTereKasam from "../../assets/music/Sanam_Tere_Kasam.mp3";
+import TeraFitoor from "../../assets/music/Tera_Fitoor.mp3";
+import HookahBar from "../../assets/music/Hookah_Bar.mp3";
+import JhalakDikhLaJa from "../../assets/music/Jhalak_Dikh_La_Ja.mp3";
+import TuzheBholJana from "../../assets/music/Tuzhe_Bhol_Jana.mp3";
+import SamjhoNaKuch from "../../assets/music/Samjho_Na_Kuch.mp3";
+import AapKeKashish from "../../assets/music/Aap_Ke_Kashish.mp3";
+import EkHaseenaThee from "../../assets/music/Ek_Haseena_Thee.mp3";
+import TerePyaarMein from "../../assets/music/Tere_Pyaar_Mein.mp3";
+import AshiqBanaya from "../../assets/music/Ashiq_Banaya.mp3";
+import NaamHaiTeraMera from "../../assets/music/Naam_Hai_Tera_Mera.mp3";
 
 const formatTime = (sec) => {
   if (!sec) return "0:00";
@@ -43,25 +39,23 @@ const formatTime = (sec) => {
   return `${minutes}:${seconds}`;
 };
 
-const Pritam = () => {
+const Himesh = () => {
   const navigate = useNavigate();
 
   const playlist = [
-    { name: "Ye tune kya kiya", path: YeTuneKyaKiya, image: YeTuneKyaKiyaImg, durationDisplay: "4:03" },
-    { name: "Jara sa", path: JaraSa, image: JaraSaImg, durationDisplay: "3:45" },
-    { name: "Tum se hee", path: TumSeHee, image: TumSeHeeImg, durationDisplay: "4:12" },
-    { name: "Shayad", path: Shayad, image: ShayadImg, durationDisplay: "3:58" },
-    { name: "Itne se baat hai", path: ItneSeBaatHai, image: ItneSeBaatHaiImg, durationDisplay: "3:36" },
-    { name: "Tera hone laga hu", path: TeraHoneLagaHu, image: TeraHoneLagaHuImg, durationDisplay: "4:05" },
-    { name: "Tere pyaar me", path: TerePyaarMe, image: TerePyaarMeImg, durationDisplay: "3:50" },
-    { name: "What jhumka", path: WhatJhumka, image: WhatJhumkaImg, durationDisplay: "3:30" },
-    { name: "Lut Put Gaya", path: LutPutGaya, image: LutPutGayaImg, durationDisplay: "3:40" },
-    { name: "Tu e mera", path: TuEMera, image: TuEMeraImg, durationDisplay: "4:00" },
-    { name: "Kesariya", path: Kesariya, image: KesariyaImg, durationDisplay: "3:35" },
-    { name: "O mahi", path: O_Mahi, image: O_MahiImg, durationDisplay: "3:55" },
-    { name: "Khairiyat", path: Khairiyat, image: KhairiyatImg, durationDisplay: "4:20" },
-    { name: "Tu chahiye", path: TuChahiye, image: TuChahiyeImg, durationDisplay: "3:48" },
-    { name: "Mai rang sharbaton ka", path: MaiRangSharbatonKa, image: MaiRangSharbatonKaImg, durationDisplay: "4:10" },
+    { name: "Dil ke taj mehal me", path: DilKeTaj, image: DilKeTajImg, durationDisplay: "4:05" },
+    { name: "Tera chehra", path: TeraChehra, image: TeraChehraImg, durationDisplay: "3:50" },
+    { name: "Sanam tere kasam", path: SanamTereKasam, image: SanamTereKasamImg, durationDisplay: "4:10" },
+    { name: "Tera fitoor", path: TeraFitoor, image: TeraFitoorImg, durationDisplay: "3:55" },
+    { name: "Hookah bar", path: HookahBar, image: HookahBarImg, durationDisplay: "3:45" },
+    { name: "Jhalak dikh la ja", path: JhalakDikhLaJa, image: JhalakDikhLaJaImg, durationDisplay: "3:35" },
+    { name: "Tuzhe bhol jana", path: TuzheBholJana, image: TuzheBholJanaImg, durationDisplay: "4:00" },
+    { name: "Samjho na kuch", path: SamjhoNaKuch, image: SamjhoNaKuchImg, durationDisplay: "3:40" },
+    { name: "Aap ke kashish", path: AapKeKashish, image: AapKeKashishImg, durationDisplay: "3:55" },
+    { name: "Ek haseena thee", path: EkHaseenaThee, image: EkHaseenaTheeImg, durationDisplay: "3:50" },
+    { name: "Tere pyaar mein", path: TerePyaarMein, image: TerePyaarMeinImg, durationDisplay: "4:15" },
+    { name: "Ashiq banaya", path: AshiqBanaya, image: AshiqBanayaImg, durationDisplay: "3:45" },
+    { name: "Naam hai tera mera", path: NaamHaiTeraMera, image: NaamHaiTeraMeraImg, durationDisplay: "4:00" },
   ];
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -204,11 +198,11 @@ const Pritam = () => {
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
         </button>
         <div className="flex items-end max-w-5xl mx-auto h-full px-6 pb-8">
-          <img src={pritamImg} alt="Pritam" className="w-56 h-56 shadow-2xl object-cover rounded-full mr-6 border-4 border-gray-900/50" />
+          <img src={himeshImg} alt="Himesh" className="w-56 h-56 shadow-2xl object-cover rounded-full mr-6 border-4 border-gray-900/50" />
           <div>
             <p className="text-sm font-bold uppercase text-white/80">Artist</p>
-            <h1 className="text-7xl font-black mb-1">Pritam</h1>
-            <p className="text-md font-semibold text-white/70 mt-2">15 songs • Bollywood’s soul of melody.</p>
+            <h1 className="text-7xl font-black mb-1">Himesh</h1>
+            <p className="text-md font-semibold text-white/70 mt-2">16 songs • Bollywood’s hitmaker.</p>
           </div>
         </div>
       </div>
@@ -248,7 +242,7 @@ const Pritam = () => {
               <img src={song.image} alt={song.name} className="w-12 h-12 object-cover rounded shadow-md" />
               <div className="flex flex-col truncate">
                 <span className="text-base font-semibold truncate">{song.name}</span>
-                <span className="text-sm font-light text-gray-400">Pritam</span>
+                <span className="text-sm font-light text-gray-400">Himesh</span>
               </div>
               <div className="text-right text-sm text-gray-400">{currentSongIndex === idx ? formatTime(duration) : song.durationDisplay}</div>
             </div>
@@ -262,7 +256,7 @@ const Pritam = () => {
             <img src={playlist[currentSongIndex].image} alt={playlist[currentSongIndex].name} className="w-14 h-14 object-cover rounded mr-4 shadow-lg" />
             <div className="flex flex-col truncate">
               <span className="font-semibold text-white truncate">{playlist[currentSongIndex].name}</span>
-              <span className="text-xs text-gray-400">Pritam</span>
+              <span className="text-xs text-gray-400">Himesh</span>
             </div>
           </div>
           <div className="flex flex-col items-center w-1/2 max-w-lg">
@@ -294,4 +288,4 @@ const Pritam = () => {
   );
 };
 
-export default Pritam;
+export default Himesh;
