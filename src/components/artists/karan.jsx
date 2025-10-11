@@ -190,9 +190,7 @@ const KaranAujla = () => {
         .cinematic-overlay, .fog-layer { display: none; }
       `}</style>
 
-      <div className="fixed inset-0 overflow-hidden z-0">
-        <Hyperspeed intensity={intensity} colorShift={true} trailLength={80} />
-      </div>
+
 
       <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
         <button onClick={goBack} className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30">

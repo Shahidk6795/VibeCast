@@ -189,9 +189,7 @@ const Himesh = () => {
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
-      <div className="fixed inset-0 overflow-hidden z-0">
-        <Hyperspeed intensity={intensity} colorShift={false} trailLength={80} speed={0.6} />
-      </div>
+
 
       <div className="w-full h-80 pt-16 relative bg-gradient-to-b from-green-600 to-black z-10 shadow-lg">
         <button onClick={goBack} className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30">
