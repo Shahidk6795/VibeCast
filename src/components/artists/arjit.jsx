@@ -26,7 +26,6 @@ import SochNaSake from "../../assets/music/Soch_Na_Sake.mp3";
 import Janam_Janam from "../../assets/music/Janam_Janam.mp3";
 import PhirBhiTumkoChahunga from "../../assets/music/Phir_Bhi_Tumko_Chahunga.mp3";
 
-import Hyperspeed from "../Hyperspeed";
 
 const formatTime = sec => {
   if (!sec) return "0:00";
