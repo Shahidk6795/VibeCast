@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
-import Hyperspeed from "../Hyperspeed";
 import pritamImg from "../../assets/images/pritam.jpeg";
 
 import YeTuneKyaKiyaImg from "../../assets/images/Ye_Tune_Kya_Kiya.jpg";
