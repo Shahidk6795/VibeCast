@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
-// Yo Yo Honey Singh Image
 import yoYoImg from "../../assets/images/yo_yo_honey.jpg";
 
-// Playlist Images & Audio
 import BlueEyesImg from "../../assets/images/Blue_Eyes.jpg";
 import DesiKalakaarImg from "../../assets/images/Desi_Kalakaar.jpg";
 import LungiDanceImg from "../../assets/images/Lungi_Dance.jpg";
@@ -206,7 +204,6 @@ const YoYoHoney = () => {
 
 
 
-      {/* Artist Header */}
       <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
         <button onClick={goBack} className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -221,7 +218,6 @@ const YoYoHoney = () => {
         </div>
       </div>
 
-      {/* Playlist */}
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
         <div className="max-w-5xl mx-auto relative z-20">
           <div className="flex items-center mb-6">
@@ -250,7 +246,6 @@ const YoYoHoney = () => {
         </div>
       </div>
 
-      {/* Mini Player */}
       {miniPlayerVisible && (
         <div className="fixed bottom-0 left-0 right-0 h-24 bg-gray-800/95 backdrop-blur-sm z-50 flex items-center justify-between px-4 shadow-2xl">
           <div className="flex items-center w-1/4 min-w-[200px]">
