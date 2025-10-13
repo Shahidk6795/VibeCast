@@ -195,9 +195,16 @@ const Pritam = () => {
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
+      <style jsx="true">{`
+        .spotify-header { background-image: linear-gradient(to bottom, #1db954, #121212); }
+        .spotify-green { background-color: #1db954; }
+        .clear-bg-on-hover:hover { background-color: rgba(255,255,255,0.1); }
+        .clear-bg-active { background-color: rgba(255,255,255,0.2); }
+        .clear-bg-strip { background-color: rgba(18,18,18,0.1); }
+        .cinematic-overlay, .fog-layer { display: none; }
+      `}</style>
 
-
-      <div className="w-full h-80 pt-16 relative bg-gradient-to-b from-green-600 to-black z-10 shadow-lg">
+      <div className="w-full h-80 pt-16 relative bg-gradient-to-b spotify-green to-black z-10 shadow-lg">
         <button onClick={goBack} className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
         </button>
