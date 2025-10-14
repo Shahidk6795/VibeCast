@@ -220,7 +220,7 @@ const Pritam = () => {
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
         <div className="max-w-5xl mx-auto relative z-20">
           <div className="flex items-center mb-6">
-              <button onClick={playPause} className="w-16 h-16 rounded-full bg-green-500 text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
+              <button onClick={playPause} className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
               {isPlaying ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
               ) : (
@@ -272,7 +272,7 @@ const Pritam = () => {
           <div className="flex flex-col items-center w-1/2 max-w-lg">
             <div className="flex gap-6 mb-1 items-center">
               <button onClick={prevSong} className="text-gray-300 hover:text-white transition"><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6l-8.5 6z"/></svg></button>
-              <button onClick={playPause} className="w-8 h-8 rounded-full bg-green-500 text-black flex items-center justify-center hover:scale-105 transition-transform">
+              <button onClick={playPause} className="w-8 h-8 rounded-full spotify-green text-black flex items-center justify-center hover:scale-105 transition-transform">
                 {isPlaying ? (
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                 ) : (
