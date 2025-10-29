@@ -16,7 +16,6 @@ const Navbar = ({ darkMode, toggleTheme }) => {
   return (
     <header className="sticky top-0 z-50">
       <div className="relative bg-black/30 backdrop-blur-md overflow-hidden shadow-md">
-        {/* RGB Neon Flow Background */}
         <div
           className="absolute inset-0 z-0 opacity-50 rounded-md"
           style={{
@@ -26,9 +25,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
           }}
         ></div>
 
-        {/* Navbar Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
-          {/* Logo */}
           <div
             className="flex items-center cursor-pointer gap-2 flex-shrink-0"
             onClick={() => navigate("/")}
@@ -43,7 +40,6 @@ const Navbar = ({ darkMode, toggleTheme }) => {
             </span>
           </div>
 
-          {/* Search */}
           <div className="relative flex-1 mx-6 min-w-0">
             <input
               type="text"
@@ -56,9 +52,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
             <Search className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
           </div>
 
-          {/* Buttons */}
           <div className="flex items-center gap-3 flex-shrink-0">
-            {/* Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark/light mode"
@@ -71,7 +65,6 @@ const Navbar = ({ darkMode, toggleTheme }) => {
               )}
             </button>
 
-            {/* Profile */}
             <button
               onClick={() => navigate("/profile")}
               aria-label="Profile"
@@ -83,7 +76,6 @@ const Navbar = ({ darkMode, toggleTheme }) => {
         </div>
       </div>
 
-      {/* Keyframes for RGB Flow */}
       <style>
         {`
           @keyframes rgbFlow {
