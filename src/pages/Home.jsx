@@ -21,6 +21,7 @@ import eminemImg from "../assets/images/eminem.jpeg";
 import badbunnyImg from "../assets/images/badbunny.jpeg";
 import travisImg from "../assets/images/travis.jpeg";
 import krsnaImg from "../assets/images/krsna.jpg"
+import emiwayImg from "../assets/images/emiway.jpg"
 
 const artists = [
   { name: "Arijit Singh", image: arijitImg, path:"/artist/arijit" },
@@ -40,12 +41,13 @@ const artists = [
   { name: "Bad Bunny", image: badbunnyImg, path:"/artist/badbunny" },
   { name: "Travis Scott", image: travisImg, path:"/artist/travis" },
   { name: "Krsna", image: krsnaImg, path:"/artist/krsna" },
+  { name: "Emiway Bantai", image: emiwayImg, path:"/artist/emiway" },
 ];
 
 const categories = [
   { title: "Jump Back In", artists: artists.slice(0, 6), type: 'album' },
   { title: "Your Top Artists", artists: artists.slice(6, 12), type: 'artist' },
-  { title: "Recommended Playlists", artists: artists.slice(12, 17).concat(artists.slice(0, 2)), type: 'album' },
+  { title: "Recommended Playlists", artists: artists.slice(12, 18).concat(artists.slice(0, 2)), type: 'album' },
 ];
 
 const Home = () => {
