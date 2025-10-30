@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
-import atifImg from "../../assets/images/atif.jpeg";
+import atifImg from "../../assets/images/atif.jpg";
 
 import DilMereNaSuneImg from "../../assets/images/Dil_Mere_Na_Sune.jpg";
 import TereSangYaraImg from "../../assets/images/Tere_Sang_Yara.jpg";
@@ -44,20 +44,20 @@ const Atif = () => {
   const navigate = useNavigate();
 
   const playlist = [
-    { name: "Dil mere na sune", path: DilMereNaSune, image: DilMereNaSuneImg, durationDisplay: "4:03" },
-    { name: "Tere sang yara", path: TereSangYara, image: TereSangYaraImg, durationDisplay: "4:10" },
-    { name: "Dil diyan gallan", path: DilDiyanGallan, image: DilDiyanGallanImg, durationDisplay: "4:20" },
-    { name: "Tera hone laga hoon", path: TeraHoneLagaHoon, image: TeraHoneLagaHoonImg, durationDisplay: "4:05" },
-    { name: "Piya o re piya", path: PiyaORePiya, image: PiyaORePiyaImg, durationDisplay: "4:30" },
-    { name: "Tera hua", path: TeraHua, image: TeraHuaImg, durationDisplay: "3:55" },
-    { name: "O saathi", path: OSaathi, image: OSaathiImg, durationDisplay: "3:48" },
-    { name: "Jeena jeena", path: JeenaJeena, image: JeenaJeenaImg, durationDisplay: "4:00" },
-    { name: "Dekhte dekhte", path: DekhteDekhte, image: DekhteDekhteImg, durationDisplay: "3:50" },
-    { name: "Tu jaane na", path: TuJaaneNa, image: TuJaaneNaImg, durationDisplay: "4:35" },
-    { name: "Be intehaan", path: BeIntehaan, image: BeIntehaanImg, durationDisplay: "4:12" },
-    { name: "Tajdar e haram", path: TajdarEHaram, image: TajdarEHaramImg, durationDisplay: "5:50" },
-    { name: "Pehli dafa", path: PehliDafa, image: PehliDafaImg, durationDisplay: "4:02" },
-    { name: "Tere bin", path: TereBin, image: TereBinImg, durationDisplay: "3:57" },
+    { name: "Dil mere na sune", path: DilMereNaSune, image: DilMereNaSuneImg, durationDisplay: "4:05" },
+    { name: "Tere sang yara", path: TereSangYara, image: TereSangYaraImg, durationDisplay: "4:12" },
+    { name: "Dil diya gallan", path: DilDiyanGallan, image: DilDiyanGallanImg, durationDisplay: "4:20" },
+    { name: "Tera hone laga hoon", path: TeraHoneLagaHoon, image: TeraHoneLagaHoonImg, durationDisplay: "4:18" },
+    { name: "Piya o re piya", path: PiyaORePiya, image: PiyaORePiyaImg, durationDisplay: "4:10" },
+    { name: "Tera hua", path: TeraHua, image: TeraHuaImg, durationDisplay: "3:58" },
+    { name: "O saathi", path: OSaathi, image: OSaathiImg, durationDisplay: "4:06" },
+    { name: "Jeena jeena", path: JeenaJeena, image: JeenaJeenaImg, durationDisplay: "3:45" },
+    { name: "Dekhte dekhte", path: DekhteDekhte, image: DekhteDekhteImg, durationDisplay: "4:00" },
+    { name: "Tu jaane na", path: TuJaaneNa, image: TuJaaneNaImg, durationDisplay: "4:15" },
+    { name: "Be intehaan", path: BeIntehaan, image: BeIntehaanImg, durationDisplay: "4:08" },
+    { name: "Tajdar e haram", path: TajdarEHaram, image: TajdarEHaramImg, durationDisplay: "5:02" },
+    { name: "Pehli dafa", path: PehliDafa, image: PehliDafaImg, durationDisplay: "4:11" },
+    { name: "Tere bin", path: TereBin, image: TereBinImg, durationDisplay: "4:07" },
   ];
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -217,7 +217,7 @@ const Atif = () => {
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
         <div className="max-w-5xl mx-auto relative z-20">
           <div className="flex items-center mb-6">
-            <button onClick={playPause} className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
+              <button onClick={playPause} className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
               {isPlaying ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
               ) : (
