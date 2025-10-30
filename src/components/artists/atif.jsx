@@ -209,7 +209,7 @@ const Atif = () => {
           <div>
             <p className="text-sm font-bold uppercase text-white/80">Artist</p>
             <h1 className="text-7xl font-black mb-1">Atif Aslam</h1>
-            <p className="text-md font-semibold text-white/70 mt-2">14 songs • The soulful voice of romance.</p>
+            <p className="text-md font-semibold text-white/70 mt-2">14 songs • voice that touches souls..</p>
           </div>
         </div>
       </div>
