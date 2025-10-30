@@ -9,6 +9,7 @@ import Pritam from "./components/artists/pritam";
 import Himesh from "./components/artists/himesh";
 import Krsna from "./components/artists/krsna";
 import Emiway from "./components/artists/emiway";
+import Atif from "./components/artists/atif";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
         <Route path="/artist/himesh" element={<Himesh />} />
         <Route path="/artist/krsna" element={<Krsna />} />
         <Route path="/artist/emiway" element={<Emiway />} />
+        <Route path="/artist/atif" element={<Atif />} />
       </Routes>
     </BrowserRouter>
   );
