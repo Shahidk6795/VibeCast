@@ -74,7 +74,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleSearch}
-              placeholder="Search tracks, artists, or podcasts..."
+              placeholder="Search artists, or podcasts..."
               className="w-full pl-11 pr-4 h-10 sm:h-11 rounded-full bg-black/40 backdrop-blur-md text-white placeholder-gray-400 focus:ring-2 focus:ring-pink-500 focus:outline-none text-sm sm:text-base shadow-inner hover:shadow-pink-500/20 transition-all"
             />
             <Search className="absolute left-3 top-2.5 w-5 h-5 text-gray-400 hover:text-pink-400 transition-colors duration-300" />

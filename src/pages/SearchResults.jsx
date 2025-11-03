@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import arijitImg from "../assets/images/arijit.jpeg";
@@ -47,86 +47,63 @@ const SearchResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { query } = queryString.parse(location.search);
+  const [searchTerm, setSearchTerm] = useState(query || "");
+  const [filtered, setFiltered] = useState(artists);
 
-  const filtered = artists.filter((a) =>
-    a.name.toLowerCase().includes((query || "").toLowerCase())
-  );
+  useEffect(() => {
+    const q = searchTerm.toLowerCase().trim();
+    if (!q) {
+      setFiltered(artists);
+    } else {
+      setFiltered(
+        artists.filter((a) =>
+          a.name.toLowerCase().replace(/[^a-z0-9]/g, "").includes(q.replace(/[^a-z0-9]/g, ""))
+        )
+      );
+    }
+  }, [searchTerm]);
 
   return (
-    <div className="min-h-screen relative overflow-hidden text-white">
-      <div
-        className="absolute inset-0 -z-10 opacity-60 animate-gradientFlow"
-        style={{
-          background:
-            "linear-gradient(135deg, #1a1a1a, #2b004f, #3b0a45, #0a0a0a)",
-          backgroundSize: "400% 400%",
-        }}
-      ></div>
+    <div className="min-h-screen relative overflow-hidden text-white flex flex-col items-center px-6 py-10 bg-gradient-to-br from-black via-[#120016] to-black animate-gradient-slow">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#1a001f] via-[#2b004f] to-[#0a0a0a] opacity-70 blur-3xl animate-[gradientShift_15s_ease_infinite]" />
 
-      <div className="max-w-7xl mx-auto px-6 py-10 relative z-10">
-        <h1 className="text-3xl sm:text-4xl font-extrabold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-violet-500 drop-shadow-lg animate-fadeIn">
-          Search Results for “{query}”
-        </h1>
+      <h1 className="text-3xl sm:text-4xl font-extrabold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-violet-500 drop-shadow-lg">
+        Explore Artists
+      </h1>
 
-        {filtered.length === 0 ? (
-          <p className="text-center text-gray-400 text-lg animate-fadeIn">
-            No results found 😔
-          </p>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 animate-fadeInSlow">
-            {filtered.map((artist, idx) => (
-              <div
-                key={idx}
-                onClick={() => navigate(artist.path)}
-                className="relative bg-black/60 border border-pink-500/20 rounded-2xl p-5 flex flex-col items-center backdrop-blur-lg shadow-[0_0_10px_rgba(255,255,255,0.05)] hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] hover:scale-110 transition-all duration-500 cursor-pointer"
-              >
-                <div className="relative">
-                  <img
-                    src={artist.image}
-                    alt={artist.name}
-                    className="w-32 h-32 object-cover rounded-full mb-3 shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-pink-500/10 via-purple-500/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Search artists..."
+        className="w-full max-w-md mb-10 px-5 py-3 rounded-full bg-black/50 border border-pink-500/20 text-white placeholder-gray-400 text-center shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
+      />
 
-                <p className="font-semibold text-center text-white mt-2">
-                  {artist.name}
-                </p>
-                <p className="text-sm text-gray-400">Artist</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <style>
-        {`
-          @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-          }
-          .animate-gradientFlow {
-            animation: gradientFlow 12s ease infinite;
-          }
-
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fadeIn {
-            animation: fadeIn 0.8s ease forwards;
-          }
-
-          @keyframes fadeInSlow {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fadeInSlow {
-            animation: fadeInSlow 1.2s ease forwards;
-          }
-        `}
-      </style>
+      {filtered.length === 0 ? (
+        <p className="text-gray-400 text-lg mt-20 animate-pulse">
+          No results found 😔
+        </p>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 w-full max-w-7xl">
+          {filtered.map((artist, idx) => (
+            <div
+              key={idx}
+              onClick={() => navigate(artist.path)}
+              className="group relative bg-black/60 border border-pink-500/20 rounded-2xl p-5 flex flex-col items-center backdrop-blur-xl hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] hover:scale-110 transition-all duration-500 cursor-pointer"
+            >
+              <img
+                src={artist.image}
+                alt={artist.name}
+                className="w-32 h-32 object-cover rounded-full mb-3 shadow-[0_0_20px_rgba(236,72,153,0.3)] group-hover:shadow-[0_0_40px_rgba(236,72,153,0.6)] transition-all duration-500"
+              />
+              <p className="font-semibold text-center text-white mt-2 group-hover:text-pink-400 transition-colors">
+                {artist.name}
+              </p>
+              <p className="text-sm text-gray-400">Artist</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
