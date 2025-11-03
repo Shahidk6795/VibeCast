@@ -107,11 +107,10 @@ canvas {
   0% { transform: translateY(0); opacity: 0.5; }
   100% { transform: translateY(-10px); opacity: 0.8; }
 }
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
-/* Smooth ticker scroll (dynamic speed) */
 @keyframes tickerScroll {
   0% {
     transform: translateX(0);
@@ -121,19 +120,16 @@ canvas {
   }
 }
 
-/* Default animation */
 .animate-ticker {
   display: flex;
   animation: tickerScroll 60s linear infinite;
   width: max-content;
 }
 
-/* Hover pause */
 .pause-animation {
   animation-play-state: paused !important;
 }
 
-/* Dynamic speed control */
 @media (min-width: 768px) {
   .animate-ticker {
     animation-duration: 40s;
@@ -146,7 +142,6 @@ canvas {
   }
 }
 
-/* Smooth fade edges */
 .mask-gradient {
   -webkit-mask-image: linear-gradient(
     to right,

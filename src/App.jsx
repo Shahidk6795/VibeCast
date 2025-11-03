@@ -10,6 +10,7 @@ import Himesh from "./components/artists/himesh";
 import Krsna from "./components/artists/krsna";
 import Emiway from "./components/artists/emiway";
 import Atif from "./components/artists/atif";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search" element={<SearchResults />} />
         <Route path="/artist/arijit" element={<Arijit />} />
         <Route path="/artist/yo-yo-honey" element={<YoYoHoney />} />
         <Route path="/artist/karan" element={<KaranAujla />} />
