@@ -58,7 +58,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
               className={`relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-pink-500 after:transition-all after:duration-300 hover:text-pink-400 transition-colors ${isActive("/artists")}`}
             >
               Artists
-            </button>
+            </button> 
 
             <button
               onClick={() => navigate("/trending")}
