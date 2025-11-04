@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
@@ -12,25 +11,29 @@ import Emiway from "./components/artists/emiway";
 import Atif from "./components/artists/atif";
 import SearchResults from "./pages/SearchResults";
 
-function App() {
-  const [count, setCount] = useState(0);
+import { PlayerProvider } from "./context/PlayerContext";
+import GlobalMiniPlayer from "./components/GlobalMiniPlayer";
 
+function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<SearchResults />} />
-        <Route path="/artist/arijit" element={<Arijit />} />
-        <Route path="/artist/yo-yo-honey" element={<YoYoHoney />} />
-        <Route path="/artist/karan" element={<KaranAujla />} />
-        <Route path="/artist/pritam" element={<Pritam />} />
-        <Route path="/artist/himesh" element={<Himesh />} />
-        <Route path="/artist/krsna" element={<Krsna />} />
-        <Route path="/artist/emiway" element={<Emiway />} />
-        <Route path="/artist/atif" element={<Atif />} />
-      </Routes>
-    </BrowserRouter>
+    <PlayerProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchResults />} />
+          <Route path="/artist/arijit" element={<Arijit />} />
+          <Route path="/artist/yo-yo-honey" element={<YoYoHoney />} />
+          <Route path="/artist/karan" element={<KaranAujla />} />
+          <Route path="/artist/pritam" element={<Pritam />} />
+          <Route path="/artist/himesh" element={<Himesh />} />
+          <Route path="/artist/krsna" element={<Krsna />} />
+          <Route path="/artist/emiway" element={<Emiway />} />
+          <Route path="/artist/atif" element={<Atif />} />
+        </Routes>
+        <GlobalMiniPlayer />
+      </BrowserRouter>
+    </PlayerProvider>
   );
 }
 
