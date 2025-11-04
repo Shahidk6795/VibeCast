@@ -11,8 +11,8 @@ import Emiway from "./components/artists/emiway";
 import Atif from "./components/artists/atif";
 import SearchResults from "./pages/SearchResults";
 
-import { PlayerProvider } from "./context/PlayerContext";
 import GlobalMiniPlayer from "./components/GlobalMiniPlayer";
+import { PlayerProvider } from "./context/PlayerContext"; // ✅ fixed
 
 function App() {
   return (

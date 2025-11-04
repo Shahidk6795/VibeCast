@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { PlayerContext } from "@/context/PlayerContext";
+import { PlayerContext } from "../../context/PlayerContext"
 import "@/index.css";
 import arijitImg from "../../assets/images/arijit.jpeg";
 import JanamJanam from "../../assets/images/Janam_Janam.jpg";
@@ -72,7 +72,7 @@ const Arijit = () => {
   };
 
   const selectSong = (index) => {
-    playPlaylist(songs, index, false);
+    playPlaylist(songs, index, true);
   };
 
   const goBack = () => {
