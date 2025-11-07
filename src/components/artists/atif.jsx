@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"; // Added useEffect
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
 import { PlayerContext } from "../../context/PlayerContext";
@@ -35,7 +35,6 @@ import TajdarEHaram from "../../assets/music/Tajdar_E_Haram.mp3";
 import PehliDafa from "../../assets/music/Pehli_Dafa.mp3";
 import TereBin from "../../assets/music/Tere_Bin.mp3";
 
-// Logic from Arijit.jsx: Local formatTime function
 const formatTime = (sec) => {
   if (!sec) return "0:00";
   const minutes = Math.floor(sec / 60);
@@ -46,20 +45,18 @@ const formatTime = (sec) => {
 const Atif = () => {
   const navigate = useNavigate();
   
-  // Logic from Arijit.jsx: Context destructuring
   const {
     playPlaylist,
     playPause,
     isPlaying,
     currentSongIndex,
-    playlist, // Use 'playlist'
+    playlist,
     miniPlayerVisible,
     duration,
     progress,
-    setMiniPlayerVisible, // Added
+    setMiniPlayerVisible,
   } = useContext(PlayerContext);
 
-  // Logic from Arijit.jsx: Local array named 'songs'
   const songs = [
     { name: "Dil mere na sune", path: DilMereNaSune, image: DilMereNaSuneImg, durationDisplay: "4:05" },
     { name: "Tere sang yara", path: TereSangYara, image: TereSangYaraImg, durationDisplay: "4:12" },
@@ -77,17 +74,15 @@ const Atif = () => {
     { name: "Tere bin", path: TereBin, image: TereBinImg, durationDisplay: "4:07" },
   ];
 
-  // Logic from Arijit.jsx: handlePlayPause logic
   const handlePlayPause = () => {
     if (!playlist.length || playlist[0].name !== songs[0].name) {
       playPlaylist(songs, 0);
     } else {
       playPause();
     }
-    setMiniPlayerVisible(true); // Added
+    setMiniPlayerVisible(true);
   };
 
-  // Logic from Arijit.jsx: selectSong logic
   const selectSong = (index) => {
     playPlaylist(songs, index, true);
   };
@@ -96,12 +91,11 @@ const Atif = () => {
     navigate("/");
   };
 
-  // Logic from Arijit.jsx: Spacebar useEffect
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
-        event.preventDefault(); // stop page scroll
-        handlePlayPause(); // play first song / toggle play-pause
+        event.preventDefault(); 
+        handlePlayPause();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -110,7 +104,6 @@ const Atif = () => {
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
-      {/* Logic from Arijit.jsx: Inline style block */}
       <style jsx="true">{`
         .spotify-header {
           background-image: linear-gradient(to bottom, #1db954, #121212);
@@ -129,7 +122,6 @@ const Atif = () => {
         }
       `}</style>
 
-      {/* Header section (content updated for Atif) */}
       <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
         <button
           onClick={goBack}
@@ -160,7 +152,6 @@ const Atif = () => {
         </div>
       </div>
 
-      {/* Body section */}
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
         <div className="max-w-5xl mx-auto relative z-20">
           <div className="flex items-center mb-6">
@@ -168,7 +159,6 @@ const Atif = () => {
               onClick={handlePlayPause}
               className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
             >
-              {/* Logic from Arijit.jsx: isPlaying check */}
               {isPlaying ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
@@ -184,7 +174,6 @@ const Atif = () => {
             </button>
           </div>
 
-          {/* Logic from Arijit.jsx: Added 'clear-bg-strip' */}
           <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip">
             <div>#</div>
             <div></div>
@@ -196,7 +185,6 @@ const Atif = () => {
             <div
               key={idx}
               onClick={() => selectSong(idx)}
-              // Logic from Arijit.jsx: Styling for active song
               className={`grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-pointer transition duration-200 clear-bg-on-hover ${
                 playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? "clear-bg-active text-white"
@@ -204,7 +192,6 @@ const Atif = () => {
               }`}
             >
               <div className="font-medium text-sm text-center">
-                {/* Logic from Arijit.jsx: Check for active song */}
                 {playlist.length && playlist[currentSongIndex]?.name === song.name && isPlaying ? (
                   <span className="text-spotify-green">
                     <svg className="w-4 h-4 mx-auto" fill="#1db954" viewBox="0 0 24 24">
@@ -218,11 +205,9 @@ const Atif = () => {
               <img src={song.image} alt={song.name} className="w-12 h-12 object-cover rounded shadow-md" />
               <div className="flex flex-col truncate">
                 <span className="text-base font-semibold truncate">{song.name}</span>
-                {/* Content updated for Atif */}
                 <span className="text-sm font-light text-gray-400">Atif Aslam</span>
               </div>
               <div className="text-right text-sm text-gray-400">
-                {/* Logic from Arijit.jsx: Check for active song duration */}
                 {playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? formatTime(duration)
                   : song.durationDisplay}

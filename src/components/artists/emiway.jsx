@@ -37,7 +37,6 @@ import KingOfIndianHipHop from "../../assets/music/King_Of_Indian_Hip_Hop.mp3";
 import SamjhMeAyaKya from "../../assets/music/Samjh_Me_Aya_Kya.mp3";
 import KadakBan from "../../assets/music/Kadak_Ban.mp3";
 
-// Logic from Atif.jsx: Local formatTime function
 const formatTime = (sec) => {
   if (!sec) return "0:00";
   const minutes = Math.floor(sec / 60);
@@ -50,19 +49,17 @@ const formatTime = (sec) => {
 const Emiway = () => {
   const navigate = useNavigate();
 
-  // Logic from Atif.jsx: Context destructuring
   const {
     playPlaylist,
     playPause,
     isPlaying,
     currentSongIndex,
-    playlist, // Use 'playlist' from context
+    playlist, 
     duration,
     progress,
     setMiniPlayerVisible,
   } = useContext(PlayerContext);
 
-  // Logic from Atif.jsx: Local array named 'songs' (previously 'playlist')
   const songs = [
     { name: "Firse Machayenge", path: FirseMachayenge, image: FirseMachayengeImg, durationDisplay: "3:40" },
     { name: "Company", path: Company, image: CompanyImg, durationDisplay: "3:32" },
@@ -81,11 +78,9 @@ const Emiway = () => {
     { name: "Kadak Ban", path: KadakBan, image: KadakBanImg, durationDisplay: "3:40" },
   ];
 
-  // Logic from Atif.jsx: handlePlayPause logic
   const handlePlayPause = () => {
-    // Check if the global playlist is empty OR if it's a different artist's playlist
     if (!playlist.length || playlist[0].name !== songs[0].name) {
-      playPlaylist(songs, 0); // Start this artist's playlist
+      playPlaylist(songs, 0); 
     } else {
       playPause(); // Otherwise, just toggle play/pause
     }

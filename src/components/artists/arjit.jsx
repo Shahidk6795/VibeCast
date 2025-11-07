@@ -79,12 +79,11 @@ const Arijit = () => {
     navigate("/");
   };
 
-  // ✅ Prevent Spacebar from scrolling & make it start playlist
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
-        event.preventDefault(); // stop page scroll
-        handlePlayPause(); // play first song / toggle play-pause
+        event.preventDefault(); 
+        handlePlayPause();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
