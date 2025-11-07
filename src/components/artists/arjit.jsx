@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { PlayerContext } from "../../context/PlayerContext"
+import { PlayerContext } from "../../context/PlayerContext";
 import "@/index.css";
 import arijitImg from "../../assets/images/arijit.jpeg";
 import JanamJanam from "../../assets/images/Janam_Janam.jpg";
@@ -30,7 +30,9 @@ import PhirBhiTumkoChahunga from "../../assets/music/Phir_Bhi_Tumko_Chahunga.mp3
 const formatTime = (sec) => {
   if (!sec) return "0:00";
   const minutes = Math.floor(sec / 60);
-  const seconds = Math.floor(sec % 60).toString().padStart(2, "0");
+  const seconds = Math.floor(sec % 60)
+    .toString()
+    .padStart(2, "0");
   return `${minutes}:${seconds}`;
 };
 
@@ -49,17 +51,17 @@ const Arijit = () => {
   } = useContext(PlayerContext);
 
   const songs = [
-    { name: "Tum Hi Ho", path: TumHiHo, image: tum_hi_ho, durationDisplay: "4:22" },
-    { name: "Channa Mereya", path: ChannaMereya, image: Channa_Merey, durationDisplay: "4:49" },
-    { name: "Raabta", path: Raabta, image: raabta, durationDisplay: "4:43" },
-    { name: "Kun Faya Kun", path: KunFayaKun, image: KunFaya, durationDisplay: "7:51" },
-    { name: "Ae Dil Hai Mushkil", path: AeDilHaiMushkil, image: AeDil, durationDisplay: "4:29" },
-    { name: "Muskurane", path: Muskurane, image: muskuraneke, durationDisplay: "5:35" },
-    { name: "Phir Bhi Tumko Chahunga", path: PhirBhiTumkoChahunga, image: phirbhi, durationDisplay: "4:48" },
-    { name: "Hawayein", path: Hawayein, image: Hawayei, durationDisplay: "4:49" },
-    { name: "Kabira", path: Kabira, image: kabira, durationDisplay: "3:43" },
-    { name: "Soch Na Sake", path: SochNaSake, image: Soch_Na_Sake, durationDisplay: "4:31" },
-    { name: "Janam Janam", path: Janam_Janam, image: JanamJanam, durationDisplay: "4:23" },
+    { name: "Tum Hi Ho", path: TumHiHo, image: tum_hi_ho, durationDisplay: "4:22", artist: "Arijit Singh" },
+    { name: "Channa Mereya", path: ChannaMereya, image: Channa_Merey, durationDisplay: "4:49", artist: "Arijit Singh" },
+    { name: "Raabta", path: Raabta, image: raabta, durationDisplay: "4:43", artist: "Arijit Singh, Hamsika Iyer" },
+    { name: "Kun Faya Kun", path: KunFayaKun, image: KunFaya, durationDisplay: "7:51", artist: "A.R. Rahman, Javed Ali, Mohit Chauhan" },
+    { name: "Ae Dil Hai Mushkil", path: AeDilHaiMushkil, image: AeDil, durationDisplay: "4:29", artist: "Arijit Singh" },
+    { name: "Muskurane", path: Muskurane, image: muskuraneke, durationDisplay: "5:35", artist: "Arijit Singh" },
+    { name: "Phir Bhi Tumko Chahunga", path: PhirBhiTumkoChahunga, image: phirbhi, durationDisplay: "4:48", artist: "Arijit Singh, Shashaa Tirupati" },
+    { name: "Hawayein", path: Hawayein, image: Hawayei, durationDisplay: "4:49", artist: "Arijit Singh" },
+    { name: "Kabira", path: Kabira, image: kabira, durationDisplay: "3:43", artist: "Arijit Singh, Harshdeep Kaur" },
+    { name: "Soch Na Sake", path: SochNaSake, image: Soch_Na_Sake, durationDisplay: "4:31", artist: "Arijit Singh, Tulsi Kumar" },
+    { name: "Janam Janam", path: Janam_Janam, image: JanamJanam, durationDisplay: "4:23", artist: "Arijit Singh, Antara Mitra" },
   ];
 
   const handlePlayPause = () => {
@@ -73,7 +75,8 @@ const Arijit = () => {
 
   const selectSong = (index) => {
     playPlaylist(songs, index, true);
-  };
+    setMiniPlayerVisible(true);
+S  };
 
   const goBack = () => {
     navigate("/");
@@ -82,7 +85,7 @@ const Arijit = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
-        event.preventDefault(); 
+        event.preventDefault();
         handlePlayPause();
       }
     };
@@ -121,7 +124,12 @@ const Arijit = () => {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
           </svg>
         </button>
         <div className="flex items-end max-w-5xl mx-auto h-full px-6 pb-8">
@@ -147,7 +155,7 @@ const Arijit = () => {
               onClick={handlePlayPause}
               className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
             >
-              {isPlaying ? (
+              {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
@@ -180,9 +188,15 @@ const Arijit = () => {
               }`}
             >
               <div className="font-medium text-sm text-center">
-                {playlist.length && playlist[currentSongIndex]?.name === song.name && isPlaying ? (
+                {playlist.length &&
+                playlist[currentSongIndex]?.name === song.name &&
+                isPlaying ? (
                   <span className="text-spotify-green">
-                    <svg className="w-4 h-4 mx-auto" fill="#1db954" viewBox="0 0 24 24">
+                    <svg
+                      className="w-4 h-4 mx-auto"
+                      fill="#1db954"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M7 19v-14h3v14h-3zm8 0V5h3v14h-3z" />
                     </svg>
                   </span>
@@ -190,13 +204,22 @@ const Arijit = () => {
                   idx + 1
                 )}
               </div>
-              <img src={song.image} alt={song.name} className="w-12 h-12 object-cover rounded shadow-md" />
+              <img
+                src={song.image}
+                alt={song.name}
+                className="w-12 h-12 object-cover rounded shadow-md"
+              />
               <div className="flex flex-col truncate">
-                <span className="text-base font-semibold truncate">{song.name}</span>
-                <span className="text-sm font-light text-gray-400">Arijit Singh</span>
+                <span className="text-base font-semibold truncate">
+                  {song.name}
+                </span>
+                <span className="text-sm font-light text-gray-400">
+                  {song.artist}
+                </span>
               </div>
               <div className="text-right text-sm text-gray-400">
-                {playlist.length && playlist[currentSongIndex]?.name === song.name
+                {playlist.length &&
+                playlist[currentSongIndex]?.name === song.name
                   ? formatTime(duration)
                   : song.durationDisplay}
               </div>

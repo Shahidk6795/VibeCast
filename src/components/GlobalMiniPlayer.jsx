@@ -11,7 +11,7 @@ const GlobalMiniPlayer = () => {
     prevSong,
     progress,
     duration,
-    miniPlayerVisible,
+    miniPlayerVisible, // This is not used in the JSX, but kept from your code
   } = useContext(PlayerContext);
 
   // ✅ Fix 1: Ensure window focuses when mini player becomes visible (so space works instantly)
@@ -26,24 +26,31 @@ const GlobalMiniPlayer = () => {
   const formatTime = (sec) => {
     if (!sec) return "0:00";
     const minutes = Math.floor(sec / 60);
-    const seconds = Math.floor(sec % 60).toString().padStart(2, "0");
+    const seconds = Math.floor(sec % 60)
+      .toString()
+      .padStart(2, "0");
     return `${minutes}:${seconds}`;
   };
+
+  // Get the current song object to avoid repeating playlist[currentSongIndex]
+  const currentSong = playlist[currentSongIndex];
 
   return (
     <div className="fixed bottom-0 left-0 right-0 h-24 bg-gray-900/95 backdrop-blur-md z-50 flex items-center justify-between px-6 shadow-2xl border-t border-gray-800">
       {/* Left: Song Info */}
       <div className="flex items-center w-1/4 min-w-[200px]">
         <img
-          src={playlist[currentSongIndex].image}
-          alt={playlist[currentSongIndex].name}
+          src={currentSong.image}
+          alt={currentSong.name}
           className="w-14 h-14 object-cover rounded mr-4 shadow-lg"
         />
         <div className="flex flex-col truncate">
           <span className="font-semibold text-white truncate">
-            {playlist[currentSongIndex].name}
+            {currentSong.name}
           </span>
-          <span className="text-xs text-gray-400">Arijit Singh</span>
+          <span className="text-xs text-gray-400">
+            {currentSong.artist || "Unknown Artist"}
+          </span>
         </div>
       </div>
 
@@ -93,7 +100,7 @@ const GlobalMiniPlayer = () => {
           <div className="w-full h-1 bg-gray-700 rounded-full">
             <div
               className="h-1 bg-[#1db954] rounded-full"
-              style={{ width: `${(progress / duration) * 100}%` }}
+              style={{ width: `${(progress / (duration || 1)) * 100}%` }} // Added || 1 to prevent NaN
             ></div>
           </div>
           <span>{formatTime(duration)}</span>

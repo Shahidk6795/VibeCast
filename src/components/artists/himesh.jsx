@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from "react"; // Added useContext and useEffect
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
-import { PlayerContext } from "../../context/PlayerContext"; // Import context
+import { PlayerContext } from "../../context/PlayerContext"; 
 
-// Himesh Assets
 import himeshImg from "../../assets/images/himesh.jpeg";
 import DilKeTajImg from "../../assets/images/Dil_Ke_Taj.jpg";
 import TeraChehraImg from "../../assets/images/Tera_Chehra.jpg";
@@ -33,7 +32,6 @@ import TerePyaarMein from "../../assets/music/Tere_Pyaar_Mein.mp3";
 import AshiqBanaya from "../../assets/music/Ashiq_Banaya.mp3";
 import NaamHaiTeraMera from "../../assets/music/Naam_Hai_Tera_Mera.mp3";
 
-// Logic from Atif.jsx: Local formatTime function
 const formatTime = (sec) => {
   if (!sec) return "0:00";
   const minutes = Math.floor(sec / 60);
@@ -46,19 +44,17 @@ const formatTime = (sec) => {
 const Himesh = () => {
   const navigate = useNavigate();
 
-  // Logic from Atif.jsx: Context destructuring
   const {
     playPlaylist,
     playPause,
     isPlaying,
     currentSongIndex,
-    playlist, // Use 'playlist' from context
+    playlist,
     duration,
     progress,
     setMiniPlayerVisible,
   } = useContext(PlayerContext);
 
-  // Logic from Atif.jsx: Local array named 'songs' (previously 'playlist')
   const songs = [
     { name: "Dil ke taj mehal me", path: DilKeTaj, image: DilKeTajImg, durationDisplay: "4:05" },
     { name: "Tera chehra", path: TeraChehra, image: TeraChehraImg, durationDisplay: "3:50" },
@@ -75,43 +71,37 @@ const Himesh = () => {
     { name: "Naam hai tera mera", path: NaamHaiTeraMera, image: NaamHaiTeraMeraImg, durationDisplay: "4:00" },
   ];
 
-  // Logic from Atif.jsx: handlePlayPause logic
   const handlePlayPause = () => {
-    // Check if the global playlist is empty OR if it's a different artist's playlist
     if (!playlist.length || playlist[0].name !== songs[0].name) {
-      playPlaylist(songs, 0); // Start this artist's playlist
+      playPlaylist(songs, 0);
     } else {
-      playPause(); // Otherwise, just toggle play/pause
+      playPause();
     }
     setMiniPlayerVisible(true);
   };
 
-  // Logic from Atif.jsx: selectSong logic
   const selectSong = (index) => {
-    playPlaylist(songs, index, true); // Play the selected song from this playlist
+    playPlaylist(songs, index, true);
     setMiniPlayerVisible(true);
   };
 
-  // Logic from Atif.jsx: Simplified goBack function
   const goBack = () => {
     navigate("/");
   };
 
-  // Logic from Atif.jsx: Spacebar useEffect
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
-        event.preventDefault(); // stop page scroll
-        handlePlayPause(); // play first song / toggle play-pause
+        event.preventDefault();
+        handlePlayPause();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [playlist, handlePlayPause]); // Dependencies updated to match Atif.jsx
+  }, [playlist, handlePlayPause]);
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
-      {/* Logic from Atif.jsx: Inline style block */}
       <style jsx="true">{`
         .spotify-header {
           background-image: linear-gradient(to bottom, #1db954, #121212);
@@ -130,7 +120,6 @@ const Himesh = () => {
         }
       `}</style>
 
-      {/* Header section (updated to use Atif.jsx style) */}
       <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
         <button
           onClick={goBack}
@@ -166,15 +155,13 @@ const Himesh = () => {
         </div>
       </div>
 
-      {/* Body section */}
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
         <div className="max-w-5xl mx-auto relative z-20">
           <div className="flex items-center mb-6">
             <button
-              onClick={handlePlayPause} // Logic from Atif.jsx
+              onClick={handlePlayPause} 
               className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
             >
-              {/* Logic from Atif.jsx: isPlaying check from context */}
               {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
@@ -190,7 +177,6 @@ const Himesh = () => {
             </button>
           </div>
 
-          {/* Logic from Atif.jsx: Added 'clear-bg-strip' */}
           <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip">
             <div>#</div>
             <div></div>
@@ -201,8 +187,7 @@ const Himesh = () => {
           {songs.map((song, idx) => (
             <div
               key={idx}
-              onClick={() => selectSong(idx)} // Logic from Atif.jsx
-              // Logic from Atif.jsx: Styling for active song
+              onClick={() => selectSong(idx)} 
               className={`grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-pointer transition duration-200 clear-bg-on-hover ${
                 playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? "clear-bg-active text-white"
@@ -210,7 +195,6 @@ const Himesh = () => {
               }`}
             >
               <div className="font-medium text-sm text-center">
-                {/* Logic from Atif.jsx: Check for active song */}
                 {playlist.length &&
                 playlist[currentSongIndex]?.name === song.name &&
                 isPlaying ? (

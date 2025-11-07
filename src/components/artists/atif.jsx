@@ -38,13 +38,15 @@ import TereBin from "../../assets/music/Tere_Bin.mp3";
 const formatTime = (sec) => {
   if (!sec) return "0:00";
   const minutes = Math.floor(sec / 60);
-  const seconds = Math.floor(sec % 60).toString().padStart(2, "0");
+  const seconds = Math.floor(sec % 60)
+    .toString()
+    .padStart(2, "0");
   return `${minutes}:${seconds}`;
 };
 
 const Atif = () => {
   const navigate = useNavigate();
-  
+
   const {
     playPlaylist,
     playPause,
@@ -58,20 +60,20 @@ const Atif = () => {
   } = useContext(PlayerContext);
 
   const songs = [
-    { name: "Dil mere na sune", path: DilMereNaSune, image: DilMereNaSuneImg, durationDisplay: "4:05" },
-    { name: "Tere sang yara", path: TereSangYara, image: TereSangYaraImg, durationDisplay: "4:12" },
-    { name: "Dil diya gallan", path: DilDiyanGallan, image: DilDiyanGallanImg, durationDisplay: "4:20" },
-    { name: "Tera hone laga hoon", path: TeraHoneLagaHoon, image: TeraHoneLagaHoonImg, durationDisplay: "4:18" },
-    { name: "Piya o re piya", path: PiyaORePiya, image: PiyaORePiyaImg, durationDisplay: "4:10" },
-    { name: "Tera hua", path: TeraHua, image: TeraHuaImg, durationDisplay: "3:58" },
-    { name: "O saathi", path: OSaathi, image: OSaathiImg, durationDisplay: "4:06" },
-    { name: "Jeena jeena", path: JeenaJeena, image: JeenaJeenaImg, durationDisplay: "3:45" },
-    { name: "Dekhte dekhte", path: DekhteDekhte, image: DekhteDekhteImg, durationDisplay: "4:00" },
-    { name: "Tu jaane na", path: TuJaaneNa, image: TuJaaneNaImg, durationDisplay: "4:15" },
-    { name: "Be intehaan", path: BeIntehaan, image: BeIntehaanImg, durationDisplay: "4:08" },
-    { name: "Tajdar e haram", path: TajdarEHaram, image: TajdarEHaramImg, durationDisplay: "5:02" },
-    { name: "Pehli dafa", path: PehliDafa, image: PehliDafaImg, durationDisplay: "4:11" },
-    { name: "Tere bin", path: TereBin, image: TereBinImg, durationDisplay: "4:07" },
+    { name: "Dil mere na sune", path: DilMereNaSune, image: DilMereNaSuneImg, durationDisplay: "4:05", artist: "Atif Aslam" },
+    { name: "Tere sang yara", path: TereSangYara, image: TereSangYaraImg, durationDisplay: "4:12", artist: "Atif Aslam" },
+    { name: "Dil diya gallan", path: DilDiyanGallan, image: DilDiyanGallanImg, durationDisplay: "4:20", artist: "Atif Aslam" },
+    { name: "Tera hone laga hoon", path: TeraHoneLagaHoon, image: TeraHoneLagaHoonImg, durationDisplay: "4:18", artist: "Atif Aslam, Alisha Chinai" },
+    { name: "Piya o re piya", path: PiyaORePiya, image: PiyaORePiyaImg, durationDisplay: "4:10", artist: "Atif Aslam, Shreya Ghoshal" },
+    { name: "Tera hua", path: TeraHua, image: TeraHuaImg, durationDisplay: "3:58", artist: "Atif Aslam" },
+    { name: "O saathi", path: OSaathi, image: OSaathiImg, durationDisplay: "4:06", artist: "Atif Aslam" },
+    { name: "Jeena jeena", path: JeenaJeena, image: JeenaJeenaImg, durationDisplay: "3:45", artist: "Atif Aslam" },
+    { name: "Dekhte dekhte", path: DekhteDekhte, image: DekhteDekhteImg, durationDisplay: "4:00", artist: "Atif Aslam" },
+    { name: "Tu jaane na", path: TuJaaneNa, image: TuJaaneNaImg, durationDisplay: "4:15", artist: "Atif Aslam" },
+    { name: "Be intehaan", path: BeIntehaan, image: BeIntehaanImg, durationDisplay: "4:08", artist: "Atif Aslam, Sunidhi Chauhan" },
+    { name: "Tajdar e haram", path: TajdarEHaram, image: TajdarEHaramImg, durationDisplay: "5:02", artist: "Atif Aslam" },
+    { name: "Pehli dafa", path: PehliDafa, image: PehliDafaImg, durationDisplay: "4:11", artist: "Atif Aslam" },
+    { name: "Tere bin", path: TereBin, image: TereBinImg, durationDisplay: "4:07", artist: "Atif Aslam" },
   ];
 
   const handlePlayPause = () => {
@@ -85,6 +87,7 @@ const Atif = () => {
 
   const selectSong = (index) => {
     playPlaylist(songs, index, true);
+    setMiniPlayerVisible(true);
   };
 
   const goBack = () => {
@@ -94,7 +97,7 @@ const Atif = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
-        event.preventDefault(); 
+        event.preventDefault();
         handlePlayPause();
       }
     };
@@ -133,7 +136,12 @@ const Atif = () => {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
           </svg>
         </button>
         <div className="flex items-end max-w-5xl mx-auto h-full px-6 pb-8">
@@ -159,12 +167,16 @@ const Atif = () => {
               onClick={handlePlayPause}
               className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
             >
-              {isPlaying ? (
+              {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
               ) : (
-                <svg className="w-8 h-8 pl-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 pl-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M8 5v14l11-7z" />
                 </svg>
               )}
@@ -192,9 +204,15 @@ const Atif = () => {
               }`}
             >
               <div className="font-medium text-sm text-center">
-                {playlist.length && playlist[currentSongIndex]?.name === song.name && isPlaying ? (
+                {playlist.length &&
+                playlist[currentSongIndex]?.name === song.name &&
+                isPlaying ? (
                   <span className="text-spotify-green">
-                    <svg className="w-4 h-4 mx-auto" fill="#1db954" viewBox="0 0 24 24">
+                    <svg
+                      className="w-4 h-4 mx-auto"
+                      fill="#1db954"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M7 19v-14h3v14h-3zm8 0V5h3v14h-3z" />
                     </svg>
                   </span>
@@ -202,13 +220,22 @@ const Atif = () => {
                   idx + 1
                 )}
               </div>
-              <img src={song.image} alt={song.name} className="w-12 h-12 object-cover rounded shadow-md" />
+              <img
+                src={song.image}
+                alt={song.name}
+                className="w-12 h-12 object-cover rounded shadow-md"
+              />
               <div className="flex flex-col truncate">
-                <span className="text-base font-semibold truncate">{song.name}</span>
-                <span className="text-sm font-light text-gray-400">Atif Aslam</span>
+                <span className="text-base font-semibold truncate">
+                  {song.name}
+                </span>
+                <span className="text-sm font-light text-gray-400">
+                  {song.artist}
+                </span>
               </div>
               <div className="text-right text-sm text-gray-400">
-                {playlist.length && playlist[currentSongIndex]?.name === song.name
+                {playlist.length &&
+                playlist[currentSongIndex]?.name === song.name
                   ? formatTime(duration)
                   : song.durationDisplay}
               </div>
