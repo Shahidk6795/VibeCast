@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Hyperspeed from "@/components/Hyperspeed";
 import ArtistModal from "@/components/ArtistModal";
+import { PlayerContext } from "../context/PlayerContext"
 
 import arijitImg from "../assets/images/arijit.jpeg";
 import yoYoImg from "../assets/images/yo_yo_honey.jpg";
@@ -61,6 +62,22 @@ const Home = () => {
   const navigate = useNavigate();
   const spotifyGreen = "#1db954";
 
+  const { playPause, playlist } = useContext(PlayerContext);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.code === "Space") {
+        event.preventDefault();
+        if (playlist && playlist.length > 0) {
+          playPause();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [playPause, playlist]);
+
   const handleArtistClick = (artist) => {
     setSelectedArtist(null);
     navigate(artist.path);
@@ -69,7 +86,12 @@ const Home = () => {
   return (
     <div className="relative w-full min-h-screen text-white overflow-x-hidden bg-black">
       <div className="fixed inset-0 z-0 bg-black">
-        <Hyperspeed intensity={1.0} colorShift={true} trailLength={80} speed={1.0} />
+        <Hyperspeed
+          intensity={1.0}
+          colorShift={true}
+          trailLength={80}
+          speed={1.0}
+        />
       </div>
 
       <div className="relative z-10 p-6 md:p-8 pt-4 min-h-screen pb-32">
@@ -124,7 +146,10 @@ const Home = () => {
       </div>
 
       {selectedArtist && (
-        <ArtistModal artist={selectedArtist} onClose={() => setSelectedArtist(null)} />
+        <ArtistModal
+          artist={selectedArtist}
+          onClose={() => setSelectedArtist(null)}
+        />
       )}
     </div>
   );
