@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from "react"; // Added useContext and useEffect
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
-import { PlayerContext } from "../../context/PlayerContext"; // Import context
+import { PlayerContext } from "../../context/PlayerContext";
 
-// Emiway Assets
 import emiwayImg from "../../assets/images/emiway.jpg";
 import FirseMachayengeImg from "../../assets/images/Firse_Machayenge.jpg";
 import CompanyImg from "../../assets/images/Company.jpg";
@@ -54,65 +53,61 @@ const Emiway = () => {
     playPause,
     isPlaying,
     currentSongIndex,
-    playlist, 
+    playlist,
     duration,
     progress,
     setMiniPlayerVisible,
   } = useContext(PlayerContext);
 
   const songs = [
-    { name: "Firse Machayenge", path: FirseMachayenge, image: FirseMachayengeImg, durationDisplay: "3:40" },
-    { name: "Company", path: Company, image: CompanyImg, durationDisplay: "3:32" },
-    { name: "Khatam Hue Waande", path: KhatamHueWaande, image: KhatamHueWaandeImg, durationDisplay: "3:55" },
-    { name: "Machayenge", path: Machayenge, image: MachayengeImg, durationDisplay: "3:50" },
-    { name: "Giraftaar", path: Giraftaar, image: GiraftaarImg, durationDisplay: "3:48" },
-    { name: "Grind", path: Grind, image: GrindImg, durationDisplay: "3:41" },
-    { name: "Boht Hard", path: BohtHard, image: BohtHardImg, durationDisplay: "4:00" },
-    { name: "Jump Kar", path: JumpKar, image: JumpKarImg, durationDisplay: "3:37" },
-    { name: "Mera Bhai Mera Bhai", path: MeraBhaiMeraBhai, image: MeraBhaiMeraBhaiImg, durationDisplay: "3:50" },
-    { name: "Still No.1", path: StillNo1, image: StillNo1Img, durationDisplay: "3:44" },
-    { name: "Guess", path: Guess, image: GuessImg, durationDisplay: "3:29" },
-    { name: "Dependent Kauve", path: DependentKauve, image: DependentKauveImg, durationDisplay: "3:51" },
-    { name: "King Of Indian Hip Hop", path: KingOfIndianHipHop, image: KingOfIndianHipHopImg, durationDisplay: "3:33" },
-    { name: "Samjh Me Aya Kya", path: SamjhMeAyaKya, image: SamjhMeAyaKyaImg, durationDisplay: "3:56" },
-    { name: "Kadak Ban", path: KadakBan, image: KadakBanImg, durationDisplay: "3:40" },
+    { name: "Firse Machayenge", path: FirseMachayenge, image: FirseMachayengeImg, durationDisplay: "3:40", artist: "Emiway Bantai" },
+    { name: "Company", path: Company, image: CompanyImg, durationDisplay: "3:32", artist: "Emiway Bantai" },
+    { name: "Khatam Hue Waande", path: KhatamHueWaande, image: KhatamHueWaandeImg, durationDisplay: "3:55", artist: "Emiway Bantai" },
+    { name: "Machayenge", path: Machayenge, image: MachayengeImg, durationDisplay: "3:50", artist: "Emiway Bantai" },
+    { name: "Giraftaar", path: Giraftaar, image: GiraftaarImg, durationDisplay: "3:48", artist: "Emiway Bantai ft. Raftaar" },
+    { name: "Grind", path: Grind, image: GrindImg, durationDisplay: "3:41", artist: "Emiway Bantai" },
+    { name: "Boht Hard", path: BohtHard, image: BohtHardImg, durationDisplay: "4:00", artist: "Emiway Bantai ft. Thoratt" },
+    { name: "Jump Kar", path: JumpKar, image: JumpKarImg, durationDisplay: "3:37", artist: "Emiway Bantai" },
+    { name: "Mera Bhai Mera Bhai", path: MeraBhaiMeraBhai, image: MeraBhaiMeraBhaiImg, durationDisplay: "3:50", artist: "Emiway Bantai & Shaikh Chilli" },
+    { name: "Still No.1", path: StillNo1, image: StillNo1Img, durationDisplay: "3:44", artist: "Emiway Bantai" },
+    { name: "Guess", path: Guess, image: GuessImg, durationDisplay: "3:29", artist: "Emiway Bantai" },
+    { name: "Dependent Kauve", path: DependentKauve, image: DependentKauveImg, durationDisplay: "3:51", artist: "Emiway Bantai" },
+    { name: "King Of Indian Hip Hop", path: KingOfIndianHipHop, image: KingOfIndianHipHopImg, durationDisplay: "3:33", artist: "Emiway Bantai" },
+    { name: "Samjh Me Aya Kya", path: SamjhMeAyaKya, image: SamjhMeAyaKyaImg, durationDisplay: "3:56", artist: "Emiway Bantai" },
+    { name: "Kadak Ban", path: KadakBan, image: KadakBanImg, durationDisplay: "3:40", artist: "Emiway Bantai" },
   ];
 
   const handlePlayPause = () => {
     if (!playlist.length || playlist[0].name !== songs[0].name) {
-      playPlaylist(songs, 0); 
+      playPlaylist(songs, 0);
     } else {
-      playPause(); // Otherwise, just toggle play/pause
+      playPause();
     }
     setMiniPlayerVisible(true);
   };
 
-  // Logic from Atif.jsx: selectSong logic
   const selectSong = (index) => {
-    playPlaylist(songs, index, true); // Play the selected song from this playlist
+    playPlaylist(songs, index, true);
     setMiniPlayerVisible(true);
   };
 
-  // Logic from Atif.jsx: Simplified goBack function
   const goBack = () => {
     navigate("/");
   };
 
-  // Logic from Atif.jsx: Spacebar useEffect
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
-        event.preventDefault(); // stop page scroll
-        handlePlayPause(); // play first song / toggle play-pause
+        event.preventDefault();
+        handlePlayPause();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [playlist, handlePlayPause]); // Dependencies updated to match Atif.jsx
+  }, [playlist, handlePlayPause]);
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
-      {/* Logic from Atif.jsx: Inline style block */}
       <style jsx="true">{`
         .spotify-header {
           background-image: linear-gradient(to bottom, #1db954, #121212);
@@ -131,7 +126,6 @@ const Emiway = () => {
         }
       `}</style>
 
-      {/* Header section (updated to use Atif.jsx style) */}
       <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
         <button
           onClick={goBack}
@@ -167,21 +161,23 @@ const Emiway = () => {
         </div>
       </div>
 
-      {/* Body section */}
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
         <div className="max-w-5xl mx-auto relative z-20">
           <div className="flex items-center mb-6">
             <button
-              onClick={handlePlayPause} // Logic from Atif.jsx
+              onClick={handlePlayPause}
               className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
             >
-              {/* Logic from Atif.jsx: isPlaying check from context */}
-              {isPlaying && playlist.length && playlist[currentSongIndex]?.name === songs[currentSongIndex]?.name ? (
+              {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
               ) : (
-                <svg className="w-8 h-8 pl-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 pl-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M8 5v14l11-7z" />
                 </svg>
               )}
@@ -191,7 +187,6 @@ const Emiway = () => {
             </button>
           </div>
 
-          {/* Logic from Atif.jsx: Added 'clear-bg-strip' */}
           <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip">
             <div>#</div>
             <div></div>
@@ -199,12 +194,10 @@ const Emiway = () => {
             <div className="text-right">Time</div>
           </div>
 
-          {/* Use local 'songs' array for mapping */}
           {songs.map((song, idx) => (
             <div
               key={idx}
-              onClick={() => selectSong(idx)} // Logic from Atif.jsx
-              // Logic from Atif.jsx: Styling for active song
+              onClick={() => selectSong(idx)}
               className={`grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-pointer transition duration-200 clear-bg-on-hover ${
                 playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? "clear-bg-active text-white"
@@ -212,12 +205,15 @@ const Emiway = () => {
               }`}
             >
               <div className="font-medium text-sm text-center">
-                {/* Logic from Atif.jsx: Check for active song */}
                 {playlist.length &&
                 playlist[currentSongIndex]?.name === song.name &&
                 isPlaying ? (
                   <span className="text-spotify-green">
-                    <svg className="w-4 h-4 mx-auto" fill="#1db954" viewBox="0 0 24 24">
+                    <svg
+                      className="w-4 h-4 mx-auto"
+                      fill="#1db954"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M7 19v-14h3v14h-3zm8 0V5h3v14h-3z" />
                     </svg>
                   </span>
@@ -231,12 +227,16 @@ const Emiway = () => {
                 className="w-12 h-12 object-cover rounded shadow-md"
               />
               <div className="flex flex-col truncate">
-                <span className="text-base font-semibold truncate">{song.name}</span>
-                <span className="text-sm font-light text-gray-400">Emiway Bantai</span>
+                <span className="text-base font-semibold truncate">
+                  {song.name}
+                </span>
+                <span className="text-sm font-light text-gray-400">
+                  {song.artist}
+                </span>
               </div>
               <div className="text-right text-sm text-gray-400">
-                {/* Logic from Atif.jsx: Check for active song duration */}
-                {playlist.length && playlist[currentSongIndex]?.name === song.name
+                {playlist.length &&
+                playlist[currentSongIndex]?.name === song.name
                   ? formatTime(duration)
                   : song.durationDisplay}
               </div>
@@ -244,8 +244,6 @@ const Emiway = () => {
           ))}
         </div>
       </div>
-
-      {/* The local mini-player is REMOVED, as this logic is now handled globally by the context */}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "@/index.css";
-import { PlayerContext } from "../../context/PlayerContext"; 
+import { PlayerContext } from "../../context/PlayerContext";
 
 import himeshImg from "../../assets/images/himesh.jpeg";
 import DilKeTajImg from "../../assets/images/Dil_Ke_Taj.jpg";
@@ -56,19 +56,19 @@ const Himesh = () => {
   } = useContext(PlayerContext);
 
   const songs = [
-    { name: "Dil ke taj mehal me", path: DilKeTaj, image: DilKeTajImg, durationDisplay: "4:05" },
-    { name: "Tera chehra", path: TeraChehra, image: TeraChehraImg, durationDisplay: "3:50" },
-    { name: "Sanam tere kasam", path: SanamTereKasam, image: SanamTereKasamImg, durationDisplay: "4:10" },
-    { name: "Tera fitoor", path: TeraFitoor, image: TeraFitoorImg, durationDisplay: "3:55" },
-    { name: "Hookah bar", path: HookahBar, image: HookahBarImg, durationDisplay: "3:45" },
-    { name: "Jhalak dikh la ja", path: JhalakDikhLaJa, image: JhalakDikhLaJaImg, durationDisplay: "3:35" },
-    { name: "Tuzhe bhol jana", path: TuzheBholJana, image: TuzheBholJanaImg, durationDisplay: "4:00" },
-    { name: "Samjho na kuch", path: SamjhoNaKuch, image: SamjhoNaKuchImg, durationDisplay: "3:40" },
-    { name: "Aap ke kashish", path: AapKeKashish, image: AapKeKashishImg, durationDisplay: "3:55" },
-    { name: "Ek haseena thee", path: EkHaseenaThee, image: EkHaseenaTheeImg, durationDisplay: "3:50" },
-    { name: "Tere pyaar mein", path: TerePyaarMein, image: TerePyaarMeinImg, durationDisplay: "4:15" },
-    { name: "Ashiq banaya", path: AshiqBanaya, image: AshiqBanayaImg, durationDisplay: "3:45" },
-    { name: "Naam hai tera mera", path: NaamHaiTeraMera, image: NaamHaiTeraMeraImg, durationDisplay: "4:00" },
+    { name: "Dil ke taj mehal me", path: DilKeTaj, image: DilKeTajImg, durationDisplay: "4:05", artist: "Himesh Reshammiya" },
+    { name: "Tera chehra", path: TeraChehra, image: TeraChehraImg, durationDisplay: "3:50", artist: "Himesh Reshammiya" },
+    { name: "Sanam tere kasam", path: SanamTereKasam, image: SanamTereKasamImg, durationDisplay: "4:10", artist: "Himesh Reshammiya, Ankit Tiwari" },
+    { name: "Tera fitoor", path: TeraFitoor, image: TeraFitoorImg, durationDisplay: "3:55", artist: "Arijit Singh,Himesh Reshammiya" },
+    { name: "Hookah bar", path: HookahBar, image: HookahBarImg, durationDisplay: "3:45", artist: "Himesh Reshammiya, Yo Yo Honey Singh, Shalmali Kholgade" },
+    { name: "Jhalak dikh la ja", path: JhalakDikhLaJa, image: JhalakDikhLaJaImg, durationDisplay: "3:35", artist: "Himesh Reshammiya" },
+    { name: "Tuzhe bhol jana", path: TuzheBholJana, image: TuzheBholJanaImg, durationDisplay: "4:00", artist: "Himesh Reshammiya" },
+    { name: "Samjho na kuch", path: SamjhoNaKuch, image: SamjhoNaKuchImg, durationDisplay: "3:40", artist: "Himesh Reshammiya" },
+    { name: "Aap ke kashish", path: AapKeKashish, image: AapKeKashishImg, durationDisplay: "3:55", artist: "Himesh Reshammiya" },
+    { name: "Ek haseena thee", path: EkHaseenaThee, image: EkHaseenaTheeImg, durationDisplay: "3:50", artist: "Himesh Reshammiya, Shreya Ghoshal" },
+    { name: "Tere pyaar mein", path: TerePyaarMein, image: TerePyaarMeinImg, durationDisplay: "4:15", artist: "Himesh Reshammiya" },
+    { name: "Ashiq banaya", path: AshiqBanaya, image: AshiqBanayaImg, durationDisplay: "3:45", artist: "Himesh Reshammiya, Shreya Ghoshal" },
+    { name: "Naam hai tera mera", path: NaamHaiTeraMera, image: NaamHaiTeraMeraImg, durationDisplay: "4:00", artist: "Himesh Reshammiya" },
   ];
 
   const handlePlayPause = () => {
@@ -159,7 +159,7 @@ const Himesh = () => {
         <div className="max-w-5xl mx-auto relative z-20">
           <div className="flex items-center mb-6">
             <button
-              onClick={handlePlayPause} 
+              onClick={handlePlayPause}
               className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
             >
               {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
@@ -167,7 +167,11 @@ const Himesh = () => {
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
               ) : (
-                <svg className="w-8 h-8 pl-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 pl-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M8 5v14l11-7z" />
                 </svg>
               )}
@@ -187,7 +191,7 @@ const Himesh = () => {
           {songs.map((song, idx) => (
             <div
               key={idx}
-              onClick={() => selectSong(idx)} 
+              onClick={() => selectSong(idx)}
               className={`grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-pointer transition duration-200 clear-bg-on-hover ${
                 playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? "clear-bg-active text-white"
@@ -199,7 +203,11 @@ const Himesh = () => {
                 playlist[currentSongIndex]?.name === song.name &&
                 isPlaying ? (
                   <span className="text-spotify-green">
-                    <svg className="w-4 h-4 mx-auto" fill="#1db954" viewBox="0 0 24 24">
+                    <svg
+                      className="w-4 h-4 mx-auto"
+                      fill="#1db954"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M7 19v-14h3v14h-3zm8 0V5h3v14h-3z" />
                     </svg>
                   </span>
@@ -213,11 +221,16 @@ const Himesh = () => {
                 className="w-12 h-12 object-cover rounded shadow-md"
               />
               <div className="flex flex-col truncate">
-                <span className="text-base font-semibold truncate">{song.name}</span>
-                <span className="text-sm font-light text-gray-400">Himesh</span>
+                <span className="text-base font-semibold truncate">
+                  {song.name}
+                </span>
+                <span className="text-sm font-light text-gray-400">
+                  {song.artist}
+                </span>
               </div>
               <div className="text-right text-sm text-gray-400">
-                {playlist.length && playlist[currentSongIndex]?.name === song.name
+                {playlist.length &&
+                playlist[currentSongIndex]?.name === song.name
                   ? formatTime(duration)
                   : song.durationDisplay}
               </div>
@@ -225,7 +238,6 @@ const Himesh = () => {
           ))}
         </div>
       </div>
-
     </div>
   );
 };
