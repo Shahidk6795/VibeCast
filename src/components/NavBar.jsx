@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Added useEffect
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Moon, Sun, Search, User, Music, Home } from "lucide-react";
 import logo from "../assets/logo.png";
@@ -8,27 +8,19 @@ const Navbar = ({ darkMode, toggleTheme }) => {
   const location = useLocation();
   const [query, setQuery] = useState("");
 
-  // --- NEW: Sync URL query with search bar state ---
   useEffect(() => {
-    // Get search params from the URL
     const params = new URLSearchParams(location.search);
     const urlQuery = params.get("query");
 
-    // Get the current path
     const currentPath = location.pathname;
 
     if (currentPath === "/search" && urlQuery) {
-      // If we are on the search page, set the bar to match the URL
       setQuery(urlQuery);
     } else if (currentPath !== "/search") {
-      // If we are on any OTHER page, clear the search bar.
       setQuery("");
     }
-    // This effect runs every time the location (URL) changes.
   }, [location]);
-  // --- END OF NEW ---
 
-  // Extracted search logic into its own function
   const submitSearch = () => {
     if (query.trim()) {
       navigate(`/search?query=${query}`);
@@ -103,21 +95,17 @@ const Navbar = ({ darkMode, toggleTheme }) => {
             </button>
           </nav>
 
-          {/* --- UPDATED SEARCH BAR --- */}
           <div className="relative flex-1 mx-6 min-w-0">
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={handleSearchKeyDown} // Renamed handler
+              onKeyDown={handleSearchKeyDown}
               placeholder="Search artists, or podcasts..."
-              // Added padding-right for the new button
               className="w-full pl-11 pr-11 h-10 sm:h-11 rounded-full bg-black/40 backdrop-blur-md text-white placeholder-gray-400 focus:ring-2 focus:ring-pink-500 focus:outline-none text-sm sm:text-base shadow-inner hover:shadow-pink-500/20 transition-all"
             />
-            {/* This is the visual-only icon on the left */}
             <Search className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
 
-            {/* This is the new CLICKABLE search button on the right */}
             <button
               onClick={submitSearch}
               aria-label="Submit search"
@@ -126,7 +114,6 @@ const Navbar = ({ darkMode, toggleTheme }) => {
               <Search className="w-5 h-5" />
             </button>
           </div>
-          {/* --- END OF UPDATES --- */}
 
           <div className="flex items-center gap-3">
             <button
