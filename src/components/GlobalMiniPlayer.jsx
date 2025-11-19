@@ -11,10 +11,9 @@ const GlobalMiniPlayer = () => {
     prevSong,
     progress,
     duration,
-    miniPlayerVisible, // This is not used in the JSX, but kept from your code
+    miniPlayerVisible,
   } = useContext(PlayerContext);
 
-  // ✅ Fix 1: Ensure window focuses when mini player becomes visible (so space works instantly)
   useEffect(() => {
     if (miniPlayerVisible && playlist.length) {
       window.focus();
@@ -32,12 +31,10 @@ const GlobalMiniPlayer = () => {
     return `${minutes}:${seconds}`;
   };
 
-  // Get the current song object to avoid repeating playlist[currentSongIndex]
   const currentSong = playlist[currentSongIndex];
 
   return (
     <div className="fixed bottom-0 left-0 right-0 h-24 bg-gray-900/95 backdrop-blur-md z-50 flex items-center justify-between px-6 shadow-2xl border-t border-gray-800">
-      {/* Left: Song Info */}
       <div className="flex items-center w-1/4 min-w-[200px]">
         <img
           src={currentSong.image}
@@ -54,10 +51,8 @@ const GlobalMiniPlayer = () => {
         </div>
       </div>
 
-      {/* Center: Controls + Progress */}
       <div className="flex flex-col items-center w-1/2 max-w-lg">
         <div className="flex gap-6 mb-1 items-center">
-          {/* Prev Button */}
           <button
             onClick={prevSong}
             className="text-gray-300 hover:text-white transition"
@@ -67,7 +62,6 @@ const GlobalMiniPlayer = () => {
             </svg>
           </button>
 
-          {/* ✅ Spotify Green Play/Pause Button */}
           <button
             onClick={playPause}
             className="w-10 h-10 rounded-full bg-[#1db954] text-black flex items-center justify-center hover:scale-105 transition-transform shadow-lg"
@@ -83,7 +77,6 @@ const GlobalMiniPlayer = () => {
             )}
           </button>
 
-          {/* Next Button */}
           <button
             onClick={nextSong}
             className="text-gray-300 hover:text-white transition"
@@ -94,20 +87,18 @@ const GlobalMiniPlayer = () => {
           </button>
         </div>
 
-        {/* Progress Bar */}
         <div className="w-full flex items-center gap-2 text-xs text-gray-400">
           <span>{formatTime(progress)}</span>
           <div className="w-full h-1 bg-gray-700 rounded-full">
             <div
               className="h-1 bg-[#1db954] rounded-full"
-              style={{ width: `${(progress / (duration || 1)) * 100}%` }} // Added || 1 to prevent NaN
+              style={{ width: `${(progress / (duration || 1)) * 100}%` }}
             ></div>
           </div>
           <span>{formatTime(duration)}</span>
         </div>
       </div>
 
-      {/* Right: Empty Placeholder (for future volume / queue) */}
       <div className="w-1/4 flex justify-end items-center pr-4"></div>
     </div>
   );

@@ -12,7 +12,7 @@ import Atif from "./components/artists/atif";
 import SearchResults from "./pages/SearchResults";
 
 import GlobalMiniPlayer from "./components/GlobalMiniPlayer";
-import { PlayerProvider } from "./context/PlayerContext"; // ✅ fixed
+import { PlayerProvider } from "./context/PlayerContext";
 
 function App() {
   return (

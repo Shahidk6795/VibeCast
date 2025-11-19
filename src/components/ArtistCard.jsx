@@ -10,7 +10,6 @@ const ArtistCard = ({ artist }) => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // When song ends, play next one
     audio.onended = () => {
       const nextIndex = (currentSongIndex + 1) % artist.songs.length;
       setCurrentSongIndex(nextIndex);
@@ -52,7 +51,6 @@ const ArtistCard = ({ artist }) => {
       />
       <span className="text-white/90 font-medium mb-2">{artist.name}</span>
       
-      {/* Play All Button */}
       <button
         onClick={handlePlayAll}
         className="px-4 py-1 bg-cyan-500 rounded-lg text-white text-sm hover:scale-105 transition-transform mb-2"
@@ -60,7 +58,6 @@ const ArtistCard = ({ artist }) => {
         {isPlaying ? "Pause All" : "Play All"}
       </button>
 
-      {/* Toggle Playlist */}
       <button
         onClick={() => setShowPlaylist(!showPlaylist)}
         className="text-white/70 text-xs hover:underline mb-2"
@@ -68,7 +65,6 @@ const ArtistCard = ({ artist }) => {
         {showPlaylist ? "Hide Playlist" : "Show Playlist"}
       </button>
 
-      {/* Playlist */}
       {showPlaylist && (
         <div className="flex flex-col gap-1 w-full max-h-40 overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-500 scrollbar-track-black/20">
           {artist.songs.map((song, idx) => (
