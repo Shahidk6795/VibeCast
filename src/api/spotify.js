@@ -1,8 +1,8 @@
 import fetch from "node-fetch";
 
 export default async function handler(req, res) {
-  const clientId = process.env.SPOTIFY_CLIENT_ID;      // ⚡ Use environment variable
-  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET; // ⚡ Use environment variable
+  const clientId = process.env.SPOTIFY_CLIENT_ID;      
+  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET; 
   const playlistId = "0cjltBetmIjATWCy91wmXq";
 
   const auth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
