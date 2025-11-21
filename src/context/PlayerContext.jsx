@@ -12,22 +12,17 @@ export const PlayerProvider = ({ children }) => {
 
   const audioRef = useRef(new Audio());
 
-  // --- Centralized Logic ---
 
-  // 1. This effect loads the song when the playlist or index changes
   useEffect(() => {
     if (playlist.length > 0 && playlist[currentSongIndex]) {
       const song = playlist[currentSongIndex];
       audioRef.current.src = song.path;
-      // We don't play here, we just load
     }
   }, [playlist, currentSongIndex]);
 
-  // 2. This effect handles playing or pausing when `isPlaying` state changes
   useEffect(() => {
     const audio = audioRef.current;
     if (isPlaying) {
-      // We wait for the 'canplay' event to ensure the song is ready
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch(e => console.error("Audio playback failed:", e));
@@ -35,14 +30,13 @@ export const PlayerProvider = ({ children }) => {
     } else {
       audio.pause();
     }
-  }, [isPlaying, playlist, currentSongIndex]); // Re-run if song changes while playing
+  }, [isPlaying, playlist, currentSongIndex]);
 
-  // 3. This effect handles audio event listeners (progress, duration, ending)
   const nextSong = useCallback(() => {
     if (!playlist.length) return;
     const nextIndex = (currentSongIndex + 1) % playlist.length;
     setCurrentSongIndex(nextIndex);
-    setIsPlaying(true); // Always play on next
+    setIsPlaying(true);
   }, [playlist, currentSongIndex]);
 
   useEffect(() => {
@@ -53,30 +47,26 @@ export const PlayerProvider = ({ children }) => {
 
     audio.addEventListener("timeupdate", updateProgress);
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-    audio.addEventListener("ended", nextSong); // Call the 'nextSong' function
+    audio.addEventListener("ended", nextSong);
 
     return () => {
       audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audio.removeEventListener("ended", nextSong);
     };
-  }, [nextSong]); // Only re-attach if nextSong function changes
+  }, [nextSong]);
 
-  // --- Player Control Functions ---
 
-  // ✅ This function now *only* sets the state.
-  // The useEffects above will handle the rest.
-  const playPlaylist = (songs, startIndex, autoPlay = true) => { // <-- Default to TRUE
+
+  const playPlaylist = (songs, startIndex, autoPlay = true) => {
     setPlaylist(songs);
     setCurrentSongIndex(startIndex);
-    setIsPlaying(autoPlay); // Set the *intent* to play
+    setIsPlaying(autoPlay);
     setMiniPlayerVisible(true);
   };
 
-  // ✅ This function just toggles the isPlaying state.
   const playPause = () => {
     if (!audioRef.current.src) {
-      // If no song is loaded, play the first from the current list
       if (playlist.length > 0) {
         setIsPlaying(true);
       }
@@ -89,7 +79,7 @@ export const PlayerProvider = ({ children }) => {
     if (!playlist.length) return;
     const prevIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
     setCurrentSongIndex(prevIndex);
-    setIsPlaying(true); // Always play on prev
+    setIsPlaying(true);
   };
 
   return (
@@ -103,7 +93,7 @@ export const PlayerProvider = ({ children }) => {
         progress,
         playPlaylist,
         playPause,
-        nextSong, // 'nextSong' is now consistent
+        nextSong,
         prevSong,
         setMiniPlayerVisible,
       }}
