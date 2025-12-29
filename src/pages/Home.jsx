@@ -24,6 +24,7 @@ import travisImg from "../assets/images/travis.jpeg";
 import krsnaImg from "../assets/images/krsna.jpg";
 import emiwayImg from "../assets/images/emiway.jpg";
 import atifImg from "../assets/images/atif.jpg";
+import brunoImg from "../assets/images/bruno_mars.jpeg";
 
 const artists = [
   { name: "Arijit Singh", image: arijitImg, path: "/artist/arijit" },
@@ -45,6 +46,7 @@ const artists = [
   { name: "Krsna", image: krsnaImg, path: "/artist/krsna" },
   { name: "Emiway Bantai", image: emiwayImg, path: "/artist/emiway" },
   { name: "Atif Aslam", image: atifImg, path: "/artist/atif" },
+  { name: "Bruno Mars", image: brunoImg, path: "/artist/bruno" },
 ];
 
 const categories = [
@@ -52,7 +54,7 @@ const categories = [
   { title: "Your Top Artists", artists: artists.slice(6, 12), type: "artist" },
   {
     title: "Recommended Playlists",
-    artists: artists.slice(12, 19).concat(artists.slice(0, 2)),
+    artists: artists.slice(12, 20).concat(artists.slice(0, 2)),
     type: "artist",
   },
 ];

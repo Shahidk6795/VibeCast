@@ -13,6 +13,7 @@ import SearchResults from "./pages/SearchResults";
 
 import GlobalMiniPlayer from "./components/GlobalMiniPlayer";
 import { PlayerProvider } from "./context/PlayerContext";
+import BrunoMars from "./components/artists/bruno";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/artist/krsna" element={<Krsna />} />
           <Route path="/artist/emiway" element={<Emiway />} />
           <Route path="/artist/atif" element={<Atif />} />
+          <Route path="/artist/bruno" element={<BrunoMars />} />
         </Routes>
         <GlobalMiniPlayer />
       </BrowserRouter>
