@@ -15,6 +15,7 @@ import GlobalMiniPlayer from "./components/GlobalMiniPlayer";
 import { PlayerProvider } from "./context/PlayerContext";
 import BrunoMars from "./components/artists/bruno";
 import BadBunny from "./components/artists/bunny";
+import AnuvJain from "./components/artists/anuv";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/artist/atif" element={<Atif />} />
           <Route path="/artist/bruno" element={<BrunoMars />} />
           <Route path="/artist/badbunny" element={<BadBunny />} />
+          <Route path="/artist/anuv" element={<AnuvJain />} />
         </Routes>
         <GlobalMiniPlayer />
       </BrowserRouter>
