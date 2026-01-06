@@ -115,7 +115,6 @@ const ShreyaGhoshal = () => {
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
       <style jsx="true">{`
         .spotify-header {
-          /* Rose Gold / Pink for Shreya Ghoshal */
           background-image: linear-gradient(to bottom, #ec4899, #121212);
         }
         .spotify-green {
