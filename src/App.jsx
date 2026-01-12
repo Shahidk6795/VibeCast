@@ -17,6 +17,7 @@ import BrunoMars from "./components/artists/bruno";
 import BadBunny from "./components/artists/bunny";
 import AnuvJain from "./components/artists/anuv";
 import ShreyaGhoshal from "./components/artists/shreya";
+import Eminem from "./components/artists/eminem";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/artist/badbunny" element={<BadBunny />} />
           <Route path="/artist/anuv" element={<AnuvJain />} />
           <Route path="/artist/shreya" element={<ShreyaGhoshal />} />
+          <Route path="/artist/eminem" element={<Eminem />} />
         </Routes>
         <GlobalMiniPlayer />
       </BrowserRouter>
