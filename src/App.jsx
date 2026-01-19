@@ -23,6 +23,7 @@ import TravisScott from "./components/artists/travis";
 import TheWeeknd from "./components/artists/weekend";
 import BillieEilish from "./components/artists/billieeilish";
 import EdSheeran from "./components/artists/edsheeran";
+import Drake from "./components/artists/drake";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/artist/weeknd" element={<TheWeeknd />} />
           <Route path="/artist/billie" element={<BillieEilish />} />
           <Route path="/artist/ed" element={<EdSheeran />} />
+          <Route path="/artist/drake" element={<Drake />} />
         </Routes>
         <GlobalMiniPlayer />
       </BrowserRouter>
