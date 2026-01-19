@@ -1,6 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
+import SearchResults from "./pages/SearchResults";
+
+import Artists from "./components/Artist";
+import Trending from "./components/Trending";
+
 import Arijit from "./components/artists/arjit";
 import YoYoHoney from "./components/artists/yo-yo-honey";
 import KaranAujla from "./components/artists/karan";
@@ -9,10 +14,6 @@ import Himesh from "./components/artists/himesh";
 import Krsna from "./components/artists/krsna";
 import Emiway from "./components/artists/emiway";
 import Atif from "./components/artists/atif";
-import SearchResults from "./pages/SearchResults";
-
-import GlobalMiniPlayer from "./components/GlobalMiniPlayer";
-import { PlayerProvider } from "./context/PlayerContext";
 import BrunoMars from "./components/artists/bruno";
 import BadBunny from "./components/artists/bunny";
 import AnuvJain from "./components/artists/anuv";
@@ -25,6 +26,9 @@ import BillieEilish from "./components/artists/billieeilish";
 import EdSheeran from "./components/artists/edsheeran";
 import Drake from "./components/artists/drake";
 
+import GlobalMiniPlayer from "./components/GlobalMiniPlayer";
+import { PlayerProvider } from "./context/PlayerContext";
+
 function App() {
   return (
     <PlayerProvider>
@@ -33,6 +37,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
+
+          <Route path="/artists" element={<Artists />} />
+          <Route path="/trending" element={<Trending />} />
+
           <Route path="/artist/arijit" element={<Arijit />} />
           <Route path="/artist/yo-yo-honey" element={<YoYoHoney />} />
           <Route path="/artist/karan" element={<KaranAujla />} />

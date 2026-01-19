@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Hyperspeed from "@/components/Hyperspeed";
 import ArtistModal from "@/components/ArtistModal";
-import { PlayerContext } from "../context/PlayerContext"
+import { PlayerContext } from "../context/PlayerContext";
+import { Play } from "lucide-react";
 
 import arijitImg from "../assets/images/arijit.jpeg";
 import yoYoImg from "../assets/images/yo_yo_honey.jpg";
@@ -62,8 +63,6 @@ const categories = [
 const Home = () => {
   const [selectedArtist, setSelectedArtist] = useState(null);
   const navigate = useNavigate();
-  const spotifyGreen = "#1db954";
-
   const { playPause, playlist } = useContext(PlayerContext);
 
   useEffect(() => {
@@ -75,7 +74,6 @@ const Home = () => {
         }
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [playPause, playlist]);
@@ -98,9 +96,7 @@ const Home = () => {
 
       <div className="relative z-10 p-6 md:p-8 pt-4 min-h-screen pb-32">
         <header className="mb-8 pt-4 bg-black/30 p-4 -mx-6 md:-mx-8 border-b border-white/10 backdrop-blur-md">
-          <h1
-            className="text-4xl md:text-5xl font-extrabold px-2 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-green-400 drop-shadow-[0_0_8px_#1db954]"
-          >
+          <h1 className="text-4xl md:text-5xl font-extrabold px-2 bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-green-400 drop-shadow-[0_0_8px_#1db954]">
             Welcome to VibeCast
           </h1>
           <p className="text-gray-400 mt-2 ml-2 italic">
@@ -110,30 +106,38 @@ const Home = () => {
 
         {categories.map((category, index) => (
           <section key={index} className="mb-10 overflow-hidden relative">
-            <h2
-              className="text-2xl font-bold mb-4 hover:underline text-[#1db954] transition-colors duration-300"
-            >
+            <h2 className="text-2xl font-bold mb-4 hover:underline text-[#1db954] transition-colors duration-300">
               {category.title}
             </h2>
 
             <div className="ticker-wrapper relative overflow-hidden group mask-gradient">
-              <div className="ticker-content flex space-x-6 animate-ticker group-hover:pause-animation">
+              <div className="ticker-content flex space-x-6 animate-ticker">
                 {category.artists.concat(category.artists).map((artist, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleArtistClick(artist)}
-                    className="flex flex-col p-3 sm:p-4 w-32 sm:w-44 rounded-xl shadow-2xl border-2 border-[#1db954] bg-[rgba(18,18,18,0.6)] flex-shrink-0 cursor-pointer transform hover:scale-110 transition-all duration-300 hover:shadow-[0_0_25px_rgba(29,185,84,0.9)] hover:-translate-y-1"
+                    className="group/card relative flex flex-col p-3 sm:p-4 w-32 sm:w-44 rounded-xl shadow-2xl border-2 border-transparent hover:border-[#1db954] bg-[#181818]/80 hover:bg-[#282828] flex-shrink-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm"
                   >
-                    <img
-                      src={artist.image}
-                      alt={artist.name}
-                      className="w-full aspect-square object-cover rounded-full shadow-xl"
-                    />
-                    <div className="mt-3 text-center">
-                      <p className="text-sm sm:text-base font-semibold text-white truncate">
+                    <div className="relative w-full aspect-square mb-3 shadow-lg rounded-full overflow-hidden">
+                      <img
+                        src={artist.image}
+                        alt={artist.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110"
+                      />
+                      
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#1db954] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform translate-y-2 group-hover/card:translate-y-0 duration-300">
+                          <Play className="w-5 h-5 sm:w-6 sm:h-6 text-black fill-current ml-1" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-center z-10">
+                      <p className="text-sm sm:text-base font-bold text-white truncate group-hover/card:text-[#1db954] transition-colors">
                         {artist.name}
                       </p>
-                      <p className="text-xs sm:text-sm text-gray-400 truncate capitalize">
+                      <p className="text-xs sm:text-sm text-gray-400 truncate capitalize mt-1">
                         {category.type}
                       </p>
                     </div>
