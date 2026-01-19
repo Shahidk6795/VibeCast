@@ -21,6 +21,7 @@ import Eminem from "./components/artists/eminem";
 import GuruRandhawa from "./components/artists/guru";
 import TravisScott from "./components/artists/travis";
 import TheWeeknd from "./components/artists/weekend";
+import BillieEilish from "./components/artists/billieeilish";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/artist/guru" element={<GuruRandhawa />} />
           <Route path="/artist/travis" element={<TravisScott />} />
           <Route path="/artist/weeknd" element={<TheWeeknd />} />
+          <Route path="/artist/billie" element={<BillieEilish />} />
         </Routes>
         <GlobalMiniPlayer />
       </BrowserRouter>
