@@ -9,9 +9,10 @@ export const PlayerProvider = ({ children }) => {
   const [miniPlayerVisible, setMiniPlayerVisible] = useState(false);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
+  
+  const [isShuffle, setIsShuffle] = useState(false);
 
   const audioRef = useRef(new Audio());
-
 
   useEffect(() => {
     if (playlist.length > 0 && playlist[currentSongIndex]) {
@@ -34,10 +35,24 @@ export const PlayerProvider = ({ children }) => {
 
   const nextSong = useCallback(() => {
     if (!playlist.length) return;
-    const nextIndex = (currentSongIndex + 1) % playlist.length;
+
+    let nextIndex;
+
+    if (isShuffle) {
+      if (playlist.length === 1) {
+        nextIndex = 0;
+      } else {
+        do {
+          nextIndex = Math.floor(Math.random() * playlist.length);
+        } while (nextIndex === currentSongIndex);
+      }
+    } else {
+      nextIndex = (currentSongIndex + 1) % playlist.length;
+    }
+
     setCurrentSongIndex(nextIndex);
     setIsPlaying(true);
-  }, [playlist, currentSongIndex]);
+  }, [playlist, currentSongIndex, isShuffle]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -55,8 +70,6 @@ export const PlayerProvider = ({ children }) => {
       audio.removeEventListener("ended", nextSong);
     };
   }, [nextSong]);
-
-
 
   const playPlaylist = (songs, startIndex, autoPlay = true) => {
     setPlaylist(songs);
@@ -82,6 +95,10 @@ export const PlayerProvider = ({ children }) => {
     setIsPlaying(true);
   };
 
+  const toggleShuffle = () => {
+    setIsShuffle((prev) => !prev);
+  };
+
   return (
     <PlayerContext.Provider
       value={{
@@ -96,6 +113,8 @@ export const PlayerProvider = ({ children }) => {
         nextSong,
         prevSong,
         setMiniPlayerVisible,
+        isShuffle, 
+        toggleShuffle, 
       }}
     >
       {children}
