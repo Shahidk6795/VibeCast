@@ -3,34 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "@/index.css";
 import { PlayerContext } from "../../context/PlayerContext";
 
-import himeshImg from "../../assets/images/himesh.jpeg";
-import DilKeTajImg from "../../assets/images/Dil_Ke_Taj.jpg";
-import TeraChehraImg from "../../assets/images/Tera_Chehra.jpg";
-import SanamTereKasamImg from "../../assets/images/Sanam_Tere_Kasam.jpg";
-import TeraFitoorImg from "../../assets/images/Tera_Fitoor.jpg";
-import HookahBarImg from "../../assets/images/Hookah_Bar.jpg";
-import JhalakDikhLaJaImg from "../../assets/images/Jhalak_Dikh_La_Ja.jpg";
-import TuzheBholJanaImg from "../../assets/images/Tuzhe_Bhol_Jana.jpg";
-import SamjhoNaKuchImg from "../../assets/images/Samjho_Na_Kuch.jpg";
-import AapKeKashishImg from "../../assets/images/Aap_Ke_Kashish.jpg";
-import EkHaseenaTheeImg from "../../assets/images/Ek_Haseena_Thee.jpg";
-import TerePyaarMeinImg from "../../assets/images/Tere_Pyaar_Mein.jpg";
-import AshiqBanayaImg from "../../assets/images/Ashiq_Banaya.jpg";
-import NaamHaiTeraMeraImg from "../../assets/images/Naam_Hai_Tera_Mera.jpg";
-
-import DilKeTaj from "../../assets/music/Dil_Ke_Taj.mp3";
-import TeraChehra from "../../assets/music/Tera_Chehra.mp3";
-import SanamTereKasam from "../../assets/music/Sanam_Tere_Kasam.mp3";
-import TeraFitoor from "../../assets/music/Tera_Fitoor.mp3";
-import HookahBar from "../../assets/music/Hookah_Bar.mp3";
-import JhalakDikhLaJa from "../../assets/music/Jhalak_Dikh_La_Ja.mp3";
-import TuzheBholJana from "../../assets/music/Tuzhe_Bhol_Jana.mp3";
-import SamjhoNaKuch from "../../assets/music/Samjho_Na_Kuch.mp3";
-import AapKeKashish from "../../assets/music/Aap_Ke_Kashish.mp3";
-import EkHaseenaThee from "../../assets/music/Ek_Haseena_Thee.mp3";
-import TerePyaarMein from "../../assets/music/Tere_Pyaar_Mein.mp3";
-import AshiqBanaya from "../../assets/music/Ashiq_Banaya.mp3";
-import NaamHaiTeraMera from "../../assets/music/Naam_Hai_Tera_Mera.mp3";
+const himeshImg = "https://ik.imagekit.io/VibeCast/images/himesh.jpeg?updatedAt=1768896061726";
 
 const formatTime = (sec) => {
   if (!sec) return "0:00";
@@ -51,24 +24,107 @@ const Himesh = () => {
     currentSongIndex,
     playlist,
     duration,
-    progress,
     setMiniPlayerVisible,
+    isShuffle,
+    toggleShuffle
   } = useContext(PlayerContext);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const songs = [
-    { name: "Dil ke taj mehal me", path: DilKeTaj, image: DilKeTajImg, durationDisplay: "4:05", artist: "Himesh Reshammiya" },
-    { name: "Tera chehra", path: TeraChehra, image: TeraChehraImg, durationDisplay: "3:50", artist: "Himesh Reshammiya" },
-    { name: "Sanam tere kasam", path: SanamTereKasam, image: SanamTereKasamImg, durationDisplay: "4:10", artist: "Himesh Reshammiya, Ankit Tiwari" },
-    { name: "Tera fitoor", path: TeraFitoor, image: TeraFitoorImg, durationDisplay: "3:55", artist: "Arijit Singh,Himesh Reshammiya" },
-    { name: "Hookah bar", path: HookahBar, image: HookahBarImg, durationDisplay: "3:45", artist: "Himesh Reshammiya, Yo Yo Honey Singh, Shalmali Kholgade" },
-    { name: "Jhalak dikh la ja", path: JhalakDikhLaJa, image: JhalakDikhLaJaImg, durationDisplay: "3:35", artist: "Himesh Reshammiya" },
-    { name: "Tuzhe bhol jana", path: TuzheBholJana, image: TuzheBholJanaImg, durationDisplay: "4:00", artist: "Himesh Reshammiya" },
-    { name: "Samjho na kuch", path: SamjhoNaKuch, image: SamjhoNaKuchImg, durationDisplay: "3:40", artist: "Himesh Reshammiya" },
-    { name: "Aap ke kashish", path: AapKeKashish, image: AapKeKashishImg, durationDisplay: "3:55", artist: "Himesh Reshammiya" },
-    { name: "Ek haseena thee", path: EkHaseenaThee, image: EkHaseenaTheeImg, durationDisplay: "3:50", artist: "Himesh Reshammiya, Shreya Ghoshal" },
-    { name: "Tere pyaar mein", path: TerePyaarMein, image: TerePyaarMeinImg, durationDisplay: "4:15", artist: "Himesh Reshammiya" },
-    { name: "Ashiq banaya", path: AshiqBanaya, image: AshiqBanayaImg, durationDisplay: "3:45", artist: "Himesh Reshammiya, Shreya Ghoshal" },
-    { name: "Naam hai tera mera", path: NaamHaiTeraMera, image: NaamHaiTeraMeraImg, durationDisplay: "4:00", artist: "Himesh Reshammiya" },
+    { 
+      name: "Dil Ke Taj Mehal Me", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Dil_Ke_Taj.mp3?updatedAt=1768896760573", 
+      image: "https://ik.imagekit.io/VibeCast/images/Dil_Ke_Taj.jpg?updatedAt=1768896060849", 
+      durationDisplay: "4:05", 
+      artist: "Himesh Reshammiya" 
+    },
+    { 
+      name: "Tera Chehra", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Tera_Chehra.mp3?updatedAt=1768897107439", 
+      image: "https://ik.imagekit.io/VibeCast/images/Tera_Chehra.jpg?updatedAt=1768896074659", 
+      durationDisplay: "3:50", 
+      artist: "Himesh Reshammiya" 
+    },
+    { 
+      name: "Sanam Tere Kasam", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Sanam_Tere_Kasam.mp3?updatedAt=1768897089225", 
+      image: "https://ik.imagekit.io/VibeCast/images/Sanam_Tere_Kasam.jpg?updatedAt=1768896069291", 
+      durationDisplay: "4:10", 
+      artist: "Himesh Reshammiya, Ankit Tiwari" 
+    },
+    { 
+      name: "Tera Fitoor", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Tera_Fitoor.mp3?updatedAt=1768897115176", 
+      image: "https://ik.imagekit.io/VibeCast/images/Tera_Fitoor.jpg?updatedAt=1768896075085", 
+      durationDisplay: "3:55", 
+      artist: "Arijit Singh, Himesh Reshammiya" 
+    },
+    { 
+      name: "Hookah Bar", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Hookah_Bar.mp3?updatedAt=1768896751239", 
+      image: "https://ik.imagekit.io/VibeCast/images/Hookah_Bar.jpg?updatedAt=1768896061694", 
+      durationDisplay: "3:45", 
+      artist: "Himesh Reshammiya, Honey Singh" 
+    },
+    { 
+      name: "Jhalak Dikh La Ja", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Jhalak_Dikh_La_Ja.mp3?updatedAt=1768896899833", 
+      image: "https://ik.imagekit.io/VibeCast/images/Jhalak_Dikh_La_Ja.jpg?updatedAt=1768896068490", 
+      durationDisplay: "3:35", 
+      artist: "Himesh Reshammiya" 
+    },
+    { 
+      name: "Tuzhe Bhol Jana", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Tuzhe_Bhol_Jana.mp3?updatedAt=1768897114956", 
+      image: "https://ik.imagekit.io/VibeCast/images/Tuzhe_Bhol_Jana.jpg?updatedAt=1768896075586", 
+      durationDisplay: "4:00", 
+      artist: "Himesh Reshammiya" 
+    },
+    { 
+      name: "Samjho Na Kuch", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Samjho_Na_Kuch.mp3?updatedAt=1768897097478", 
+      image: "https://ik.imagekit.io/VibeCast/images/Samjho_Na_Kuch.jpg?updatedAt=1768896069426", 
+      durationDisplay: "3:40", 
+      artist: "Himesh Reshammiya" 
+    },
+    { 
+      name: "Aap Ke Kashish", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Aap_Ke_Kashish.mp3?updatedAt=1768896877173", 
+      image: "https://ik.imagekit.io/VibeCast/images/Aap_Ke_Kashish.jpg?updatedAt=1768896060760", 
+      durationDisplay: "3:55", 
+      artist: "Himesh Reshammiya" 
+    },
+    { 
+      name: "Ek Haseena Thee", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Ek_Haseena_Thee.mp3?updatedAt=1768896926839", 
+      image: "https://ik.imagekit.io/VibeCast/images/Ek_Haseena_Thee.jpg?updatedAt=1768896061691", 
+      durationDisplay: "3:50", 
+      artist: "Himesh Reshammiya, Shreya Ghoshal" 
+    },
+    { 
+      name: "Tere Pyaar Mein", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Tere_Pyaar_Mein.mp3?updatedAt=1768897116927", 
+      image: "https://ik.imagekit.io/VibeCast/images/Tere_Pyaar_Mein.jpg?updatedAt=1768896075239", 
+      durationDisplay: "4:15", 
+      artist: "Himesh Reshammiya" 
+    },
+    { 
+      name: "Ashiq Banaya", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Ashiq_Banaya.mp3?updatedAt=1768896860468", 
+      image: "https://ik.imagekit.io/VibeCast/images/Ashiq_Banaya.jpg?updatedAt=1768896060778", 
+      durationDisplay: "3:45", 
+      artist: "Himesh Reshammiya, Shreya Ghoshal" 
+    },
+    { 
+      name: "Naam Hai Tera Mera", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Naam_Hai_Tera_Mera.mp3?updatedAt=1768897014578", 
+      image: "https://ik.imagekit.io/VibeCast/images/Naam_Hai_Tera_Mera.jpg?updatedAt=1768896069200", 
+      durationDisplay: "4:00", 
+      artist: "Himesh Reshammiya" 
+    },
   ];
 
   const handlePlayPause = () => {
@@ -101,13 +157,15 @@ const Himesh = () => {
   }, [playlist, handlePlayPause]);
 
   return (
-    <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
+    <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black select-none cursor-default">
       <style jsx="true">{`
-        .spotify-header {
-          background-image: linear-gradient(to bottom, #1db954, #121212);
+        /* HIMESH THEME: Suroor Magenta */
+        .artist-header {
+          background-image: linear-gradient(to bottom, #c026d3, #121212);
         }
-        .spotify-green {
-          background-color: #1db954;
+        .artist-accent {
+          background-color: #d946ef; /* Fuchsia Accent */
+          color: white;
         }
         .clear-bg-on-hover:hover {
           background-color: rgba(255, 255, 255, 0.1);
@@ -120,10 +178,10 @@ const Himesh = () => {
         }
       `}</style>
 
-      <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
+      <div className="w-full h-80 pt-16 relative artist-header z-10 shadow-lg">
         <button
           onClick={goBack}
-          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30"
+          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30 transition-transform hover:scale-110 cursor-pointer"
         >
           <svg
             className="w-6 h-6 text-white"
@@ -131,57 +189,60 @@ const Himesh = () => {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 19l-7-7 7-7"
-            ></path>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
           </svg>
         </button>
         <div className="flex items-end max-w-5xl mx-auto h-full px-6 pb-8">
           <img
             src={himeshImg}
             alt="Himesh"
-            className="w-56 h-56 shadow-2xl object-cover rounded-full mr-6 border-4 border-gray-900/50"
+            className="w-56 h-56 shadow-[0_20px_50px_rgba(0,0,0,0.5)] object-cover rounded-full mr-6 border-4 border-white/10 pointer-events-none"
           />
           <div>
-            <p className="text-sm font-bold uppercase text-white/80">Artist</p>
-            <h1 className="text-7xl font-black mb-1">Himesh</h1>
-            <p className="text-md font-semibold text-white/70 mt-2">
+            <p className="text-sm font-bold uppercase text-white/80 flex items-center gap-1">
+              <span className="bg-fuchsia-600 text-white px-2 py-0.5 rounded text-[10px]">VERIFIED</span> Artist
+            </p>
+            <h1 className="text-7xl font-black mb-1 drop-shadow-lg">Himesh</h1>
+            
+            <p className="text-lg font-medium text-white/90 mt-2 italic">
+               " The Suroor Hit Machine. 🧢 "
+            </p>
+            
+            <p className="text-sm font-normal text-white/60 mt-1">
               13 songs • Bollywood’s hitmaker.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
+      <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24 bg-gradient-to-b from-[#121212] via-black to-black">
         <div className="max-w-5xl mx-auto relative z-20">
+          
           <div className="flex items-center mb-6">
             <button
               onClick={handlePlayPause}
-              className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
+              className="w-16 h-16 rounded-full artist-accent flex items-center justify-center shadow-lg hover:scale-105 hover:shadow-fuchsia-500/40 transition-all duration-300 cursor-pointer"
             >
               {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
               ) : (
-                <svg
-                  className="w-8 h-8 pl-0.5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-8 h-8 pl-0.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               )}
             </button>
-            <button className="ml-4 text-gray-400 font-semibold hover:text-white transition">
+            
+            <button 
+              onClick={toggleShuffle} 
+              className={`ml-4 font-semibold hover:text-white transition cursor-pointer tracking-widest ${isShuffle ? "text-fuchsia-500" : "text-gray-400"}`}
+            >
               SHUFFLE
             </button>
           </div>
 
-          <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip">
+          <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip pointer-events-none">
             <div>#</div>
             <div></div>
             <div>Title</div>
@@ -192,7 +253,7 @@ const Himesh = () => {
             <div
               key={idx}
               onClick={() => selectSong(idx)}
-              className={`grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-pointer transition duration-200 clear-bg-on-hover ${
+              className={`group grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-default transition duration-200 clear-bg-on-hover ${
                 playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? "clear-bg-active text-white"
                   : "text-gray-400"
@@ -202,29 +263,29 @@ const Himesh = () => {
                 {playlist.length &&
                 playlist[currentSongIndex]?.name === song.name &&
                 isPlaying ? (
-                  <span className="text-spotify-green">
-                    <svg
-                      className="w-4 h-4 mx-auto"
-                      fill="#1db954"
-                      viewBox="0 0 24 24"
-                    >
+                  <span className="text-fuchsia-500 animate-pulse">
+                    <svg className="w-4 h-4 mx-auto" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M7 19v-14h3v14h-3zm8 0V5h3v14h-3z" />
                     </svg>
                   </span>
                 ) : (
-                  idx + 1
+                  <span className="group-hover:hidden">{idx + 1}</span>
                 )}
+                <svg className="w-4 h-4 hidden group-hover:block text-white" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
+
               <img
                 src={song.image}
                 alt={song.name}
-                className="w-12 h-12 object-cover rounded shadow-md"
+                className="w-12 h-12 object-cover rounded shadow-md pointer-events-none"
               />
               <div className="flex flex-col truncate">
-                <span className="text-base font-semibold truncate">
+                <span className={`text-base font-semibold truncate ${playlist.length && playlist[currentSongIndex]?.name === song.name ? 'text-fuchsia-500' : 'text-white'}`}>
                   {song.name}
                 </span>
-                <span className="text-sm font-light text-gray-400">
+                <span className="text-sm font-light text-gray-400 group-hover:text-gray-300">
                   {song.artist}
                 </span>
               </div>
