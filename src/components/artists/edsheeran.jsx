@@ -3,39 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "@/index.css";
 import { PlayerContext } from "../../context/PlayerContext";
 
-import edImg from "../../assets/images/ed.jpeg";
-
-import ShapeOfYouImg from "../../assets/images/Shape_Of_You.jpg";
-import PerfectImg from "../../assets/images/Perfect.jpg";
-import ThinkingOutLoudImg from "../../assets/images/Thinking_Out_Loud.jpg";
-import PhotographImg from "../../assets/images/Photograph.jpg";
-import BadHabitsImg from "../../assets/images/Bad_Habits.jpg";
-import ShiversImg from "../../assets/images/Shivers.jpg";
-import CastleOnTheHillImg from "../../assets/images/Castle_On_The_Hill.jpg";
-import GalwayGirlImg from "../../assets/images/Galway_Girl.jpg";
-import IDontCareImg from "../../assets/images/I_Dont_Care.jpg";
-import TheATeamImg from "../../assets/images/The_A_Team.jpg";
-import LegoHouseImg from "../../assets/images/Lego_House.jpg";
-import HappierImg from "../../assets/images/Happier.jpg";
-import EyesClosedImg from "../../assets/images/Eyes_Closed.jpg";
-import BeautifulPeopleImg from "../../assets/images/Beautiful_People.jpg";
-import SapphireImg from "../../assets/images/Sapphire.jpg";
-
-import ShapeOfYou from "../../assets/music/Shape_Of_You.mp3";
-import Perfect from "../../assets/music/Perfect.mp3";
-import ThinkingOutLoud from "../../assets/music/Thinking_Out_Loud.mp3";
-import Photograph from "../../assets/music/Photograph.mp3";
-import BadHabits from "../../assets/music/Bad_Habits.mp3";
-import Shivers from "../../assets/music/Shivers.mp3";
-import CastleOnTheHill from "../../assets/music/Castle_On_The_Hill.mp3";
-import GalwayGirl from "../../assets/music/Galway_Girl.mp3";
-import IDontCare from "../../assets/music/I_Dont_Care.mp3";
-import TheATeam from "../../assets/music/The_A_Team.mp3";
-import LegoHouse from "../../assets/music/Lego_House.mp3";
-import Happier from "../../assets/music/Happier.mp3";
-import EyesClosed from "../../assets/music/Eyes_Closed.mp3";
-import BeautifulPeople from "../../assets/music/Beautiful_People.mp3";
-import Sapphire from "../../assets/music/Sapphire.mp3";
+const edImg = "https://ik.imagekit.io/VibeCast/images/ed.jpeg?updatedAt=1768896061392";
 
 const formatTime = (sec) => {
   if (!sec) return "0:00";
@@ -55,10 +23,10 @@ const EdSheeran = () => {
     isPlaying,
     currentSongIndex,
     playlist,
-    miniPlayerVisible,
     duration,
-    progress,
     setMiniPlayerVisible,
+    isShuffle,
+    toggleShuffle
   } = useContext(PlayerContext);
 
   useEffect(() => {
@@ -66,21 +34,111 @@ const EdSheeran = () => {
   }, []);
 
   const songs = [
-    { name: "Sapphire", path: Sapphire, image: SapphireImg, durationDisplay: "2:59", artist: "Ed Sheeran, Arijit Singh" },
-    { name: "Shape of You", path: ShapeOfYou, image: ShapeOfYouImg, durationDisplay: "3:53", artist: "Ed Sheeran" },
-    { name: "Perfect", path: Perfect, image: PerfectImg, durationDisplay: "4:23", artist: "Ed Sheeran" },
-    { name: "Thinking Out Loud", path: ThinkingOutLoud, image: ThinkingOutLoudImg, durationDisplay: "4:41", artist: "Ed Sheeran" },
-    { name: "Photograph", path: Photograph, image: PhotographImg, durationDisplay: "4:19", artist: "Ed Sheeran" },
-    { name: "Bad Habits", path: BadHabits, image: BadHabitsImg, durationDisplay: "3:50", artist: "Ed Sheeran" },
-    { name: "Shivers", path: Shivers, image: ShiversImg, durationDisplay: "3:27", artist: "Ed Sheeran" },
-    { name: "Castle on the Hill", path: CastleOnTheHill, image: CastleOnTheHillImg, durationDisplay: "4:21", artist: "Ed Sheeran" },
-    { name: "Galway Girl", path: GalwayGirl, image: GalwayGirlImg, durationDisplay: "2:50", artist: "Ed Sheeran" },
-    { name: "I Don't Care", path: IDontCare, image: IDontCareImg, durationDisplay: "3:39", artist: "Ed Sheeran, Justin Bieber" },
-    { name: "The A Team", path: TheATeam, image: TheATeamImg, durationDisplay: "4:18", artist: "Ed Sheeran" },
-    { name: "Lego House", path: LegoHouse, image: LegoHouseImg, durationDisplay: "3:05", artist: "Ed Sheeran" },
-    { name: "Happier", path: Happier, image: HappierImg, durationDisplay: "3:27", artist: "Ed Sheeran" },
-    { name: "Eyes Closed", path: EyesClosed, image: EyesClosedImg, durationDisplay: "3:14", artist: "Ed Sheeran" },
-    { name: "Beautiful People", path: BeautifulPeople, image: BeautifulPeopleImg, durationDisplay: "3:17", artist: "Ed Sheeran, Khalid" },
+    { 
+      name: "Sapphire", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Sapphire.mp3?updatedAt=1768897006876", 
+      image: "https://ik.imagekit.io/VibeCast/images/Sapphire.jpg?updatedAt=1768896069471", 
+      durationDisplay: "2:59", 
+      artist: "Ed Sheeran, Arijit Singh" 
+    },
+    { 
+      name: "Shape of You", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Shape_Of_You.mp3?updatedAt=1768897066300", 
+      image: "https://ik.imagekit.io/VibeCast/images/Shape_Of_You.jpg?updatedAt=1768896070964", 
+      durationDisplay: "3:53", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Perfect", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Perfect.mp3?updatedAt=1768897036357", 
+      image: "https://ik.imagekit.io/VibeCast/images/Perfect.jpg?updatedAt=1768896069253", 
+      durationDisplay: "4:23", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Thinking Out Loud", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Thinking_Out_Loud.mp3?updatedAt=1768897117162", 
+      image: "https://ik.imagekit.io/VibeCast/images/Thinking_Out_Loud.jpg?updatedAt=1768896075407", 
+      durationDisplay: "4:41", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Photograph", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Photograph.mp3?updatedAt=1768897037267", 
+      image: "https://ik.imagekit.io/VibeCast/images/Photograph.jpg?updatedAt=1768896069229", 
+      durationDisplay: "4:19", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Bad Habits", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Bad_Habits.mp3?updatedAt=1768896797388", 
+      image: "https://ik.imagekit.io/VibeCast/images/Bad_Habits.jpg?updatedAt=1768896060778", 
+      durationDisplay: "3:50", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Shivers", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Shivers.mp3?updatedAt=1768897059087", 
+      image: "https://ik.imagekit.io/VibeCast/images/Shivers.jpg?updatedAt=1768896070994", 
+      durationDisplay: "3:27", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Castle on the Hill", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Castle_On_The_Hill.mp3?updatedAt=1768896843750", 
+      image: "https://ik.imagekit.io/VibeCast/images/Castle_On_The_Hill.jpg?updatedAt=1768896061397", 
+      durationDisplay: "4:21", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Galway Girl", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Galway_Girl.mp3?updatedAt=1768896768013", 
+      image: "https://ik.imagekit.io/VibeCast/images/Galway_Girl.jpg?updatedAt=1768896061249", 
+      durationDisplay: "2:50", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "I Don't Care", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/I_Dont_Care.mp3?updatedAt=1768896782694", 
+      image: "https://ik.imagekit.io/VibeCast/images/I_Dont_Care.jpg?updatedAt=1768896068357", 
+      durationDisplay: "3:39", 
+      artist: "Ed Sheeran, Justin Bieber" 
+    },
+    { 
+      name: "The A Team", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/The_A_Team.mp3?updatedAt=1768897115785", 
+      image: "https://ik.imagekit.io/VibeCast/images/The_A_Team.jpg?updatedAt=1768896075605", 
+      durationDisplay: "4:18", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Lego House", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Lego_House.mp3?updatedAt=1768896975368", 
+      image: "https://ik.imagekit.io/VibeCast/images/Lego_House.jpg?updatedAt=1768896069077", 
+      durationDisplay: "3:05", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Happier", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Happier.mp3?updatedAt=1768896778314", 
+      image: "https://ik.imagekit.io/VibeCast/images/Happier.jpg?updatedAt=1768896061499", 
+      durationDisplay: "3:27", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Eyes Closed", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Eyes_Closed.mp3?updatedAt=1768896778155", 
+      image: "https://ik.imagekit.io/VibeCast/images/Eyes_Closed.jpg?updatedAt=1768896061709", 
+      durationDisplay: "3:14", 
+      artist: "Ed Sheeran" 
+    },
+    { 
+      name: "Beautiful People", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Beautiful_People.mp3?updatedAt=1768896785706", 
+      image: "https://ik.imagekit.io/VibeCast/images/Beautiful_People.jpg?updatedAt=1768896060761", 
+      durationDisplay: "3:17", 
+      artist: "Ed Sheeran, Khalid" 
+    },
   ];
 
   const handlePlayPause = () => {
@@ -113,14 +171,15 @@ const EdSheeran = () => {
   }, [playlist, handlePlayPause]);
 
   return (
-    <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
+    <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black select-none cursor-default">
       <style jsx="true">{`
-        .spotify-header {
-          /* Mathematics Orange / Ginger for Ed Sheeran */
-          background-image: linear-gradient(to bottom, #ea580c, #121212);
+        /* ED SHEERAN THEME: Divide Blue */
+        .artist-header {
+          background-image: linear-gradient(to bottom, #0ea5e9, #121212);
         }
-        .spotify-green {
-          background-color: #1db954;
+        .artist-accent {
+          background-color: #38bdf8; /* Light Blue Accent */
+          color: black;
         }
         .clear-bg-on-hover:hover {
           background-color: rgba(255, 255, 255, 0.1);
@@ -133,10 +192,10 @@ const EdSheeran = () => {
         }
       `}</style>
 
-      <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
+      <div className="w-full h-80 pt-16 relative artist-header z-10 shadow-lg">
         <button
           onClick={goBack}
-          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30"
+          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30 transition-transform hover:scale-110 cursor-pointer"
         >
           <svg
             className="w-6 h-6 text-white"
@@ -144,57 +203,60 @@ const EdSheeran = () => {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 19l-7-7 7-7"
-            ></path>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
           </svg>
         </button>
         <div className="flex items-end max-w-5xl mx-auto h-full px-6 pb-8">
           <img
             src={edImg}
             alt="Ed Sheeran"
-            className="w-56 h-56 shadow-2xl object-cover rounded-full mr-6 border-4 border-gray-900/50"
+            className="w-56 h-56 shadow-[0_20px_50px_rgba(0,0,0,0.5)] object-cover rounded-full mr-6 border-4 border-white/10 pointer-events-none"
           />
           <div>
-            <p className="text-sm font-bold uppercase text-white/80">Artist</p>
-            <h1 className="text-7xl font-black mb-1">Ed Sheeran</h1>
-            <p className="text-md font-semibold text-white/70 mt-2">
+            <p className="text-sm font-bold uppercase text-white/80 flex items-center gap-1">
+              <span className="bg-sky-600 text-white px-2 py-0.5 rounded text-[10px]">VERIFIED</span> Artist
+            </p>
+            <h1 className="text-7xl font-black mb-1 drop-shadow-lg">Ed Sheeran</h1>
+            
+            <p className="text-lg font-medium text-white/90 mt-2 italic">
+               " The man with the guitar and the loop pedal. ➗ "
+            </p>
+            
+            <p className="text-sm font-normal text-white/60 mt-1">
               15 songs • The Mathematics Tour.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
+      <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24 bg-gradient-to-b from-[#121212] via-black to-black">
         <div className="max-w-5xl mx-auto relative z-20">
+          
           <div className="flex items-center mb-6">
             <button
               onClick={handlePlayPause}
-              className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
+              className="w-16 h-16 rounded-full artist-accent flex items-center justify-center shadow-lg hover:scale-105 hover:shadow-sky-500/40 transition-all duration-300 cursor-pointer"
             >
               {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
               ) : (
-                <svg
-                  className="w-8 h-8 pl-0.5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-8 h-8 pl-0.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               )}
             </button>
-            <button className="ml-4 text-gray-400 font-semibold hover:text-white transition">
+            
+            <button 
+              onClick={toggleShuffle} 
+              className={`ml-4 font-semibold hover:text-white transition cursor-pointer tracking-widest ${isShuffle ? "text-sky-400" : "text-gray-400"}`}
+            >
               SHUFFLE
             </button>
           </div>
 
-          <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip">
+          <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip pointer-events-none">
             <div>#</div>
             <div></div>
             <div>Title</div>
@@ -205,7 +267,7 @@ const EdSheeran = () => {
             <div
               key={idx}
               onClick={() => selectSong(idx)}
-              className={`grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-pointer transition duration-200 clear-bg-on-hover ${
+              className={`group grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-default transition duration-200 clear-bg-on-hover ${
                 playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? "clear-bg-active text-white"
                   : "text-gray-400"
@@ -215,29 +277,29 @@ const EdSheeran = () => {
                 {playlist.length &&
                 playlist[currentSongIndex]?.name === song.name &&
                 isPlaying ? (
-                  <span className="text-spotify-green">
-                    <svg
-                      className="w-4 h-4 mx-auto"
-                      fill="#1db954"
-                      viewBox="0 0 24 24"
-                    >
+                  <span className="text-sky-400 animate-pulse">
+                    <svg className="w-4 h-4 mx-auto" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M7 19v-14h3v14h-3zm8 0V5h3v14h-3z" />
                     </svg>
                   </span>
                 ) : (
-                  idx + 1
+                  <span className="group-hover:hidden">{idx + 1}</span>
                 )}
+                <svg className="w-4 h-4 hidden group-hover:block text-white" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
+
               <img
                 src={song.image}
                 alt={song.name}
-                className="w-12 h-12 object-cover rounded shadow-md"
+                className="w-12 h-12 object-cover rounded shadow-md pointer-events-none"
               />
               <div className="flex flex-col truncate">
-                <span className="text-base font-semibold truncate">
+                <span className={`text-base font-semibold truncate ${playlist.length && playlist[currentSongIndex]?.name === song.name ? 'text-sky-400' : 'text-white'}`}>
                   {song.name}
                 </span>
-                <span className="text-sm font-light text-gray-400">
+                <span className="text-sm font-light text-gray-400 group-hover:text-gray-300">
                   {song.artist}
                 </span>
               </div>

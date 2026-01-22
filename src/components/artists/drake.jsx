@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "@/index.css";
 import { PlayerContext } from "../../context/PlayerContext";
 
-// ✅ Updated Profile Image
 const drakeImg = "https://ik.imagekit.io/VibeCast/images/drake.jpeg?updatedAt=1768896061506";
 
 const formatTime = (sec) => {
@@ -26,17 +25,14 @@ const Drake = () => {
     playlist,
     duration,
     setMiniPlayerVisible,
-    // Import Shuffle state & function
     isShuffle,
     toggleShuffle
   } = useContext(PlayerContext);
 
-  // Scroll to Top on Load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // ✅ ALL REAL LINKS INTEGRATED
   const songs = [
     { 
       name: "God's Plan", 
@@ -140,7 +136,6 @@ const Drake = () => {
   }, [playlist, handlePlayPause]);
 
   return (
-    // ✅ Added select-none and cursor-default
     <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black select-none cursor-default">
       <style jsx="true">{`
         /* DRAKE THEME: OVO Gold */
@@ -162,7 +157,6 @@ const Drake = () => {
         }
       `}</style>
 
-      {/* Header */}
       <div className="w-full h-80 pt-16 relative artist-header z-10 shadow-lg">
         <button
           onClick={goBack}
@@ -189,7 +183,6 @@ const Drake = () => {
             </p>
             <h1 className="text-7xl font-black mb-1 drop-shadow-lg">Drake</h1>
             
-            {/* Custom Bio for Drizzy */}
             <p className="text-lg font-medium text-white/90 mt-2 italic">
                " The 6 God. OVO Sound. 🦉 "
             </p>
@@ -201,11 +194,9 @@ const Drake = () => {
         </div>
       </div>
 
-      {/* Song List */}
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24 bg-gradient-to-b from-[#121212] via-black to-black">
         <div className="max-w-5xl mx-auto relative z-20">
           
-          {/* Controls: Play & Shuffle */}
           <div className="flex items-center mb-6">
             <button
               onClick={handlePlayPause}
@@ -222,7 +213,6 @@ const Drake = () => {
               )}
             </button>
             
-            {/* Functional Shuffle Button */}
             <button 
               onClick={toggleShuffle} 
               className={`ml-4 font-semibold hover:text-white transition cursor-pointer tracking-widest ${isShuffle ? "text-amber-500" : "text-gray-400"}`}
@@ -231,7 +221,6 @@ const Drake = () => {
             </button>
           </div>
 
-          {/* Table Header */}
           <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip pointer-events-none">
             <div>#</div>
             <div></div>
@@ -239,7 +228,6 @@ const Drake = () => {
             <div className="text-right">Time</div>
           </div>
 
-          {/* List */}
           {songs.map((song, idx) => (
             <div
               key={idx}
@@ -262,7 +250,6 @@ const Drake = () => {
                 ) : (
                   <span className="group-hover:hidden">{idx + 1}</span>
                 )}
-                 {/* Play icon on hover */}
                 <svg className="w-4 h-4 hidden group-hover:block text-white" fill="currentColor" viewBox="0 0 24 24">
                    <path d="M8 5v14l11-7z" />
                 </svg>
