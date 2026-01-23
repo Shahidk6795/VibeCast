@@ -179,7 +179,6 @@ const YoYoHoney = () => {
         }
       `}</style>
 
-      {/* Header */}
       <div className="w-full h-80 pt-16 relative artist-header z-10 shadow-lg">
         <button
           onClick={goBack}
@@ -215,7 +214,6 @@ const YoYoHoney = () => {
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24 bg-gradient-to-b from-[#121212] via-black to-black">
         <div className="max-w-5xl mx-auto relative z-20">
           
-          {/* Controls: Play & Shuffle */}
           <div className="flex items-center mb-6">
             <button
               onClick={handlePlayPause}
