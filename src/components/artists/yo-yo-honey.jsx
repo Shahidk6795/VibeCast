@@ -244,7 +244,6 @@ const YoYoHoney = () => {
             <div className="text-right">Time</div>
           </div>
 
-          {/* List */}
           {songs.map((song, idx) => (
             <div
               key={idx}
@@ -267,7 +266,6 @@ const YoYoHoney = () => {
                 ) : (
                   <span className="group-hover:hidden">{idx + 1}</span>
                 )}
-                 {/* Play icon on hover */}
                 <svg className="w-4 h-4 hidden group-hover:block text-white" fill="currentColor" viewBox="0 0 24 24">
                    <path d="M8 5v14l11-7z" />
                 </svg>
