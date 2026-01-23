@@ -210,7 +210,6 @@ const YoYoHoney = () => {
         </div>
       </div>
 
-      {/* Song List */}
       <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24 bg-gradient-to-b from-[#121212] via-black to-black">
         <div className="max-w-5xl mx-auto relative z-20">
           
@@ -230,8 +229,6 @@ const YoYoHoney = () => {
               )}
             </button>
             
-            {/* ✅ SHUFFLE BUTTON: Original Style, but functional */}
-            {/* If toggleShuffle is undefined, it means you haven't updated PlayerContext yet! */}
             <button 
               onClick={toggleShuffle} 
               className={`ml-4 font-semibold hover:text-white transition cursor-pointer tracking-widest ${isShuffle ? "text-yellow-500" : "text-gray-400"}`}
@@ -240,7 +237,6 @@ const YoYoHoney = () => {
             </button>
           </div>
 
-          {/* Table Header */}
           <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip pointer-events-none">
             <div>#</div>
             <div></div>
