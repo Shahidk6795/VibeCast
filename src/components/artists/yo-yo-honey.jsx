@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "@/index.css";
 import { PlayerContext } from "../../context/PlayerContext";
 
-// Main Artist Profile Image
 const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
 
 const formatTime = (sec) => {
@@ -26,17 +25,14 @@ const YoYoHoney = () => {
     playlist, 
     duration,
     setMiniPlayerVisible,
-    // Import Shuffle state & function from Context
     isShuffle, 
     toggleShuffle 
   } = useContext(PlayerContext);
 
-  // Scroll to Top on Load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // ✅ ALL LINKS INTEGRATED
   const songs = [
     { 
       name: "Blue Eyes", 
