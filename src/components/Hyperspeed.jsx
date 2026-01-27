@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import React from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 
@@ -1118,4 +1119,4 @@ effectOptions = {
   return <div id="lights" className="w-full h-full" ref={hyperspeed}></div>;
 };
 
-export default Hyperspeed;
+export default React.memo(Hyperspeed);
