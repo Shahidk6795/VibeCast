@@ -3,27 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "@/index.css";
 import { PlayerContext } from "../../context/PlayerContext";
 
-import karanImg from "../../assets/images/karan_aujla.jpg";
-import ForAReasonImg from "../../assets/images/For_A_Reason.jpg";
-import ChittaKurtaImg from "../../assets/images/Chitta_Kurta.jpg";
-import DontWorryImg from "../../assets/images/Dont_Worry.jpg";
-import HintImg from "../../assets/images/Hint.jpg";
-import JhanjarImg from "../../assets/images/Jhanjar.jpg";
-import NeendeinImg from "../../assets/images/Neendein.jpg";
-import GangstaImg from "../../assets/images/Gangsta.jpg";
-import KyaBaatAaImg from "../../assets/images/Kya_Baat_Aa.jpg";
-import SheeshImg from "../../assets/images/Sheesh.jpg";
-
-import ForAReason from "../../assets/music/For_A_Reason.mp3";
-import ChittaKurta from "../../assets/music/Chitta_Kurta.mp3";
-import DontWorry from "../../assets/music/Dont_Worry.mp3";
-import Hint from "../../assets/music/Hint.mp3";
-import Jhanjar from "../../assets/music/Jhanjar.mp3";
-import Neendein from "../../assets/music/Neendein.mp3";
-import Gangsta from "../../assets/music/Gangsta.mp3";
-import KyaBaatAa from "../../assets/music/Kya_Baat_Aa.mp3";
-import Sheesh from "../../assets/music/Sheesh.mp3";
-
+const karanImg = "https://ik.imagekit.io/VibeCast/images/karan_aujla.jpg?updatedAt=1768896068738";
 
 const formatTime = (sec) => {
   if (!sec) return "0:00";
@@ -44,23 +24,123 @@ const KaranAujla = () => {
     currentSongIndex,
     playlist,
     duration,
-    progress,
     setMiniPlayerVisible,
+    isShuffle,
+    toggleShuffle
   } = useContext(PlayerContext);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const songs = [
-    { name: "For A Reason", path: ForAReason, image: ForAReasonImg, durationDisplay: "4:15", artist: "Karan Aujla" },
-    { name: "Chitta Kurta", path: ChittaKurta, image: ChittaKurtaImg, durationDisplay: "3:50", artist: "Karan Aujla" },
-    { name: "Don't Worry", path: DontWorry, image: DontWorryImg, durationDisplay: "4:02", artist: "Karan Aujla ft. Gurlez Akhtar" },
-    { name: "Hint", path: Hint, image: HintImg, durationDisplay: "3:45", artist: "Karan Aujla" },
-    { name: "Jhanjar", path: Jhanjar, image: JhanjarImg, durationDisplay: "4:10", artist: "Karan Aujla" },
-    { name: "Neendein", path: Neendein, image: NeendeinImg, durationDisplay: "3:55", artist: "Karan Aujla" },
-    { name: "Gangsta", path: Gangsta, image: GangstaImg, durationDisplay: "4:05", artist: "Karan Aujla" },
-    { name: "Kya Baat Aa", path: KyaBaatAa, image: KyaBaatAaImg, durationDisplay: "3:50", artist: "Karan Aujla" },
-    { name: "Sheesh", path: Sheesh, image: SheeshImg, durationDisplay: "3:58", artist: "Karan Aujla" },
+    { 
+      name: "For A Reason", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/For_A_Reason.mp3?updatedAt=1768896760765", 
+      image: "https://ik.imagekit.io/VibeCast/images/For_A_Reason.jpg?updatedAt=1768896061500", 
+      durationDisplay: "4:15", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Chitta Kurta", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Chitta_Kurta.mp3?updatedAt=1768896800584", 
+      image: "https://ik.imagekit.io/VibeCast/images/Chitta_Kurta.jpg?updatedAt=1768896061371", 
+      durationDisplay: "3:50", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Don't Worry", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Dont_Worry.mp3?updatedAt=1768896781394", 
+      image: "https://ik.imagekit.io/VibeCast/images/Dont_Worry.jpg?updatedAt=1768896061802", 
+      durationDisplay: "4:02", 
+      artist: "Karan Aujla ft. Gurlez Akhtar" 
+    },
+    { 
+      name: "Hint", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Hint.mp3?updatedAt=1768896890740", 
+      image: "https://ik.imagekit.io/VibeCast/images/Hint.jpg?updatedAt=1768896061385", 
+      durationDisplay: "3:45", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Jhanjar", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Jhanjar.mp3?updatedAt=1768896950863", 
+      image: "https://ik.imagekit.io/VibeCast/images/Jhanjar.jpg?updatedAt=1768896068460", 
+      durationDisplay: "4:10", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Neendein", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Neendein.mp3?updatedAt=1768896963793", 
+      image: "https://ik.imagekit.io/VibeCast/images/Neendein.jpg?updatedAt=1768896069568", 
+      durationDisplay: "3:55", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Gangsta", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Gangsta.mp3?updatedAt=1768896764538", 
+      image: "https://ik.imagekit.io/VibeCast/images/Gangsta.jpg?updatedAt=1768896061758", 
+      durationDisplay: "4:05", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Kya Baat Aa", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Kya_Baat_Aa.mp3?updatedAt=1768896976702", 
+      image: "https://ik.imagekit.io/VibeCast/images/Kya_Baat_Aa.jpg?updatedAt=1768896069092", 
+      durationDisplay: "3:50", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Sheesh", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Sheesh.mp3?updatedAt=1768897015936", 
+      image: "https://ik.imagekit.io/VibeCast/images/Sheesh.jpg?updatedAt=1768896070960", 
+      durationDisplay: "3:58", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Softly", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Softly.mp3", 
+      image: "https://ik.imagekit.io/VibeCast/images/Softly.jpg?updatedAt=1769495290289", 
+      durationDisplay: "2:35", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "White Brown Black", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/White_Brown_Black.mp3", 
+      image: "https://ik.imagekit.io/VibeCast/images/White_Brown_Black.jpg?updatedAt=1769495290200", 
+      durationDisplay: "3:00", 
+      artist: "Karan Aujla, Avvy Sra" 
+    },
+    { 
+      name: "Admirin' You", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Admirin_You.mp3", 
+      image: "https://ik.imagekit.io/VibeCast/images/Admirin_You.jpg?updatedAt=1769495289560", 
+      durationDisplay: "3:34", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Tauba Tauba", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Tauba_Tauba.mp3", 
+      image: "https://ik.imagekit.io/VibeCast/images/Tauba_Tauba.jpg?updatedAt=1769495289883", 
+      durationDisplay: "3:28", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "52 Bars", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/52_Bars.mp3", 
+      image: "https://ik.imagekit.io/VibeCast/images/52_Bars.jpg?updatedAt=1769495291014", 
+      durationDisplay: "3:44", 
+      artist: "Karan Aujla" 
+    },
+    { 
+      name: "Mexico", 
+      path: "https://ik.imagekit.io/VibeCast/music/music/Mexico.mp3", 
+      image: "https://ik.imagekit.io/VibeCast/images/Mexico.jpg?updatedAt=1769495289572", 
+      durationDisplay: "3:15", 
+      artist: "Karan Aujla" 
+    },
   ];
 
-  
   const handlePlayPause = () => {
     if (!playlist.length || playlist[0].name !== songs[0].name) {
       playPlaylist(songs, 0);
@@ -78,7 +158,7 @@ const KaranAujla = () => {
   const goBack = () => {
     navigate("/");
   };
-  
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
@@ -90,15 +170,16 @@ const KaranAujla = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [playlist, handlePlayPause]);
 
-
   return (
-    <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black">
+    <div className="min-h-screen text-white flex flex-col items-center overflow-hidden bg-black select-none cursor-default">
       <style jsx="true">{`
-        .spotify-header {
-          background-image: linear-gradient(to bottom, #1db954, #121212);
+        /* KARAN AUJLA THEME: Vintage Rust / Earthy */
+        .artist-header {
+          background-image: linear-gradient(to bottom, #9a3412, #121212);
         }
-        .spotify-green {
-          background-color: #1db954;
+        .artist-accent {
+          background-color: #c2410c; /* Orange-Red Accent */
+          color: white;
         }
         .clear-bg-on-hover:hover {
           background-color: rgba(255, 255, 255, 0.1);
@@ -109,16 +190,12 @@ const KaranAujla = () => {
         .clear-bg-strip {
           background-color: rgba(18, 18, 18, 0.1);
         }
-        .cinematic-overlay,
-        .fog-layer {
-          display: none;
-        }
       `}</style>
 
-      <div className="w-full h-80 pt-16 relative spotify-header z-10 shadow-lg">
+      <div className="w-full h-80 pt-16 relative artist-header z-10 shadow-lg">
         <button
           onClick={goBack}
-          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30"
+          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 hover:bg-black/70 z-30 transition-transform hover:scale-110 cursor-pointer"
         >
           <svg
             className="w-6 h-6 text-white"
@@ -126,57 +203,60 @@ const KaranAujla = () => {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 19l-7-7 7-7"
-            ></path>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
           </svg>
         </button>
         <div className="flex items-end max-w-5xl mx-auto h-full px-6 pb-8">
           <img
             src={karanImg}
             alt="Karan Aujla"
-            className="w-56 h-56 shadow-2xl object-cover rounded-full mr-6 border-4 border-gray-900/50"
+            className="w-56 h-56 shadow-[0_20px_50px_rgba(0,0,0,0.5)] object-cover rounded-full mr-6 border-4 border-white/10 pointer-events-none"
           />
           <div>
-            <p className="text-sm font-bold uppercase text-white/80">Artist</p>
-            <h1 className="text-7xl font-black mb-1">Karan Aujla</h1>
-            <p className="text-md font-semibold text-white/70 mt-2">
-              9 songs • The best collection of his hit tracks.
+            <p className="text-sm font-bold uppercase text-white/80 flex items-center gap-1">
+              <span className="bg-orange-800 text-white px-2 py-0.5 rounded text-[10px]">VERIFIED</span> Artist
+            </p>
+            <h1 className="text-7xl font-black mb-1 drop-shadow-lg">Karan Aujla</h1>
+            
+            <p className="text-lg font-medium text-white/90 mt-2 italic">
+               " Geetan Di Machine. The Modern Punjabi Icon. 🥃🚜 "
+            </p>
+            
+            <p className="text-sm font-normal text-white/60 mt-1">
+              15 songs • Punjabi Pop & Hip-Hop.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24">
+      <div className="w-full min-h-screen relative z-10 pt-8 px-6 pb-24 bg-gradient-to-b from-[#121212] via-black to-black">
         <div className="max-w-5xl mx-auto relative z-20">
+          
           <div className="flex items-center mb-6">
             <button
               onClick={handlePlayPause}
-              className="w-16 h-16 rounded-full spotify-green text-black flex items-center justify-center shadow-2xl hover:scale-105 transition-transform"
+              className="w-16 h-16 rounded-full artist-accent flex items-center justify-center shadow-lg hover:scale-105 hover:shadow-orange-700/40 transition-all duration-300 cursor-pointer"
             >
               {isPlaying && playlist.length && playlist[0].name === songs[0].name ? (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                 </svg>
               ) : (
-                <svg
-                  className="w-8 h-8 pl-0.5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-8 h-8 pl-0.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               )}
             </button>
-            <button className="ml-4 text-gray-400 font-semibold hover:text-white transition">
+            
+            <button 
+              onClick={toggleShuffle} 
+              className={`ml-4 font-semibold hover:text-white transition cursor-pointer tracking-widest ${isShuffle ? "text-orange-600" : "text-gray-400"}`}
+            >
               SHUFFLE
             </button>
           </div>
 
-          <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip">
+          <div className="grid grid-cols-[16px_48px_1fr_60px] gap-4 py-2 border-b border-gray-700/50 text-gray-400 text-xs uppercase font-semibold mb-2 clear-bg-strip pointer-events-none">
             <div>#</div>
             <div></div>
             <div>Title</div>
@@ -187,7 +267,7 @@ const KaranAujla = () => {
             <div
               key={idx}
               onClick={() => selectSong(idx)}
-              className={`grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-pointer transition duration-200 clear-bg-on-hover ${
+              className={`group grid grid-cols-[16px_48px_1fr_60px] items-center gap-4 px-2 py-2 rounded-md cursor-default transition duration-200 clear-bg-on-hover ${
                 playlist.length && playlist[currentSongIndex]?.name === song.name
                   ? "clear-bg-active text-white"
                   : "text-gray-400"
@@ -197,29 +277,29 @@ const KaranAujla = () => {
                 {playlist.length &&
                 playlist[currentSongIndex]?.name === song.name &&
                 isPlaying ? (
-                  <span className="text-spotify-green">
-                    <svg
-                      className="w-4 h-4 mx-auto"
-                      fill="#1db954"
-                      viewBox="0 0 24 24"
-                    >
+                  <span className="text-orange-600 animate-pulse">
+                    <svg className="w-4 h-4 mx-auto" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M7 19v-14h3v14h-3zm8 0V5h3v14h-3z" />
                     </svg>
                   </span>
                 ) : (
-                  idx + 1
+                  <span className="group-hover:hidden">{idx + 1}</span>
                 )}
+                <svg className="w-4 h-4 hidden group-hover:block text-white" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
+
               <img
                 src={song.image}
                 alt={song.name}
-                className="w-12 h-12 object-cover rounded shadow-md"
+                className="w-12 h-12 object-cover rounded shadow-md pointer-events-none"
               />
               <div className="flex flex-col truncate">
-                <span className="text-base font-semibold truncate">
+                <span className={`text-base font-semibold truncate ${playlist.length && playlist[currentSongIndex]?.name === song.name ? 'text-orange-600' : 'text-white'}`}>
                   {song.name}
                 </span>
-                <span className="text-sm font-light text-gray-400">
+                <span className="text-sm font-light text-gray-400 group-hover:text-gray-300">
                   {song.artist}
                 </span>
               </div>
@@ -233,7 +313,6 @@ const KaranAujla = () => {
           ))}
         </div>
       </div>
-
     </div>
   );
 };

@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
-import arijitImg from "../assets/images/arijit.jpeg";
-import yoYoImg from "../assets/images/yo_yo_honey.jpg";
-import shreyaImg from "../assets/images/shreya.jpeg";
-import pritamImg from "../assets/images/pritam.jpeg";
-import karanImg from "../assets/images/karan_aujla.jpg";
-import anuvImg from "../assets/images/anuv.jpeg";
-import guruImg from "../assets/images/guru.jpeg";
-import himeshImg from "../assets/images/himesh.jpeg";
-import edImg from "../assets/images/ed.jpeg";
-import billieImg from "../assets/images/billie.jpeg";
-import weekndImg from "../assets/images/weeknd.jpeg";
-import drakeImg from "../assets/images/drake.jpeg";
-import arianaImg from "../assets/images/ariana.jpeg";
-import eminemImg from "../assets/images/eminem.jpeg";
-import badbunnyImg from "../assets/images/badbunny.jpeg";
-import travisImg from "../assets/images/travis.jpeg";
-import krsnaImg from "../assets/images/krsna.jpg";
-import emiwayImg from "../assets/images/emiway.jpg";
-import atifImg from "../assets/images/atif.jpg";
-import brunoImg from "../assets/images/bruno_mars.jpeg";
+
+const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
+const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
+const shreyaImg = "https://ik.imagekit.io/VibeCast/images/shreya.jpeg?updatedAt=1768896070881";
+const pritamImg = "https://ik.imagekit.io/VibeCast/images/pritam.jpeg?updatedAt=1768896069609";
+const karanImg = "https://ik.imagekit.io/VibeCast/images/karan_aujla.jpg?updatedAt=1768896068738";
+const anuvImg = "https://ik.imagekit.io/VibeCast/images/anuv.jpeg?updatedAt=1768896060738";
+const guruImg = "https://ik.imagekit.io/VibeCast/images/guru.jpeg?updatedAt=1768896061745";
+const himeshImg = "https://ik.imagekit.io/VibeCast/images/himesh.jpeg?updatedAt=1768896061726";
+const edImg = "https://ik.imagekit.io/VibeCast/images/ed.jpeg?updatedAt=1768896061392";
+const billieImg = "https://ik.imagekit.io/VibeCast/images/billie.jpeg?updatedAt=1768896060772";
+const weekndImg = "https://ik.imagekit.io/VibeCast/images/weeknd.jpeg?updatedAt=1768896075423";
+const drakeImg = "https://ik.imagekit.io/VibeCast/images/drake.jpeg?updatedAt=1768896061506";
+const arianaImg = "https://ik.imagekit.io/VibeCast/images/ariana.jpeg?updatedAt=1768896060923";
+const eminemImg = "https://ik.imagekit.io/VibeCast/images/eminem.jpeg?updatedAt=1768896061344";
+const badbunnyImg = "https://ik.imagekit.io/VibeCast/images/badbunny.jpeg?updatedAt=1768896060813";
+const travisImg = "https://ik.imagekit.io/VibeCast/images/travis.jpeg?updatedAt=1768896075554";
+const krsnaImg = "https://ik.imagekit.io/VibeCast/images/krsna.jpg?updatedAt=1768896068930";
+const emiwayImg = "https://ik.imagekit.io/VibeCast/images/emiway.jpg?updatedAt=1768896061370";
+const atifImg = "https://ik.imagekit.io/VibeCast/images/atif.jpg?updatedAt=1768896060776";
+const brunoImg = "https://ik.imagekit.io/VibeCast/images/bruno_mars.jpeg";
 
 const artists = [
   { name: "Arijit Singh", image: arijitImg, path: "/artist/arijit" },

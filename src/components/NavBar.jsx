@@ -7,7 +7,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [query, setQuery] = useState("");
-  const [scrolled, setScrolled] = useState(false); // Track scroll for dynamic styling
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {

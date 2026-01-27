@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Flame, TrendingUp, Play, RefreshCw, Activity } from "lucide-react";
+import { TrendingUp, Play, Activity } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import weekndImg from "../assets/images/weeknd.jpeg";
-import travisImg from "../assets/images/travis.jpeg";
-import drakeImg from "../assets/images/drake.jpeg";
-import billieImg from "../assets/images/billie.jpeg";
-import arijitImg from "../assets/images/arijit.jpeg";
-import eminemImg from "../assets/images/eminem.jpeg";
-import edImg from "../assets/images/ed.jpeg";
-import shreyaImg from "../assets/images/shreya.jpeg";
-import badbunnyImg from "../assets/images/badbunny.jpeg";
-import guruImg from "../assets/images/guru.jpeg";
-import anuvImg from "../assets/images/anuv.jpeg";
-import yoYoImg from "../assets/images/yo_yo_honey.jpg";
+const travisImg = "https://ik.imagekit.io/VibeCast/images/travis.jpeg?updatedAt=1768896075554";
+const weekndImg = "https://ik.imagekit.io/VibeCast/images/weeknd.jpeg?updatedAt=1768896075423";
+const drakeImg = "https://ik.imagekit.io/VibeCast/images/drake.jpeg?updatedAt=1768896061506";
+const billieImg = "https://ik.imagekit.io/VibeCast/images/billie.jpeg?updatedAt=1768896060772";
+const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
+const eminemImg = "https://ik.imagekit.io/VibeCast/images/eminem.jpeg?updatedAt=1768896061344";
+const edImg = "https://ik.imagekit.io/VibeCast/images/ed.jpeg?updatedAt=1768896061392";
+const shreyaImg = "https://ik.imagekit.io/VibeCast/images/shreya.jpeg?updatedAt=1768896070881";
+const badBunnyImg = "https://ik.imagekit.io/VibeCast/images/badbunny.jpeg?updatedAt=1768896060813";
+const guruImg = "https://ik.imagekit.io/VibeCast/images/guru.jpeg?updatedAt=1768896061745";
+const anuvImg = "https://ik.imagekit.io/VibeCast/images/anuv.jpeg?updatedAt=1768896060738";
+const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
 
 const masterSongPool = [
   { title: "FE!N", artist: "Travis Scott", basePlays: 845000000, image: travisImg, duration: "3:11", path: "/artist/travis" },
@@ -24,7 +24,7 @@ const masterSongPool = [
   { title: "Mockingbird", artist: "Eminem", basePlays: 890000000, image: eminemImg, duration: "4:11", path: "/artist/eminem" },
   { title: "Shape of You", artist: "Ed Sheeran", basePlays: 950000000, image: edImg, duration: "3:53", path: "/artist/ed" },
   { title: "Param Sundari", artist: "Shreya Ghoshal", basePlays: 320000000, image: shreyaImg, duration: "3:20", path: "/artist/shreya" },
-  { title: "Monaco", artist: "Bad Bunny", basePlays: 600000000, image: badbunnyImg, duration: "4:12", path: "/artist/badbunny" },
+  { title: "Monaco", artist: "Bad Bunny", basePlays: 600000000, image: badBunnyImg, duration: "4:12", path: "/artist/badbunny" },
   { title: "Lahore", artist: "Guru Randhawa", basePlays: 380000000, image: guruImg, duration: "3:16", path: "/artist/guru" },
   { title: "Husn", artist: "Anuv Jain", basePlays: 250000000, image: anuvImg, duration: "3:35", path: "/artist/anuv" },
   { title: "Blue Eyes", artist: "Yo Yo Honey Singh", basePlays: 480000000, image: yoYoImg, duration: "3:45", path: "/artist/yo-yo-honey" },

@@ -2,27 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Play, Search, X, Sparkles, Music2 } from "lucide-react";
 
-// --- IMAGES ---
-import arijitImg from "../assets/images/arijit.jpeg";
-import weekndImg from "../assets/images/weeknd.jpeg";
-import travisImg from "../assets/images/travis.jpeg";
-import shreyaImg from "../assets/images/shreya.jpeg";
-import drakeImg from "../assets/images/drake.jpeg";
-import edImg from "../assets/images/ed.jpeg";
-import billieImg from "../assets/images/billie.jpeg";
-import eminemImg from "../assets/images/eminem.jpeg";
-import guruImg from "../assets/images/guru.jpeg";
-import yoYoImg from "../assets/images/yo_yo_honey.jpg";
-import anuvImg from "../assets/images/anuv.jpeg";
-import karanImg from "../assets/images/karan_aujla.jpg";
-import pritamImg from "../assets/images/pritam.jpeg";
-import himeshImg from "../assets/images/himesh.jpeg";
-import arianaImg from "../assets/images/ariana.jpeg";
-import badbunnyImg from "../assets/images/badbunny.jpeg";
-import krsnaImg from "../assets/images/krsna.jpg";
-import emiwayImg from "../assets/images/emiway.jpg";
-import atifImg from "../assets/images/atif.jpg";
-import brunoImg from "../assets/images/bruno_mars.jpeg";
+const anuvImg = "https://ik.imagekit.io/VibeCast/images/anuv.jpeg?updatedAt=1768896060738";
+const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
+const atifImg = "https://ik.imagekit.io/VibeCast/images/atif.jpg?updatedAt=1768896060776";
+const billieImg = "https://ik.imagekit.io/VibeCast/images/billie.jpeg?updatedAt=1768896060772";
+const brunoImg = "https://ik.imagekit.io/VibeCast/images/bruno_mars.jpeg";
+const badBunnyImg = "https://ik.imagekit.io/VibeCast/images/badbunny.jpeg?updatedAt=1768896060813";
+const drakeImg = "https://ik.imagekit.io/VibeCast/images/drake.jpeg?updatedAt=1768896061506";
+const edImg = "https://ik.imagekit.io/VibeCast/images/ed.jpeg?updatedAt=1768896061392";
+const eminemImg = "https://ik.imagekit.io/VibeCast/images/eminem.jpeg?updatedAt=1768896061344";
+const emiwayImg = "https://ik.imagekit.io/VibeCast/images/emiway.jpg?updatedAt=1768896061370";
+const guruImg = "https://ik.imagekit.io/VibeCast/images/guru.jpeg?updatedAt=1768896061745";
+const himeshImg = "https://ik.imagekit.io/VibeCast/images/himesh.jpeg?updatedAt=1768896061726";
+const karanImg = "https://ik.imagekit.io/VibeCast/images/karan_aujla.jpg?updatedAt=1768896068738";
+const krsnaImg = "https://ik.imagekit.io/VibeCast/images/krsna.jpg?updatedAt=1768896068930";
+const pritamImg = "https://ik.imagekit.io/VibeCast/images/pritam.jpeg?updatedAt=1768896069609";
+const shreyaImg = "https://ik.imagekit.io/VibeCast/images/shreya.jpeg?updatedAt=1768896070881";
+const travisImg = "https://ik.imagekit.io/VibeCast/images/travis.jpeg?updatedAt=1768896075554";
+const weekndImg = "https://ik.imagekit.io/VibeCast/images/weeknd.jpeg?updatedAt=1768896075423";
+const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
+const arianaImg = "https://ik.imagekit.io/VibeCast/images/ariana.jpeg?updatedAt=1768896060923";
 
 const artists = [
   { name: "Arijit Singh", image: arijitImg, path: "/artist/arijit", genre: "Bollywood" },
@@ -40,7 +39,7 @@ const artists = [
   { name: "Pritam", image: pritamImg, path: "/artist/pritam", genre: "Composer" },
   { name: "Himesh Reshammiya", image: himeshImg, path: "/artist/himesh", genre: "Pop / Rock" },
   { name: "Ariana Grande", image: arianaImg, path: "/artist/ariana", genre: "Pop" },
-  { name: "Bad Bunny", image: badbunnyImg, path: "/artist/badbunny", genre: "Reggaeton" },
+  { name: "Bad Bunny", image: badBunnyImg, path: "/artist/badbunny", genre: "Reggaeton" },
   { name: "Krsna", image: krsnaImg, path: "/artist/krsna", genre: "Lyrical Rap" },
   { name: "Emiway Bantai", image: emiwayImg, path: "/artist/emiway", genre: "Street Rap" },
   { name: "Atif Aslam", image: atifImg, path: "/artist/atif", genre: "Sufi / Rock" },
@@ -71,22 +70,16 @@ const Artists = () => {
   return (
     <div className="w-full min-h-screen text-white bg-black relative overflow-hidden">
       
-      {/* --- BACKGROUND (Fixed & Subtle) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-         {/* Grid Floor */}
          <div className="absolute inset-0 bg-[linear-gradient(to_right,#2a2a2a_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] top-1/2 transform perspective-500 rotateX(60deg) origin-top h-[150vh] opacity-30"></div>
-         {/* Orbs */}
          <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
             <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[100px] animate-pulse"></div>
             <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-pink-900/20 rounded-full blur-[100px] animate-pulse delay-700"></div>
          </div>
       </div>
 
-      {/* --- CONTENT CONTAINER (Z-Index 10 ensures it sits above background) --- */}
-      {/* pt-32 IS THE KEY FIX: Pushes content down below navbar */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-32">
         
-        {/* --- HEADER --- */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-2">
@@ -99,7 +92,6 @@ const Artists = () => {
             </p>
           </div>
 
-          {/* SEARCH BAR */}
           <div className="relative group w-full md:w-80 z-20">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
             <div className="relative flex items-center bg-[#121212] border border-white/10 rounded-full px-4 py-3">
@@ -118,7 +110,6 @@ const Artists = () => {
           </div>
         </div>
 
-        {/* --- GENRE FILTERS --- */}
         <div className="flex gap-3 overflow-x-auto pb-4 mb-8 scrollbar-hide mask-edges z-20 relative">
           {genres.map((genre) => (
             <button
@@ -135,7 +126,6 @@ const Artists = () => {
           ))}
         </div>
 
-        {/* --- ARTIST GRID --- */}
         {filteredArtists.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 sm:gap-8">
             {filteredArtists.map((artist, idx) => (
@@ -146,10 +136,8 @@ const Artists = () => {
                 style={{ animationDelay: `${idx * 50}ms` }}
                 className="group relative flex flex-col items-center animate-fadeInUp opacity-0 fill-mode-forwards cursor-pointer"
               >
-                {/* 1. CARD BACKGLOW (Appears on Hover) */}
                 <div className="absolute inset-0 bg-gradient-to-b from-pink-600/0 to-purple-600/0 group-hover:from-pink-600/20 group-hover:to-purple-600/20 rounded-2xl transition-all duration-500 -z-10 blur-xl"></div>
 
-                {/* 2. IMAGE CONTAINER */}
                 <div className="relative w-full aspect-square mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-transparent group-hover:ring-pink-500/30 transition-all duration-300">
                   <img
                     src={artist.image}
@@ -157,7 +145,6 @@ const Artists = () => {
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  {/* Play Overlay */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
                     <div className="w-12 h-12 bg-[#1db954] rounded-full flex items-center justify-center shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <Play className="w-6 h-6 text-black fill-current ml-1" />
@@ -165,12 +152,10 @@ const Artists = () => {
                   </div>
                 </div>
 
-                {/* 3. TEXT INFO */}
                 <div className="text-center z-10">
                   <h3 className="font-bold text-white text-lg truncate group-hover:text-pink-400 transition-colors">
                     {artist.name}
                   </h3>
-                  {/* Genre Display */}
                   <div className="flex items-center justify-center gap-1 mt-1">
                     <Music2 className="w-3 h-3 text-gray-500 group-hover:text-pink-500 transition-colors" />
                     <p className="text-xs font-medium text-gray-500 uppercase tracking-wide group-hover:text-white transition-colors">
