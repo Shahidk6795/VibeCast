@@ -9,8 +9,9 @@ export const PlayerProvider = ({ children }) => {
   const [miniPlayerVisible, setMiniPlayerVisible] = useState(false);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
-  
   const [isShuffle, setIsShuffle] = useState(false);
+  
+  const [volume, setVolume] = useState(1); 
 
   const audioRef = useRef(new Audio());
 
@@ -18,6 +19,7 @@ export const PlayerProvider = ({ children }) => {
     if (playlist.length > 0 && playlist[currentSongIndex]) {
       const song = playlist[currentSongIndex];
       audioRef.current.src = song.path;
+      audioRef.current.load();
     }
   }, [playlist, currentSongIndex]);
 
@@ -33,11 +35,16 @@ export const PlayerProvider = ({ children }) => {
     }
   }, [isPlaying, playlist, currentSongIndex]);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
   const nextSong = useCallback(() => {
     if (!playlist.length) return;
 
     let nextIndex;
-
     if (isShuffle) {
       if (playlist.length === 1) {
         nextIndex = 0;
@@ -79,12 +86,7 @@ export const PlayerProvider = ({ children }) => {
   };
 
   const playPause = () => {
-    if (!audioRef.current.src) {
-      if (playlist.length > 0) {
-        setIsPlaying(true);
-      }
-      return;
-    }
+    if (!audioRef.current.src) return;
     setIsPlaying(!isPlaying);
   };
 
@@ -97,6 +99,13 @@ export const PlayerProvider = ({ children }) => {
 
   const toggleShuffle = () => {
     setIsShuffle((prev) => !prev);
+  };
+
+  const seekSong = (time) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = time;
+      setProgress(time);
+    }
   };
 
   return (
@@ -114,7 +123,10 @@ export const PlayerProvider = ({ children }) => {
         prevSong,
         setMiniPlayerVisible,
         isShuffle, 
-        toggleShuffle, 
+        toggleShuffle,
+        seekSong,
+        volume,
+        setVolume
       }}
     >
       {children}
