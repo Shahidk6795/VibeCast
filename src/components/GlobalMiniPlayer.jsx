@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { PlayerContext } from "../context/PlayerContext";
-import { Shuffle, SkipBack, Play, Pause, SkipForward, Volume2, VolumeX } from "lucide-react"; // I recommend installing lucide-react for cleaner icons
+import { Shuffle, SkipBack, Play, Pause, SkipForward, Volume2, VolumeX } from "lucide-react"; 
 
 const GlobalMiniPlayer = () => {
   const {
@@ -20,12 +20,38 @@ const GlobalMiniPlayer = () => {
     setVolume
   } = useContext(PlayerContext);
 
+  // --- 1. THE BRAIN (Spacebar Logic) ---
   useEffect(() => {
-    if (miniPlayerVisible && playlist.length) {
-      window.focus();
-    }
-  }, [miniPlayerVisible, playlist]);
+    const handleKeyDown = (event) => {
+      // Check if Space is pressed AND we are not typing in a search bar
+      if (event.code === "Space" && document.activeElement.tagName !== "INPUT") {
+        
+        event.preventDefault(); // STOP SCROLLING!
+        
+        if (playlist && playlist.length > 0) {
+            playPause();
+        }
+      }
+    };
 
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [playPause, playlist]);
+
+
+  // --- 2. THE FOCUS FIX (No need to click first) ---
+  useEffect(() => {
+    if (playlist.length > 0) {
+      // This forces the browser to listen to keys immediately
+      window.focus(); 
+      // This removes focus from the button you just clicked, so Space doesn't click it again
+      if (document.activeElement && document.activeElement.tagName === "BUTTON") {
+         document.activeElement.blur();
+      }
+    }
+  }, [playlist]); 
+
+  // --- 3. YOUR EXACT UI (Unchanged) ---
   if (!playlist.length) return null;
 
   const formatTime = (sec) => {

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Moon, Sun, Search, User, Music, Home, Disc, Flame } from "lucide-react"; 
+import { User, Home, Disc, Flame, Search } from "lucide-react"; 
 import logo from "../assets/logo.png";
 
-const Navbar = ({ darkMode, toggleTheme }) => {
+const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [query, setQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -17,33 +16,9 @@ const Navbar = ({ darkMode, toggleTheme }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const urlQuery = params.get("query");
-    const currentPath = location.pathname;
-
-    if (currentPath === "/search" && urlQuery) {
-      setQuery(urlQuery);
-    } else if (currentPath !== "/search") {
-      setQuery("");
-    }
-  }, [location]);
-
-  const submitSearch = () => {
-    if (query.trim()) {
-      navigate(`/search?query=${query}`);
-    }
-  };
-
-  const handleSearchKeyDown = (e) => {
-    if (e.key === "Enter") {
-      submitSearch();
-    }
-  };
-
   const isActive = (path) =>
     location.pathname === path
-      ? "text-white after:w-full font-bold drop-shadow-[0_0_8px_rgba(236,72,153,0.8)]" // Neon glow on active
+      ? "text-white after:w-full font-bold drop-shadow-[0_0_8px_rgba(236,72,153,0.8)]" 
       : "text-gray-400 after:w-0 hover:text-white";
 
   return (
@@ -80,6 +55,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
         <nav className="hidden md:flex items-center gap-8">
            {[
              { name: "Home", path: "/", icon: Home },
+             { name: "Search", path: "/search", icon: Search },
              { name: "Artists", path: "/artists", icon: Disc }, 
              { name: "Trending", path: "/trending", icon: Flame }, 
            ].map((item) => (
@@ -97,44 +73,24 @@ const Navbar = ({ darkMode, toggleTheme }) => {
 
         <div className="flex items-center gap-4 flex-1 justify-end md:flex-none">
           
-          <div className="relative group w-full max-w-[240px] hidden sm:block">
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
-            <div className="relative flex items-center bg-white/5 border border-white/10 rounded-full px-4 py-2 transition-all group-focus-within:bg-black/80 group-focus-within:border-pink-500/50">
-              <Search className="w-4 h-4 text-gray-400 group-focus-within:text-pink-500 transition-colors" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={handleSearchKeyDown}
-                placeholder="Search..."
-                className="w-full bg-transparent border-none outline-none text-sm text-white placeholder-gray-500 ml-2"
-              />
-            </div>
-          </div>
-
           <button 
-             onClick={submitSearch}
-             className="sm:hidden p-2 text-gray-300 hover:text-white"
+             onClick={() => navigate("/search")}
+             className="md:hidden p-2 text-gray-300 hover:text-white"
           >
             <Search className="w-5 h-5" />
           </button>
 
           <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-transparent hover:border-white/10"
-          >
-            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-
-          <button
             onClick={() => navigate("/profile")}
-            className="relative p-[2px] rounded-full group"
+            className="relative group focus:outline-none"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-pink-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="relative p-2 bg-black rounded-full border border-white/10 group-hover:border-transparent transition-colors">
-               <User className="w-5 h-5 text-gray-300 group-hover:text-white" />
+            <div className="absolute -inset-0.5 bg-gradient-to-tr from-pink-500 to-purple-600 rounded-full opacity-70 group-hover:opacity-100 blur transition duration-300"></div>
+            
+            <div className="relative w-9 h-9 bg-[#121212] rounded-full flex items-center justify-center border border-white/10 overflow-hidden">
+               <User className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
             </div>
           </button>
+
         </div>
       </div>
     </header>

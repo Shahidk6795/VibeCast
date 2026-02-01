@@ -1,11 +1,13 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react"; // Removed useEffect import (not needed for keys anymore)
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Hyperspeed from "@/components/Hyperspeed";
 import ArtistModal from "@/components/ArtistModal";
 import { PlayerContext } from "../context/PlayerContext";
-import { Play } from "lucide-react";
+import { Play, Dumbbell, Coffee, Heart, Sparkles } from "lucide-react";
+import { workoutPlaylist, relaxPlaylist, romanticPlaylist, partyPlaylist } from "../assets/playlist";
 
+// ... (Keep all your image imports exactly the same) ...
 const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
 const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
 const shreyaImg = "https://ik.imagekit.io/VibeCast/images/shreya.jpeg?updatedAt=1768896070881";
@@ -63,25 +65,53 @@ const categories = [
 const Home = () => {
   const [selectedArtist, setSelectedArtist] = useState(null);
   const navigate = useNavigate();
-  const { playPause, playlist } = useContext(PlayerContext);
+  const { playPause, playlist, playPlaylist } = useContext(PlayerContext); 
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.code === "Space") {
-        event.preventDefault();
-        if (playlist && playlist.length > 0) {
-          playPause();
-        }
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [playPause, playlist]);
+  // --- REMOVED THE USEEFFECT FOR KEYDOWN HERE (Moved to GlobalMiniPlayer) ---
 
   const handleArtistClick = (artist) => {
     setSelectedArtist(null);
     navigate(artist.path);
   };
+
+  const moods = [
+    {
+      id: "workout",
+      title: "Iron Paradise",
+      desc: "Pure Adrenaline.",
+      icon: Dumbbell,
+      color: "from-red-600 to-black",
+      textColor: "text-red-500",
+      playlist: workoutPlaylist
+    },
+    {
+      id: "relax",
+      title: "Zen Mode",
+      desc: "Lo-Fi & Chill.",
+      icon: Coffee,
+      color: "from-emerald-600 to-black",
+      textColor: "text-emerald-400",
+      playlist: relaxPlaylist
+    },
+    {
+      id: "romantic",
+      title: "Late Night",
+      desc: "Slow & Deep.",
+      icon: Heart,
+      color: "from-pink-600 to-black",
+      textColor: "text-pink-500",
+      playlist: romanticPlaylist
+    },
+    {
+      id: "party",
+      title: "House Party",
+      desc: "Bangers Only.",
+      icon: Sparkles,
+      color: "from-purple-600 to-black",
+      textColor: "text-purple-400",
+      playlist: partyPlaylist
+    }
+  ];
 
   return (
     <div className="relative w-full min-h-screen text-white overflow-x-hidden bg-black">
@@ -103,6 +133,42 @@ const Home = () => {
             Where every beat finds its rhythm 🎶
           </p>
         </header>
+
+        {/* Mood Section */}
+        <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-4 text-white hover:text-[#1db954] transition-colors duration-300">
+                Select Your Vibe
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {moods.map((mood) => (
+                <div 
+                key={mood.id}
+                onClick={() => navigate(`/mood/${mood.id}`)}
+                className="group relative h-40 rounded-xl overflow-hidden cursor-pointer border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 bg-black/40 backdrop-blur-sm"
+                >
+                <div className={`absolute inset-0 bg-gradient-to-br ${mood.color} opacity-40 group-hover:opacity-70 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10 h-full flex flex-col justify-between p-5">
+                    <div className="flex justify-between items-start">
+                        <mood.icon className={`w-8 h-8 ${mood.textColor} drop-shadow-lg`} />
+                        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg scale-50 group-hover:scale-100 duration-300">
+                           <div className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-black border-b-[5px] border-b-transparent ml-1"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                    <h3 className="text-xl font-black italic uppercase tracking-tighter text-white">
+                        {mood.title}
+                    </h3>
+                    <p className="text-white/60 text-xs font-medium tracking-wide">
+                        {mood.desc}
+                    </p>
+                    </div>
+                </div>
+                </div>
+            ))}
+            </div>
+        </section>
 
         {categories.map((category, index) => (
           <section key={index} className="mb-10 overflow-hidden relative">

@@ -3,6 +3,9 @@ import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
 import SearchResults from "./pages/SearchResults";
 
+// --- NEW IMPORT ---
+import MoodPlaylist from "./components/MoodPlaylist"; 
+
 import Artists from "./components/Artist";
 import Trending from "./components/Trending";
 
@@ -33,10 +36,15 @@ function App() {
   return (
     <PlayerProvider>
       <BrowserRouter>
+        {/* Navbar is here, so it shows on every page automatically */}
         <Navbar />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
+
+          {/* --- NEW ROUTE FOR MOODS --- */}
+          <Route path="/mood/:id" element={<MoodPlaylist />} />
 
           <Route path="/artists" element={<Artists />} />
           <Route path="/trending" element={<Trending />} />
@@ -61,6 +69,7 @@ function App() {
           <Route path="/artist/ed" element={<EdSheeran />} />
           <Route path="/artist/drake" element={<Drake />} />
         </Routes>
+        
         <GlobalMiniPlayer />
       </BrowserRouter>
     </PlayerProvider>
