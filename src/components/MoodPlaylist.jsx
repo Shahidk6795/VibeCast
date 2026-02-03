@@ -22,16 +22,15 @@ const MoodPlaylist = () => {
       desc: "Lo-Fi & Chill. Clear your mind.",
       data: relaxPlaylist,
       icon: Coffee,
-      // --- CHANGED COLORS TO MATCH YOUR SUNSET IMAGE ---
       color: "from-rose-500 to-black", 
       textColor: "text-rose-400"
     },
-    romantic: {
+romantic: {
       title: "Late Night",
       desc: "Slow & Deep. For the feels.",
       data: romanticPlaylist,
       icon: Heart,
-      color: "from-pink-600 to-black",
+      color: "from-pink-900 to-black",
       textColor: "text-pink-500"
     },
     party: {
@@ -74,11 +73,9 @@ const MoodPlaylist = () => {
   return (
     <div className="min-h-screen bg-black text-white pb-32">
         
-        {/* HEADER SECTION */}
         <div className={`relative h-80 flex flex-col justify-end p-8 bg-gradient-to-b ${currentMood.color}`}>
             <div className="flex items-end gap-6 z-10">
                 
-                {/* COVER IMAGE */}
                 <div className="w-32 h-32 md:w-40 md:h-40 bg-black/30 backdrop-blur-md rounded-lg flex items-center justify-center shadow-2xl border border-white/10 overflow-hidden">
                     {coverImage ? (
                         <img 
@@ -99,7 +96,6 @@ const MoodPlaylist = () => {
             </div>
         </div>
 
-        {/* PLAY BUTTON */}
         <div className="px-8 py-6 bg-black/20 backdrop-blur-sm">
              <button 
                 onClick={(e) => {
@@ -120,7 +116,6 @@ const MoodPlaylist = () => {
              </button>
         </div>
 
-        {/* SONG LIST */}
         <div className="px-4 md:px-8">
             <div className="grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_1fr_auto] gap-4 p-3 text-gray-400 border-b border-white/10 text-sm uppercase font-bold sticky top-0 bg-black z-20">
                 <span>#</span>

@@ -324,7 +324,7 @@ export const workoutPlaylist = [
   },
 ];
 
-// 1. ZEN MODE (Relax / Lo-Fi / Soulful)
+// 1. Zen mode playlist 
 export const relaxPlaylist = [
     {
         id: "rel_1",
@@ -607,5 +607,331 @@ export const relaxPlaylist = [
         duration: "3:40"
     }
 ];
-export const romanticPlaylist = [];
+const romImg = "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop";
+
+// 2. LATE NIGHT 
+export const romanticPlaylist = [
+    {
+        id: "rom_1",
+        name: "Jugraafiya",
+        artist: "Udit Narayan, Shreya Ghoshal",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/Jugraafiya%20-%20Lyrical%20%20Super%2030%20%20Hrithik%20Roshan%20&%20Mrunal%20Thakur%20%20Udit%20Narayan%20&%20Shreya%20Ghoshal%20-%20Zee%20Music%20Company%20(youtube).mp3",
+        duration: "4:34"
+    },
+    {
+        id: "rom_2",
+        name: "O Meri Laila",
+        artist: "Atif Aslam, Jyotica Tangri",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/O%20Meri%20Laila%20-%20Lyrical%20%20Laila%20Majnu%20%20Jyotica%20Tangri%20%20Avinash%20Tiwary%20&%20Tripti%20Dimri%20-%20Zee%20Music%20Company%20(youtube).mp3?updatedAt=1770109540892",
+        duration: "4:24"
+    },
+
+    {
+        id: "rom_3",
+        name: "Tujhe Dekha Toh",
+        artist: "Kumar Sanu, Lata Mangeshkar",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Tujhe%20Dekha%20Toh%20Song%20%20Dilwale%20Dulhania%20Le%20Jayenge%20%20Shah%20Rukh%20Khan,%20Kajol%20%20Lata,%20Kumar%20Sanu%20%20DDLJ%20-%20YRF%20(youtube).mp3?updatedAt=1770109544877",
+        duration: "5:02"
+    },
+    {
+        id: "rom_4",
+        name: "Pehla Nasha",
+        artist: "Udit Narayan",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Pehla%20Nasha%20Pehla%20khumar%20Full%20HD%20l%20Udit%20Narayan,Sadhana%20sargaml%20Jo%20jeeta%20wohi%20sikandar%20-%20Rakib%20Sultan%20Music%20(youtube).mp3?updatedAt=1770109533270",
+        duration: "4:50"
+    },
+    {
+        id: "rom_5",
+        name: "Mera Dil Bhi Kitna Pagal Hai",
+        artist: "Kumar Sanu, Alka Yagnik",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Kumar%20Sanu%20&%20Alka%20Yagnik%20%20Mera%20Dil%20Bhi%20Kitna%20Pagal%20Hai%20%2090s%20Song%20%20Sanjay%20Dutt%20-%20Madhuri%20-%20Dard%20Bhare%20Songs%20(youtube).mp3?updatedAt=1770109555371",
+        duration: "5:25"
+    },
+    {
+        id: "rom_6",
+        name: "Ek Ladki Ko Dekha",
+        artist: "Kumar Sanu",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Ek%20Ladki%20Ko%20Dekha%20%20%E0%A4%8F%E0%A4%95%20%E0%A4%B2%E0%A4%A1%E0%A4%95%E0%A5%80%20%E0%A4%95%E0%A5%8B%20%E0%A4%A6%E0%A5%87%E0%A4%96%E0%A4%BE%20%201942%20A%20love%20story%20%20Kumar%20Sanu%20%20Anil%20Kapoor%20%20Manisha%20Koirala%20-%20Saregama%20Music%20(youtube).mp3?updatedAt=1770109538962",
+        duration: "4:35"
+    },
+    {
+        id: "rom_7",
+        name: "Do Dil Mil Rahe Hain",
+        artist: "Kumar Sanu",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Do%20Dil%20Mil%20Rahe%20Hain%20%20KUMAR%20SANU%20%20Nadeem%20Shravan%20%20Pardes%20%201997%20-%20Golden%20Hits%20(youtube).mp3?updatedAt=1770109550239",
+        duration: "6:03"
+    },
+    {
+        id: "rom_8",
+        name: "Kuch Kuch Hota Hai",
+        artist: "Udit Narayan, Alka Yagnik",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Kuch%20Kuch%20Hota%20Hai%20Title%20Track%20%204K%20Video%20%20Shah%20Rukh%20Khan%20Kajol%20Rani%20Alka%20Yagnik%20Udit%20Narayan%20-%20Sony%20Music%20India%20(youtube).mp3?updatedAt=1770109544286",
+        duration: "4:56"
+    },
+    {
+        id: "rom_9",
+        name: "O O Jaane Jaana",
+        artist: "Kamaal Khan",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Oh%20Oh%20Jane%20Jaana%20Salman%20Khan%20Full%20Song%20%20Pyaar%20Kiya%20Toh%20Darna%20Kya%20-%20T-Series%20(youtube).mp3?updatedAt=1770109532758",
+        duration: "5:45"
+    },
+    {
+        id: "rom_10",
+        name: "Chand Chupa Badal Mein",
+        artist: "Udit Narayan, Alka Yagnik",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Chand%20Chhupa%20Badal%20Mein%20Full%20Song%20%20Hum%20Dil%20De%20Chuke%20Sanam%20%20Ismail%20DarbarSalman%20Khan,Aishwarya%20Rai%20-%20T-Series%20Bollywood%20Classics%20(youtube).mp3?updatedAt=1770109493012",
+        duration: "5:46"
+    },
+    {
+        id: "rom_11",
+        name: "Dil Ne Yeh Kaha Hain",
+        artist: "Udit Narayan, Alka Yagnik",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Dil%20Ne%20Ye%20Kaha%20Hai%20Dil%20Se%20-%20Video%20Song%20%20Dhadkan%20%20_AkshayKumar,%20_SunielShetty%20&%20_ShilpaShetty%20-%20Ishtar%20Music%20(youtube).mp3?updatedAt=1770109554336",
+        duration: "5:10"
+    },
+    {
+        id: "rom_12",
+        name: "Suraj Hua Maddham",
+        artist: "Sonu Nigam, Alka Yagnik",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Suraj%20Hua%20Maddham%20Full%20Video%20-%20K3GShah%20Rukh%20Khan,%20Kajol%20Sonu%20Nigam,%20Alka%20Yagnik%20-%20SonyMusicIndiaVEVO%20(youtube).mp3?updatedAt=1770109554524",
+        duration: "7:08"
+    },
+    {
+        id: "rom_13",
+        name: "Saathiya",
+        artist: "Sonu Nigam",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Saathiya%20Full%20Song%20%20Vivek%20Oberoi,%20Rani%20Mukerji%20%20Sonu%20Nigam%20%20A%20R%20Rahman%20%20Gulzar%20%20Saathiya%20Song%20-%20YRF%20(youtube).mp3?updatedAt=1770109546825",
+        duration: "5:57"
+    },
+    {
+        id: "rom_14",
+        name: "Kal Ho Naa Ho",
+        artist: "Sonu Nigam",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Kal%20Ho%20Naa%20Ho%20Full%20Video%20-%20Title%20Track%20%20Shah%20Rukh%20Khan,%20Saif%20Ali%20Khan,%20Preity%20Zinta%20%20Sonu%20Nigam%20-%20SonyMusicIndiaVEVO%20(youtube).mp3?updatedAt=1770109540813",
+        duration: "5:20"
+    },
+    {
+        id: "rom_15",
+        name: "Tere Naam",
+        artist: "Udit Narayan",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Tere%20Naam%20Humne%20Kiya%20Hai%20Full%20Song%20%20Tere%20Naam%20%20Salman%20Khan%20%20Udit%20Narayan,%20Himesh%20Reshammiya%20-%20T-Series%20(youtube).mp3?updatedAt=1770109539026",
+        duration: "6:30"
+    },
+    {
+        id: "rom_16",
+        name: "Dil De Diya Hai",
+        artist: "Anand Raj Anand",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Dil%20De%20Diya%20Hai%20Lyrical%20Video%20%20Masti%20%20Anand%20Raj%20Anand%20%20Vivek%20Oberoi,Amrita,Ritesh%20Deshmukh,Genila%20-%20T-Series%20Bollywood%20Classics%20(youtube).mp3?updatedAt=1770109548737",
+        duration: "4:30"
+    },
+    {
+        id: "rom_17",
+        name: "Main Yahaan Hoon",
+        artist: "Udit Narayan",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Main%20Yahaan%20Hoon%20%20Full%20Song%20%20Veer-Zaara%20%20Shah%20Rukh%20Khan,%20Preity%20Zinta%20%20Madan%20Mohan,%20Udit%20Narayan%20-%20YRF%20(youtube).mp3?updatedAt=1770109542246",
+        duration: "4:55"
+    },
+    {
+        id: "rom_18",
+        name: "Tu Hi Meri Shab Hai",
+        artist: "KK",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Tu%20Hi%20Meri%20Shab%20Hai%20-%20K.K%20%20Gangster%20%20Emraan%20Hashmi,%20Kangna%20Ranaut%20%20Full%204K%20Video%20Song%20-%20Vishesh%20Films%20(youtube).mp3?updatedAt=1770109552195",
+        duration: "6:20"
+    },
+    {
+        id: "rom_19",
+        name: "Bol Na Halke Halke",
+        artist: "Rahat Fateh Ali Khan",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Bol%20Na%20Halke%20Halke%20%20Full%20Song%20%20Jhoom%20Barabar%20Jhoom%20%20Abhishek,%20Preity%20%20Shankar-Ehsaan-Loy,%20Gulzar%20-%20YRF%20(youtube).mp3?updatedAt=1770109553756",
+        duration: "5:07"
+    },
+    {
+        id: "rom_20",
+        name: "Main Agar Kahoon",
+        artist: "Sonu Nigam",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/LYRICAL%20Main%20Agar%20Kahoon%20%20Om%20Shanti%20Om%20%20Shahrukh%20Khan,Deepika%20Padukone%20%20Sonu%20Nigam,Shreya%20Ghosal%20-%20T-Series%20(youtube).mp3?updatedAt=1770109546649",
+        duration: "5:10"
+    },
+    {
+        id: "rom_21",
+        name: "O Re Piya",
+        artist: "Rahat Fateh Ali Khan",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/O%20Re%20Piya%20%20Full%20Song%20%20Aaja%20Nachle%20%20Madhuri%20Dixit%20%20Rahat%20Fateh%20Ali%20Khan%20%20Salim-Sulaiman,%20Jaideep%20-%20YRF%20(youtube).mp3?updatedAt=1770109550720",
+        duration: "6:19"
+    },
+    {
+        id: "rom_22",
+        name: "Pehli Nazar Mein",
+        artist: "Atif Aslam",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Pehli%20Nazar%20Mein%20Kaise%20Jaado%20Kar%20Diya%20%20Atif%20Aslam%20Hits%20%20Race%20I%20Akshaye,%20Bipasha%20&%20Saif%20Ali%20-%20Tips%20Official%20(youtube).mp3?updatedAt=1770109517156",
+        duration: "4:22"
+    },
+    {
+        id: "rom_23",
+        name: "Khuda Jaane",
+        artist: "KK, Shilpa Rao",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Khuda%20Jaane%20%20Full%20Song%20%20Bachna%20Ae%20Haseeno%20%20Ranbir%20Kapoor,%20Deepika%20%20Vishal%20&%20Shekhar,%20KK,%20Shilpa%20-%20YRF%20(youtube).mp3?updatedAt=1770109544812",
+        duration: "5:33"
+    },
+    {
+        id: "rom_24",
+        name: "Jashn-E-Bahara",
+        artist: "Javed Ali",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Jashn-E-Bahaaraa%20-%20Jodhaa%20Akbar%20%20A.%20R.%20Rahman%20%20Hrithik%20Roshan%20%20Aishwarya%20Rai%20%20Javed%20Ali%20-%20SonyMusicIndiaVEVO%20(youtube).mp3?updatedAt=1770109482421",
+        duration: "5:15"
+    },
+    {
+        id: "rom_25",
+        name: "Zara Sa",
+        artist: "KK",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/KK%20%20Zara%20Sa%20-%20Audio%20Lyrical%20%20Emraan%20Hashmi%20%20Sonal%20Chauhan%20%20Pritam%20%20Sayeed%20Quadri%20%20Jannat%20-%20Sony%20Music%20India%20(youtube).mp3?updatedAt=1770109544315",
+        duration: "5:00"
+    },
+    {
+        id: "rom_26",
+        name: "Iktara",
+        artist: "Kavita Seth",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Iktara%20Lyric%20Video%20-%20Wake%20Up%20Sid%20%20Ranbir%20Kapoor,%20Konkona%20Sen%20Sharma%20%20Kavita%20Seth%20%20Amit%20Trivedi%20-%20Sony%20Music%20India%20(youtube).mp3?updatedAt=1770109532166",
+        duration: "4:12"
+    },
+    {
+        id: "rom_27",
+        name: "Pee Loon",
+        artist: "Mohit Chauhan",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Pee%20Loon%20Lyrical%20Song%20%20Once%20Upon%20A%20Time%20in%20Mumbai%20%20Pritam%20%20Emraan%20Hashmi,%20Prachi%20Desai%20-%20T-Series%20(youtube).mp3?updatedAt=1770109543981",
+        duration: "4:45"
+    },
+
+    {
+        id: "rom_28",
+        name: "Love is a Waste of Time",
+        artist: "Sonu Nigam, Shreya Ghoshal",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/'Love%20is%20a%20Waste%20of%20Time'%20FULL%20VIDEO%20SONG%20%20PK%20%20Aamir%20Khan%20%20Anushka%20Sharma%20%20T-series%20-%20T-Series%20(youtube).mp3?updatedAt=1770109933678",
+        duration: "4:30"
+    },
+    {
+        id: "rom_29",
+        name: "Tere Hawaale",
+        artist: "Arijit Singh",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Tere%20Hawaale%20(Full%20Video)%20Laal%20Singh%20Chaddha%20%20Aamir,Kareena%20%20Arijit,Shilpa%20%20Pritam,Amitabh,Advait%20-%20T-Series%20(youtube).mp3?updatedAt=1770109547302",
+        duration: "5:50"
+    },
+    {
+        id: "rom_30",
+        name: "Apna Bana Le",
+        artist: "Arijit Singh",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Apna%20Bana%20Le%20-%20Bhediya%20%20Varun%20Dhawan,%20Kriti%20Sanon%20Sachin-Jigar,%20Arijit%20Singh,%20Amitabh%20Bhattacharya%20-%20Romance%20Rewind%20(youtube).mp3?updatedAt=1770109505691",
+        duration: "4:20"
+    },
+    {
+        id: "rom_31",
+        name: "O Bedardeya",
+        artist: "Arijit Singh",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/O%20Bedardeya%20(Film%20Version)%20Tu%20Jhoothi%20Main%20Makkaar%20%20Ranbir,%20Shraddha%20%20Pritam,%20Arijit%20S,%20Amitabh%20B%20-%20T-Series%20(youtube).mp3?updatedAt=1770109546660",
+        duration: "5:12"
+    },
+    {
+        id: "rom_32",
+        name: "Chaleya",
+        artist: "Arijit Singh, Shilpa Rao",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/JAWAN%20Chaleya%20(Hindi)%20%20Shah%20Rukh%20Khan%20%20Nayanthara%20%20Atlee%20%20Anirudh%20%20Arijit%20S,%20Shilpa%20R%20%20Kumaar%20-%20T-Series%20(youtube).mp3?updatedAt=1770109505206",
+        duration: "3:20"
+    },
+    {
+        id: "rom_33",
+        name: "Duniyaa",
+        artist: "Akhil, Dhvani Bhanushali",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Luka%20Chuppi%20Duniyaa%20Full%20Video%20Song%20%20Kartik%20Aaryan%20Kriti%20Sanon%20%20Akhil%20%20Dhvani%20B%20-%20T-Series%20(youtube).mp3?updatedAt=1770109522334",
+        duration: "3:42"
+    },
+    {
+        id: "rom_34",
+        name: "Mere Sohneya",
+        artist: "Sachet-Parampara",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Full%20Song%20Mere%20Sohneya%20%20Kabir%20Singh%20%20Shahid%20K,%20Kiara%20A,%20Sandeep%20V%20%20Sachet%20-%20Parampara%20%20Irshad%20K%20-%20T-Series%20(youtube).mp3?updatedAt=1770109507284",
+        duration: "3:13"
+    },
+    {
+        id: "rom_35",
+        name: "Tera Ban Jaunga",
+        artist: "Akhil Sachdeva, Tulsi Kumar",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/LYRICAL%20Tera%20Ban%20Jaunga%20%20Kabir%20Singh%20%20Shahid%20K,%20Kiara%20A,%20Sandeep%20V%20%20Tulsi%20Kumar,%20Akhil%20Sachdeva%20-%20T-Series%20(youtube).mp3?updatedAt=1770109532513",
+        duration: "3:56"
+    },
+    {
+        id: "rom_36",
+        name: "Ve Maahi",
+        artist: "Arijit Singh, Asees Kaur",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Ve%20Maahi%20%20Kesari%20%20Akshay%20Kumar%20&%20Parineeti%20Chopra%20%20Arijit%20Singh%20&%20Asees%20Kaur%20%20Tanishk%20Bagchi%20-%20Dharma%20Productions%20(youtube).mp3?updatedAt=1770109516017",
+        duration: "3:44"
+    },
+    {
+        id: "rom_37",
+        name: "Shayad",
+        artist: "Arijit Singh",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Shayad%20-%20Love%20Aaj%20Kal%20%20Kartik%20%20Sara%20%20Arushi%20%20Pritam%20%20Arijit%20Singh%20-%20Sony%20Music%20India%20(youtube).mp3?updatedAt=1770109506412",
+        duration: "4:07"
+    },
+    {
+        id: "rom_38",
+        name: "Pal Pal Dil Ke Paas",
+        artist: "Arijit Singh",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Pal%20Pal%20Dil%20Ke%20Paas%20-%20Title%20%20Arijit%20Singh%20%20Karan%20Deol,%20Sahher%20%20Parampara,%20Sachet,%20Rishi%20Rich%20-%20Zee%20Music%20Company%20(youtube).mp3?updatedAt=1770109503578",
+        duration: "4:15"
+    },
+    {
+        id: "rom_39",
+        name: "Raataan Lambiyan",
+        artist: "Jubin Nautiyal",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Raataan%20Lambiyan%20_%20Official%20Video%20%20Shershaah%20%20Sidharth%20_%20Kiara%20%20Tanishk%20B%20Jubin%20Nautiyal%20%20Asees%20-%20Sony%20Music%20India%20(youtube).mp3?updatedAt=1770109817591",
+        duration: "3:50"
+    },
+    {
+        id: "rom_40",
+        name: "Malang Sajna",
+        artist: "Sachet-Parampara",
+        image: romImg,
+        path: "https://ik.imagekit.io/vibecast/late%20night/Malang%20Sajna%20(Video)%20Sachet%20Tandon,%20Parampara%20Tandon%20%20Adil%20Shaikh,%20Kumaar%20%20Bhushan%20Kumar%20-%20T-Series%20(youtube).mp3?updatedAt=1770109493884",
+        duration: "3:05"
+    }
+];
 export const partyPlaylist = [];

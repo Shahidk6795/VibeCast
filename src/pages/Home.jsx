@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"; // Removed useEffect import (not needed for keys anymore)
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Hyperspeed from "@/components/Hyperspeed";
@@ -7,7 +7,6 @@ import { PlayerContext } from "../context/PlayerContext";
 import { Play, Dumbbell, Coffee, Heart, Sparkles } from "lucide-react";
 import { workoutPlaylist, relaxPlaylist, romanticPlaylist, partyPlaylist } from "../assets/playlist";
 
-// ... (Keep all your image imports exactly the same) ...
 const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
 const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
 const shreyaImg = "https://ik.imagekit.io/VibeCast/images/shreya.jpeg?updatedAt=1768896070881";
@@ -67,7 +66,6 @@ const Home = () => {
   const navigate = useNavigate();
   const { playPause, playlist, playPlaylist } = useContext(PlayerContext); 
 
-  // --- REMOVED THE USEEFFECT FOR KEYDOWN HERE (Moved to GlobalMiniPlayer) ---
 
   const handleArtistClick = (artist) => {
     setSelectedArtist(null);
@@ -134,7 +132,6 @@ const Home = () => {
           </p>
         </header>
 
-        {/* Mood Section */}
         <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4 text-white hover:text-[#1db954] transition-colors duration-300">
                 Select Your Vibe
