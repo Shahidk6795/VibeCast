@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import Navbar from "./components/NavBar";
 import SearchResults from "./pages/SearchResults";
 
-// --- NEW IMPORT ---
 import MoodPlaylist from "./components/MoodPlaylist"; 
 
 import Artists from "./components/Artist";
@@ -36,14 +35,12 @@ function App() {
   return (
     <PlayerProvider>
       <BrowserRouter>
-        {/* Navbar is here, so it shows on every page automatically */}
         <Navbar />
         
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
 
-          {/* --- NEW ROUTE FOR MOODS --- */}
           <Route path="/mood/:id" element={<MoodPlaylist />} />
 
           <Route path="/artists" element={<Artists />} />

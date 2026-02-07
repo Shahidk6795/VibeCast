@@ -2,7 +2,6 @@ import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Hyperspeed from "@/components/Hyperspeed";
-import ArtistModal from "@/components/ArtistModal";
 import { Play, Dumbbell, Coffee, Heart, Sparkles } from "lucide-react";
 import { workoutPlaylist, relaxPlaylist, romanticPlaylist } from "../assets/playlist";
 

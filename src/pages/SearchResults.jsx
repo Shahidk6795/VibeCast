@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import queryString from "query-string";
 
 const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
 const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
@@ -49,9 +48,15 @@ const artists = [
 const SearchResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { query } = queryString.parse(location.search);
-  const [searchTerm, setSearchTerm] = useState(query || "");
+  
+  const getQuery = () => new URLSearchParams(location.search).get("query") || "";
+  
+  const [searchTerm, setSearchTerm] = useState(getQuery());
   const [filtered, setFiltered] = useState(artists);
+
+  useEffect(() => {
+    setSearchTerm(getQuery());
+  }, [location.search]);
 
   useEffect(() => {
     const q = searchTerm.toLowerCase().trim();
