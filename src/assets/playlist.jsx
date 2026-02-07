@@ -934,4 +934,3 @@ export const romanticPlaylist = [
         duration: "3:05"
     }
 ];
-export const partyPlaylist = [];

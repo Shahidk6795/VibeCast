@@ -1,11 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Hyperspeed from "@/components/Hyperspeed";
 import ArtistModal from "@/components/ArtistModal";
-import { PlayerContext } from "../context/PlayerContext";
 import { Play, Dumbbell, Coffee, Heart, Sparkles } from "lucide-react";
-import { workoutPlaylist, relaxPlaylist, romanticPlaylist, partyPlaylist } from "../assets/playlist";
+import { workoutPlaylist, relaxPlaylist, romanticPlaylist } from "../assets/playlist";
 
 const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
 const yoYoImg = "https://ik.imagekit.io/VibeCast/images/yo_yo_honey.jpg";
@@ -64,7 +63,6 @@ const categories = [
 const Home = () => {
   const [selectedArtist, setSelectedArtist] = useState(null);
   const navigate = useNavigate();
-  const { playPause, playlist, playPlaylist } = useContext(PlayerContext); 
 
 
   const handleArtistClick = (artist) => {
@@ -99,15 +97,6 @@ const Home = () => {
       color: "from-pink-600 to-black",
       textColor: "text-pink-500",
       playlist: romanticPlaylist
-    },
-    {
-      id: "party",
-      title: "House Party",
-      desc: "Bangers Only.",
-      icon: Sparkles,
-      color: "from-purple-600 to-black",
-      textColor: "text-purple-400",
-      playlist: partyPlaylist
     }
   ];
 
@@ -136,7 +125,7 @@ const Home = () => {
             <h2 className="text-2xl font-bold mb-4 text-white hover:text-[#1db954] transition-colors duration-300">
                 Select Your Vibe
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {moods.map((mood) => (
                 <div 
                 key={mood.id}
