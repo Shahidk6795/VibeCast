@@ -131,15 +131,18 @@ const Arijit = () => {
     navigate("/");
   };
 
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
         event.preventDefault();
+        event.stopImmediatePropagation();
         handlePlayPause();
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
   }, [playlist, handlePlayPause]);
 
   return (

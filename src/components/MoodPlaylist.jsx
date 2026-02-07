@@ -52,6 +52,29 @@ const MoodPlaylist = () => {
   const isThisPlaylistActive = playlist?.length > 0 && playlist[0]?.id === currentMood?.data[0]?.id;
   const coverImage = currentMood?.data[0]?.image;
 
+  const handlePlayPause = () => {
+    if (!currentMood) return;
+
+    if (isThisPlaylistActive) {
+      playPause();
+    } else {
+      playPlaylist(currentMood.data, 0);
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.code === "Space") {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        handlePlayPause();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
+  }, [isThisPlaylistActive, currentMood, playPlaylist, playPause]); 
+
   const totalDuration = useMemo(() => {
     if (!currentMood) return "";
     let totalSeconds = 0;
@@ -115,11 +138,7 @@ const MoodPlaylist = () => {
              <button 
                 onClick={(e) => {
                     e.currentTarget.blur();
-                    if (isThisPlaylistActive) {
-                        playPause();
-                    } else {
-                        playPlaylist(currentMood.data, 0);
-                    }
+                    handlePlayPause(); // Updated to use our new handler
                 }}
                 className={`w-14 h-14 ${currentMood.accent} rounded-full flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-black/50 text-black`}
              >
