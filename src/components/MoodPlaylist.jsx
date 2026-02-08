@@ -138,7 +138,7 @@ const MoodPlaylist = () => {
              <button 
                 onClick={(e) => {
                     e.currentTarget.blur();
-                    handlePlayPause(); // Updated to use our new handler
+                    handlePlayPause();
                 }}
                 className={`w-14 h-14 ${currentMood.accent} rounded-full flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-black/50 text-black`}
              >
