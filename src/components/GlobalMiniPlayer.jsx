@@ -53,12 +53,9 @@ const GlobalMiniPlayer = () => {
   const currentSong = playlist[currentSongIndex];
 
   return (
-    // FIX APPLIED HERE:
-    // bottom-[74px] -> Floats above the menu on Mobile
-    // md:bottom-0   -> Sticks to bottom on Desktop
+
     <div className="fixed bottom-[74px] md:bottom-0 left-0 right-0 h-24 bg-black/95 backdrop-blur-md z-50 flex items-center justify-between px-6 shadow-2xl border-t border-gray-800 transition-all duration-300">
       
-      {/* Song Info (Visible on Desktop) */}
       <div className="hidden md:flex items-center w-[30%] min-w-[200px]">
         <img
           src={currentSong.image}
@@ -75,10 +72,8 @@ const GlobalMiniPlayer = () => {
         </div>
       </div>
 
-      {/* Controls (Centered) */}
       <div className="flex flex-col items-center w-full md:w-[40%] max-w-lg">
         
-        {/* Mobile: Show Song Name above controls (Optional Polish) */}
         <div className="md:hidden text-xs text-gray-300 mb-1 truncate w-64 text-center">
           <span className="text-white font-bold">{currentSong.name}</span> • {currentSong.artist}
         </div>
@@ -112,7 +107,6 @@ const GlobalMiniPlayer = () => {
           </button>
         </div>
 
-        {/* Progress Bar */}
         <div className="w-full flex items-center gap-2 text-xs text-gray-400 font-mono">
           <span className="w-10 text-right">{formatTime(progress)}</span>
           
@@ -129,7 +123,6 @@ const GlobalMiniPlayer = () => {
         </div>
       </div>
 
-      {/* Volume (Hidden on Mobile to save space) */}
       <div className="hidden md:flex items-center justify-end w-[30%] pr-4 gap-2">
         <button onClick={() => setVolume(volume === 0 ? 1 : 0)}>
            {volume === 0 ? (

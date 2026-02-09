@@ -8,7 +8,6 @@ const Navbar = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
-  // Define Nav Items in one place to use for both Desktop & Mobile
   const navItems = [
     { name: "Home", path: "/", icon: Home },
     { name: "Search", path: "/search", icon: Search },
