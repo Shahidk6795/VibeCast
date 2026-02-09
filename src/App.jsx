@@ -35,39 +35,45 @@ function App() {
   return (
     <PlayerProvider>
       <BrowserRouter>
-        <Navbar />
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<SearchResults />} />
+        <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
+          
+          <Navbar />
+          
+          <main className="pb-24 sm:pb-28">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<SearchResults />} />
 
-          <Route path="/mood/:id" element={<MoodPlaylist />} />
+              <Route path="/mood/:id" element={<MoodPlaylist />} />
 
-          <Route path="/artists" element={<Artists />} />
-          <Route path="/trending" element={<Trending />} />
+              <Route path="/artists" element={<Artists />} />
+              <Route path="/trending" element={<Trending />} />
 
-          <Route path="/artist/arijit" element={<Arijit />} />
-          <Route path="/artist/yo-yo-honey" element={<YoYoHoney />} />
-          <Route path="/artist/karan" element={<KaranAujla />} />
-          <Route path="/artist/pritam" element={<Pritam />} />
-          <Route path="/artist/himesh" element={<Himesh />} />
-          <Route path="/artist/krsna" element={<Krsna />} />
-          <Route path="/artist/emiway" element={<Emiway />} />
-          <Route path="/artist/atif" element={<Atif />} />
-          <Route path="/artist/bruno" element={<BrunoMars />} />
-          <Route path="/artist/badbunny" element={<BadBunny />} />
-          <Route path="/artist/anuv" element={<AnuvJain />} />
-          <Route path="/artist/shreya" element={<ShreyaGhoshal />} />
-          <Route path="/artist/eminem" element={<Eminem />} />
-          <Route path="/artist/guru" element={<GuruRandhawa />} />
-          <Route path="/artist/travis" element={<TravisScott />} />
-          <Route path="/artist/weeknd" element={<TheWeeknd />} />
-          <Route path="/artist/billie" element={<BillieEilish />} />
-          <Route path="/artist/ed" element={<EdSheeran />} />
-          <Route path="/artist/drake" element={<Drake />} />
-        </Routes>
-        
-        <GlobalMiniPlayer />
+              <Route path="/artist/arijit" element={<Arijit />} />
+              <Route path="/artist/yo-yo-honey" element={<YoYoHoney />} />
+              <Route path="/artist/karan" element={<KaranAujla />} />
+              <Route path="/artist/pritam" element={<Pritam />} />
+              <Route path="/artist/himesh" element={<Himesh />} />
+              <Route path="/artist/krsna" element={<Krsna />} />
+              <Route path="/artist/emiway" element={<Emiway />} />
+              <Route path="/artist/atif" element={<Atif />} />
+              <Route path="/artist/bruno" element={<BrunoMars />} />
+              <Route path="/artist/badbunny" element={<BadBunny />} />
+              <Route path="/artist/anuv" element={<AnuvJain />} />
+              <Route path="/artist/shreya" element={<ShreyaGhoshal />} />
+              <Route path="/artist/eminem" element={<Eminem />} />
+              <Route path="/artist/guru" element={<GuruRandhawa />} />
+              <Route path="/artist/travis" element={<TravisScott />} />
+              <Route path="/artist/weeknd" element={<TheWeeknd />} />
+              <Route path="/artist/billie" element={<BillieEilish />} />
+              <Route path="/artist/ed" element={<EdSheeran />} />
+              <Route path="/artist/drake" element={<Drake />} />
+            </Routes>
+          </main>
+          
+          <GlobalMiniPlayer />
+          
+        </div>
       </BrowserRouter>
     </PlayerProvider>
   );
