@@ -325,12 +325,14 @@ export const workoutPlaylist = [
 ];
 
 // 1. Zen mode playlist 
+const chillCover = "https://ik.imagekit.io/vibecast/Chill%20songs.jpg";
+
 export const relaxPlaylist = [
     {
         id: "rel_1",
         name: "Jhol (Coke Studio)",
         artist: "Maanu x Annural Khalid",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Jhol%20%20Coke%20Studio%20Pakistan%20%20Season%2015%20%20Maanu%20x%20Annural%20Khalid%20-%20Coke%20Studio%20Pakistan%20(youtube).mp3",
         duration: "3:45"
     },
@@ -338,7 +340,7 @@ export const relaxPlaylist = [
         id: "rel_2",
         name: "Husn",
         artist: "Anuv Jain",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/music/music/Husn.mp3?updatedAt=1768896796260",
         duration: "3:38"
     },
@@ -346,7 +348,7 @@ export const relaxPlaylist = [
         id: "rel_3",
         name: "Bhar Do Jholi Meri",
         artist: "Adnan Sami",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/'Bhar%20Do%20Jholi%20Meri'%20FULL%20VIDEO%20Song%20-%20Adnan%20Sami%20%20Bajrangi%20Bhaijaan%20%20Salman%20Khan%20Pritam%20-%20T-Series%20(youtube).mp3",
         duration: "8:10"
     },
@@ -354,7 +356,7 @@ export const relaxPlaylist = [
         id: "rel_4",
         name: "Kun Faya Kun",
         artist: "A.R. Rahman",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/music/music/Kun_Faya_Kun.mp3?updatedAt=1768897056804",
         duration: "7:50"
     },
@@ -362,7 +364,7 @@ export const relaxPlaylist = [
         id: "rel_5",
         name: "Agar Tum Saath Ho",
         artist: "Arijit Singh",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Agar%20Tum%20Saath%20Ho%20FULL%20AUDIO%20Song%20%20Tamasha%20%20Ranbir%20Kapoor,%20Deepika%20Padukone%20%20T-Series%20-%20T-Series%20(youtube).mp3",
         duration: "5:41"
     },
@@ -370,7 +372,7 @@ export const relaxPlaylist = [
         id: "rel_6",
         name: "Rait Zara Si",
         artist: "A.R. Rahman",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Atrangi%20Re%20Rait%20Zara%20Si%20Full%20Video%20ARRahmanAkshay,%20Dhanush,Sara,Arijit,%20Shashaa%20%20Bhushan%20K%20-%20T-Series%20(youtube).mp3",
         duration: "4:50"
     },
@@ -378,7 +380,7 @@ export const relaxPlaylist = [
         id: "rel_7",
         name: "Alag Aasmaan",
         artist: "Anuv Jain",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/music/music/Alag_Aasmaan.mp3?updatedAt=1768896784379",
         duration: "3:32"
     },
@@ -386,7 +388,7 @@ export const relaxPlaylist = [
         id: "rel_8",
         name: "Tum Ho",
         artist: "Mohit Chauhan",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Rockstar%20Tum%20Ho%20(Lyrical%20Video)%20Song%20%20Ranbir%20Kapoor%20%20Nargis%20%20A%20R%20Rahman,%20Mohit%20Chauhan%20-%20T-Series%20(youtube).mp3",
         duration: "5:20"
     },
@@ -394,7 +396,7 @@ export const relaxPlaylist = [
         id: "rel_9",
         name: "Tu Mil Gaya",
         artist: "Jubin Nautiyal",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/SRIKANTH%20TU%20MIL%20GAYA%20(Lyrics)%20%20RAJKUMMAR%20RAO,%20ALAYA%20JUBIN%20NAUTIYAL,TULSI%20KUMAR,TANISHK%20BHUSHAN%20K%20-%20T-Series%20(youtube).mp3",
         duration: "3:48"
     },
@@ -402,7 +404,7 @@ export const relaxPlaylist = [
         id: "rel_10",
         name: "Pasoori",
         artist: "Ali Sethi x Shae Gill",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Coke%20Studio%20%20Season%2014%20%20Pasoori%20%20Ali%20Sethi%20x%20Shae%20Gill%20-%20Coke%20Studio%20Pakistan%20(youtube).mp3",
         duration: "3:44"
     },
@@ -410,7 +412,7 @@ export const relaxPlaylist = [
         id: "rel_11",
         name: "Kabira",
         artist: "Arijit Singh",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/music/music/Kabira.mp3?updatedAt=1768896958518",
         duration: "3:43"
     },
@@ -418,7 +420,7 @@ export const relaxPlaylist = [
         id: "rel_12",
         name: "Shatter",
         artist: "Bray Wyatt",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Bray%20Wyatt%20_%20Shatter%20(feat.%20Code%20Orange)%20_Entrance%20Theme_%20-%20WWEMusic%20(youtube).mp3",
         duration: "3:30"
     },
@@ -426,7 +428,7 @@ export const relaxPlaylist = [
         id: "rel_13",
         name: "Tujh Mein Rab Dikhta Hai",
         artist: "Roop Kumar Rathod",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Tujh%20Mein%20Rab%20Dikhta%20Hai%20Song%20%20Rab%20Ne%20Bana%20Di%20Jodi%20%20Shah%20Rukh%20Khan,%20Anushka%20Sharma%20%20Roop%20Kumar%20-%20YRF%20(youtube).mp3",
         duration: "4:41"
     },
@@ -434,7 +436,7 @@ export const relaxPlaylist = [
         id: "rel_14",
         name: "Jag Ghoomeya",
         artist: "Rahat Fateh Ali Khan",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Jag%20Ghoomeya%20Full%20Song%20%20SULTAN%20%20Salman%20Khan,%20Anushka%20Sharma%20%20Rahat%20Fateh%20Ali%20Khan,%20Vishal-Shekhar%20-%20YRF%20(youtube).mp3",
         duration: "4:36"
     },
@@ -442,7 +444,7 @@ export const relaxPlaylist = [
         id: "rel_15",
         name: "Gul",
         artist: "Anuv Jain",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/music/music/Gul.mp3?updatedAt=1768896783861",
         duration: "3:37"
     },
@@ -450,7 +452,7 @@ export const relaxPlaylist = [
         id: "rel_16",
         name: "Dilbara",
         artist: "Abhijeet",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Dilbara%20%20Full%20Song%20%20Dhoom%20%20Abhishek%20Bachchan,%20Uday,%20Esha%20%20Abhijeet,%20Sowmya%20%20Pritam,%20Sameer%20-%20YRF%20(youtube).mp3",
         duration: "4:35"
     },
@@ -458,7 +460,7 @@ export const relaxPlaylist = [
         id: "rel_17",
         name: "Nai Lagda",
         artist: "Vishal Mishra",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Full%20Video%20Nai%20Lagda%20%20Notebook%20%20Zaheer%20Iqbal%20&%20Pranutan%20Bahl%20%20Vishal%20Mishra%20Asees%20Kaur%20-%20T-Series%20(youtube).mp3",
         duration: "4:15"
     },
@@ -466,7 +468,7 @@ export const relaxPlaylist = [
         id: "rel_18",
         name: "Dildara",
         artist: "Shafqat Amanat Ali",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Lyrical%20Video%20Dildara%20Song%20%20Ra.One%20%20ShahRukh%20Khan,%20Kareena%20Kapoor%20-%20T-Series%20(youtube).mp3",
         duration: "4:10"
     },
@@ -474,7 +476,7 @@ export const relaxPlaylist = [
         id: "rel_19",
         name: "Satranga",
         artist: "Arijit Singh",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/ANIMAL%20SATRANGA(Song)%20Ranbir%20Kapoor,RashmikaSandeep%20VArijit,Shreyas%20P,Siddharth-Garima%20Bhushan%20K%20-%20T-Series%20(youtube).mp3",
         duration: "4:30"
     },
@@ -482,7 +484,7 @@ export const relaxPlaylist = [
         id: "rel_20",
         name: "Ranjheya Ve",
         artist: "Zain Zohaib",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Ranjheya%20Ve%20%20Zain%20Zohaib%20%20Yratta%20media%20-%20Zain%20Zohaib%20(youtube).mp3",
         duration: "5:15"
     },
@@ -490,7 +492,7 @@ export const relaxPlaylist = [
         id: "rel_21",
         name: "Zindagi Kuch Toh Bata",
         artist: "Pritam",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Zindagi%20Kuch%20Toh%20Bata%20(Reprise)%20Full%20Song%20with%20LYRICS%20Pritam%20%20Salman%20Khan%20%20Bajrangi%20Bhaijaan%20-%20T-Series%20(youtube).mp3",
         duration: "4:20"
     },
@@ -498,7 +500,7 @@ export const relaxPlaylist = [
         id: "rel_22",
         name: "Heer",
         artist: "Ali Raza & Shjr",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Heer%20-%20Ali%20Raza%20&%20Shjr%20%20Lyrics%20-%20ta%20editor%20(youtube).mp3",
         duration: "3:55"
     },
@@ -506,7 +508,7 @@ export const relaxPlaylist = [
         id: "rel_23",
         name: "Nashe Si Chadh Gayi",
         artist: "Arijit Singh",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Nashe%20Si%20Chadh%20Gayi%20%20Full%20Song%20%20Befikre,%20Ranveer%20Singh,%20Vaani%20Kapoor,%20Arijit%20Singh,%20Vishal-Shekhar%20-%20YRF%20(youtube).mp3",
         duration: "3:58"
     },
@@ -514,7 +516,7 @@ export const relaxPlaylist = [
         id: "rel_24",
         name: "Saware",
         artist: "Arijit Singh",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Saware%20FULL%20VIDEO%20Song%20-%20Arijit%20Singh%20%20Phantom%20%20T-Series%20-%20T-Series%20(youtube).mp3",
         duration: "5:22"
     },
@@ -522,7 +524,7 @@ export const relaxPlaylist = [
         id: "rel_25",
         name: "Finding Her",
         artist: "Kushagra",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Finding%20Her%20(Jana%20Mere%20Sawalon%20Ka%20Manzar%20Tu)%20%20Kushagra%20%20Vanshika%20%20Bharath%20%20Karan%20Maini%20UR%20Debut%20-%20UR%20DEBUT%20(youtube).mp3",
         duration: "3:30"
     },
@@ -530,7 +532,7 @@ export const relaxPlaylist = [
         id: "rel_26",
         name: "Paniyon Sa",
         artist: "Atif Aslam",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/PANIYON%20SA%20Full%20Song%20%20Satyameva%20Jayate%20%20%20John%20Abraham%20%20Aisha%20Sharma%20%20Tulsi%20Kumar%20%20Atif%20Aslam%20-%20T-Series%20(youtube).mp3",
         duration: "3:56"
     },
@@ -538,7 +540,7 @@ export const relaxPlaylist = [
         id: "rel_27",
         name: "Pal Pal",
         artist: "Talwiinder",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Afusic%20-%20Pal%20Pal%20with%20Talwiinder%20%20(Official%20Visualiser)%20Prod.%20AliSoomroMusic%20-%20AFUSIC%20(youtube).mp3",
         duration: "3:10"
     },
@@ -546,7 +548,7 @@ export const relaxPlaylist = [
         id: "rel_28",
         name: "Sajni (Laapataa Ladies)",
         artist: "Arijit Singh",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Sajni%20(Lyrical%20Video)%20Arijit%20Singh,%20Ram%20Sampath%20%20Laapataa%20Ladies%20%20%20Aamir%20Khan%20Productions%20-%20T-Series%20(youtube).mp3",
         duration: "3:55"
     },
@@ -554,7 +556,7 @@ export const relaxPlaylist = [
         id: "rel_29",
         name: "Bulleya",
         artist: "Papon",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Bulleya%20%20Full%20Song%20%20Sultan%20%20Salman%20Khan,%20Anushka%20Sharma%20%20Papon%20%20Vishal%20&%20Shekhar%20%20Irshad%20Kamil%20-%20YRF%20(youtube).mp3",
         duration: "5:45"
     },
@@ -562,7 +564,7 @@ export const relaxPlaylist = [
         id: "rel_30",
         name: "Haseen",
         artist: "Talwiinder",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/HASEEN%20-%20TALWIINDER,%20NDS,%20RIPPY%20(Official%20Visualizer)%20-%20Talwiinder%20(youtube).mp3",
         duration: "3:20"
     },
@@ -570,7 +572,7 @@ export const relaxPlaylist = [
         id: "rel_31",
         name: "Ishq Jalakar",
         artist: "Dhurandhar",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Ishq%20Jalakar%20-%20Karvaan%20%20Dhurandhar%20%20Ranveer%20Singh,%20Shashwat%20Sachdev,%20Aditya%20Dhar%20%20Releasing%205%20Dec%20-%20Saregama%20Music%20(youtube).mp3",
         duration: "4:00"
     },
@@ -578,7 +580,7 @@ export const relaxPlaylist = [
         id: "rel_32",
         name: "Tainu Khabar Nahi",
         artist: "Arijit Singh",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Tainu%20Khabar%20Nahi%20-%20Arijit%20Singh%20%20Munjya%20%20Sharvari,%20Abhay%20Verma%20Sachin-Jigar,Amitabh%20Bhattacharya%20-%20Zee%20Music%20Company%20(youtube).mp3",
         duration: "3:50"
     },
@@ -586,7 +588,7 @@ export const relaxPlaylist = [
         id: "rel_33",
         name: "Dhurandhar (Title Track)",
         artist: "Hanumankind",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Dhurandhar%20-%20Title%20Track%20%20Ranveer%20Singh,%20Shashwat%20Sachdev,%20Hanumankind,%20Jasmine%20Sandlas,Aditya%20Dhar%20-%20Saregama%20Music%20(youtube).mp3",
         duration: "3:45"
     },
@@ -594,7 +596,7 @@ export const relaxPlaylist = [
         id: "rel_34",
         name: "Lutt Le Gaya",
         artist: "Dhurandhar",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Lutt%20Le%20Gaya%20%20Dhurandhar%20%20Ranveer%20Singh,%20Akshaye%20Khanna,%20Shashwat%20Sachdev,%20Simran%20Choudhary%20-%20Saregama%20Music%20(youtube).mp3",
         duration: "3:55"
     },
@@ -602,7 +604,7 @@ export const relaxPlaylist = [
         id: "rel_35",
         name: "Samjho Na",
         artist: "Aditya Rikhari",
-        image: "https://ik.imagekit.io/vibecast/Chill%20songs.jpg",
+        image: chillCover,
         path: "https://ik.imagekit.io/VibeCast/lofi/Aditya%20Rikhari%20-%20SAMJHO%20NA%20(%20NASAMAJH%20)%20-%20Aditya%20Rikhari%20(youtube).mp3",
         duration: "3:40"
     }
