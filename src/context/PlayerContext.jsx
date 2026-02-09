@@ -234,7 +234,7 @@ export const PlayerProvider = ({ children }) => {
     setCurrentSongIndex(startIndex);
     setIsPlaying(autoPlay);
     setMiniPlayerVisible(true);
-    initialTimeRef.current = 0; // reset saved time on new song
+    initialTimeRef.current = 0;
 
     if (isShuffle) {
       setShuffledQueue(generateShuffleQueue(songs.length));
