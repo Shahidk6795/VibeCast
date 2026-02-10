@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Hyperspeed from "@/components/Hyperspeed";
-import { Play, Dumbbell, Coffee, Heart, Sparkles } from "lucide-react";
+import { Play, Dumbbell, Coffee, Heart } from "lucide-react";
 import { workoutPlaylist, relaxPlaylist, romanticPlaylist } from "../assets/playlist";
 
 const arijitImg = "https://ik.imagekit.io/VibeCast/images/arijit.jpeg?updatedAt=1768896061413";
