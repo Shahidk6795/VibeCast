@@ -25,8 +25,8 @@ const AnuvJain = () => {
     playlist,
     duration,
     setMiniPlayerVisible,
-    isShuffle, 
-    toggleShuffle 
+    isShuffle,
+    toggleShuffle
   } = useContext(PlayerContext);
 
   useEffect(() => {
