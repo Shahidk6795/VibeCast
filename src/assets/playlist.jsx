@@ -345,7 +345,15 @@ export const relaxPlaylist = [
         duration: "3:38"
     },
     {
-        id: "rel_3",
+        id: "rel_3", 
+        name: "The Winner Takes It All",
+        artist: "ABBA",
+        image: chillCover,
+        path: "https://ik.imagekit.io/vibecast/ABBA%20-%20The%20Winner%20Takes%20It%20All%20(Lyrics).mp3",
+        duration: "4:55"
+    },
+    {
+        id: "rel_4",
         name: "Bhar Do Jholi Meri",
         artist: "Adnan Sami",
         image: chillCover,
@@ -353,7 +361,7 @@ export const relaxPlaylist = [
         duration: "8:10"
     },
     {
-        id: "rel_4",
+        id: "rel_5",
         name: "Kun Faya Kun",
         artist: "A.R. Rahman",
         image: chillCover,
@@ -361,7 +369,7 @@ export const relaxPlaylist = [
         duration: "7:50"
     },
     {
-        id: "rel_5",
+        id: "rel_6",
         name: "Agar Tum Saath Ho",
         artist: "Arijit Singh",
         image: chillCover,
@@ -369,7 +377,7 @@ export const relaxPlaylist = [
         duration: "5:41"
     },
     {
-        id: "rel_6",
+        id: "rel_7",
         name: "Rait Zara Si",
         artist: "A.R. Rahman",
         image: chillCover,
@@ -377,7 +385,7 @@ export const relaxPlaylist = [
         duration: "4:50"
     },
     {
-        id: "rel_7",
+        id: "rel_8",
         name: "Alag Aasmaan",
         artist: "Anuv Jain",
         image: chillCover,
@@ -385,7 +393,7 @@ export const relaxPlaylist = [
         duration: "3:32"
     },
     {
-        id: "rel_8",
+        id: "rel_9",
         name: "Tum Ho",
         artist: "Mohit Chauhan",
         image: chillCover,
@@ -393,7 +401,7 @@ export const relaxPlaylist = [
         duration: "5:20"
     },
     {
-        id: "rel_9",
+        id: "rel_10",
         name: "Tu Mil Gaya",
         artist: "Jubin Nautiyal",
         image: chillCover,
@@ -401,7 +409,7 @@ export const relaxPlaylist = [
         duration: "3:48"
     },
     {
-        id: "rel_10",
+        id: "rel_11",
         name: "Pasoori",
         artist: "Ali Sethi x Shae Gill",
         image: chillCover,
@@ -409,7 +417,7 @@ export const relaxPlaylist = [
         duration: "3:44"
     },
     {
-        id: "rel_11",
+        id: "rel_12",
         name: "Kabira",
         artist: "Arijit Singh",
         image: chillCover,
@@ -417,7 +425,7 @@ export const relaxPlaylist = [
         duration: "3:43"
     },
     {
-        id: "rel_12",
+        id: "rel_13",
         name: "Shatter",
         artist: "Bray Wyatt",
         image: chillCover,
@@ -425,7 +433,7 @@ export const relaxPlaylist = [
         duration: "3:30"
     },
     {
-        id: "rel_13",
+        id: "rel_14",
         name: "Tujh Mein Rab Dikhta Hai",
         artist: "Roop Kumar Rathod",
         image: chillCover,
@@ -433,7 +441,7 @@ export const relaxPlaylist = [
         duration: "4:41"
     },
     {
-        id: "rel_14",
+        id: "rel_15",
         name: "Jag Ghoomeya",
         artist: "Rahat Fateh Ali Khan",
         image: chillCover,
@@ -441,7 +449,7 @@ export const relaxPlaylist = [
         duration: "4:36"
     },
     {
-        id: "rel_15",
+        id: "rel_16",
         name: "Gul",
         artist: "Anuv Jain",
         image: chillCover,
@@ -449,7 +457,7 @@ export const relaxPlaylist = [
         duration: "3:37"
     },
     {
-        id: "rel_16",
+        id: "rel_17",
         name: "Dilbara",
         artist: "Abhijeet",
         image: chillCover,
@@ -457,7 +465,7 @@ export const relaxPlaylist = [
         duration: "4:35"
     },
     {
-        id: "rel_17",
+        id: "rel_18",
         name: "Nai Lagda",
         artist: "Vishal Mishra",
         image: chillCover,
@@ -465,7 +473,7 @@ export const relaxPlaylist = [
         duration: "4:15"
     },
     {
-        id: "rel_18",
+        id: "rel_19",
         name: "Dildara",
         artist: "Shafqat Amanat Ali",
         image: chillCover,
@@ -473,7 +481,7 @@ export const relaxPlaylist = [
         duration: "4:10"
     },
     {
-        id: "rel_19",
+        id: "rel_20",
         name: "Satranga",
         artist: "Arijit Singh",
         image: chillCover,
@@ -481,7 +489,7 @@ export const relaxPlaylist = [
         duration: "4:30"
     },
     {
-        id: "rel_20",
+        id: "rel_21",
         name: "Ranjheya Ve",
         artist: "Zain Zohaib",
         image: chillCover,
@@ -489,7 +497,7 @@ export const relaxPlaylist = [
         duration: "5:15"
     },
     {
-        id: "rel_21",
+        id: "rel_22",
         name: "Zindagi Kuch Toh Bata",
         artist: "Pritam",
         image: chillCover,
@@ -497,7 +505,7 @@ export const relaxPlaylist = [
         duration: "4:20"
     },
     {
-        id: "rel_22",
+        id: "rel_23",
         name: "Heer",
         artist: "Ali Raza & Shjr",
         image: chillCover,
@@ -505,7 +513,7 @@ export const relaxPlaylist = [
         duration: "3:55"
     },
     {
-        id: "rel_23",
+        id: "rel_24",
         name: "Nashe Si Chadh Gayi",
         artist: "Arijit Singh",
         image: chillCover,
@@ -513,7 +521,7 @@ export const relaxPlaylist = [
         duration: "3:58"
     },
     {
-        id: "rel_24",
+        id: "rel_25",
         name: "Saware",
         artist: "Arijit Singh",
         image: chillCover,
@@ -521,7 +529,7 @@ export const relaxPlaylist = [
         duration: "5:22"
     },
     {
-        id: "rel_25",
+        id: "rel_26",
         name: "Finding Her",
         artist: "Kushagra",
         image: chillCover,
@@ -529,7 +537,7 @@ export const relaxPlaylist = [
         duration: "3:30"
     },
     {
-        id: "rel_26",
+        id: "rel_27",
         name: "Paniyon Sa",
         artist: "Atif Aslam",
         image: chillCover,
@@ -537,7 +545,7 @@ export const relaxPlaylist = [
         duration: "3:56"
     },
     {
-        id: "rel_27",
+        id: "rel_28",
         name: "Pal Pal",
         artist: "Talwiinder",
         image: chillCover,
@@ -545,7 +553,7 @@ export const relaxPlaylist = [
         duration: "3:10"
     },
     {
-        id: "rel_28",
+        id: "rel_29",
         name: "Sajni (Laapataa Ladies)",
         artist: "Arijit Singh",
         image: chillCover,
@@ -553,7 +561,7 @@ export const relaxPlaylist = [
         duration: "3:55"
     },
     {
-        id: "rel_29",
+        id: "rel_30",
         name: "Bulleya",
         artist: "Papon",
         image: chillCover,
@@ -561,7 +569,7 @@ export const relaxPlaylist = [
         duration: "5:45"
     },
     {
-        id: "rel_30",
+        id: "rel_31",
         name: "Haseen",
         artist: "Talwiinder",
         image: chillCover,
@@ -569,7 +577,7 @@ export const relaxPlaylist = [
         duration: "3:20"
     },
     {
-        id: "rel_31",
+        id: "rel_32",
         name: "Ishq Jalakar",
         artist: "Dhurandhar",
         image: chillCover,
@@ -577,7 +585,7 @@ export const relaxPlaylist = [
         duration: "4:00"
     },
     {
-        id: "rel_32",
+        id: "rel_33",
         name: "Tainu Khabar Nahi",
         artist: "Arijit Singh",
         image: chillCover,
@@ -585,7 +593,7 @@ export const relaxPlaylist = [
         duration: "3:50"
     },
     {
-        id: "rel_33",
+        id: "rel_34",
         name: "Dhurandhar (Title Track)",
         artist: "Hanumankind",
         image: chillCover,
@@ -593,7 +601,7 @@ export const relaxPlaylist = [
         duration: "3:45"
     },
     {
-        id: "rel_34",
+        id: "rel_35",
         name: "Lutt Le Gaya",
         artist: "Dhurandhar",
         image: chillCover,
@@ -601,7 +609,7 @@ export const relaxPlaylist = [
         duration: "3:55"
     },
     {
-        id: "rel_35",
+        id: "rel_36",
         name: "Samjho Na",
         artist: "Aditya Rikhari",
         image: chillCover,
